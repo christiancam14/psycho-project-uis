@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +10,12 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./JavaScript/app.js" defer></script>
 </head>
+
 <body>
     <header>
-        <div class="help" >
-            <a href="www.google.com" class="help-text">¿Quieres hablar con un psicólogo profesional de forma inmediata?</a>
+        <div class="help">
+            <a href="www.google.com" class="help-text">¿Quieres hablar con un psicólogo profesional de forma
+                inmediata?</a>
         </div>
         <nav class="menu">
             <label class="logo">Consejería Académia UIS</label>
@@ -29,10 +32,27 @@
         </nav>
     </header>
     <main>
+        <p id="page" style="padding-top: 50px;"></p>
+        <script>
+            var screenWidth = screen.width;
+            var screenHeight = screen.height;
+
+            // Get the browser window size
+            var windowWidth = window.innerWidth;
+            var windowHeight = window.innerHeight;
+
+            // Get the size of the entire webpage
+            const pageWidth = document.documentElement.scrollWidth;
+            const pageHeight = document.documentElement.scrollHeight;
+
+            var z = document.getElementById("page");
+            z.innerHTML = "Webpage: width:" + pageWidth + ", height: " + pageHeight + ".";
+        </script>
 
     </main>
     <footer>
-        
+
     </footer>
 </body>
+
 </html>
