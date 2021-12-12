@@ -21,6 +21,7 @@
     padding: 0 80px;
     font-weight: bold;
     text-shadow: 2px 0 1px hsla(0, 0%, 44%, 0.794) ;
+    cursor: pointer;
 }
 
 .help{
@@ -49,15 +50,28 @@
     margin-right: 40px;
 }
 
+#Login{
+    background: #00817d;
+    padding: 8px;
+    color: white;
+    border-radius: 40px;
+    font-weight: bold;
+}
+
 .main-nav__item a{
     color: #707070;
     padding: 5px;
     border-radius: 2px;
     text-decoration: none;
     align-items: center;
+    transition: all 500ms ease;
+    border-bottom: 4px solid transparent;
 }
+
 .main-nav__item a:hover{
-    color: grey;
+    color: #00817d;
+    font-weight: bold;
+    border-bottom: 4px solid #00817d;
 }
 
 .main-nav__item a:active{
@@ -122,4 +136,14 @@ ul.show{
         overflow: scroll;
         height: calc(100% -65px);
     }
+}
+
+#principal{
+    
+    /* width: 80%;
+    background-image: url("https://thumbs2.imgbox.com/36/1a/6BUHA38h_t.jpg"); */
+    
+    background: url(https://images2.imgbox.com/e7/7d/T7rDQSHC_o.jpg) no-repeat center center fixed;
+    background-size: 80%;
+    height: 500px;
 }
