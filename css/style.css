@@ -1,3 +1,64 @@
-#id{
+/* Reset values */
+*, *:before, *:after{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+} 
 
+.menu{
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #707070;
+    box-shadow: 5px 0 10px #707070;
+}
+
+.logo{
+    color: #d4d5d0;
+    font-size: 25px;
+    padding: 0 80px;
+    font-weight: bold;
+    text-shadow: 2px 0 1px #707070 ;
+}
+
+.help{
+    background-color: #d4d5d0;
+    border-color: #707070;
+    padding: 8px;
+}
+.help-text{
+    color: #707070;
+    text-decoration: none;
+    
+}
+
+.main-nav{
+    margin-top: 10px;
+    list-style: none;
+    padding-left: 0;
+    box-shadow: 10px;
+}
+
+.main-nav__item{
+    display: inline-block;
+}
+
+.main-nav__item a{
+    color: #707070;
+    padding: 5px;
+    border-radius: 2px;
+    text-decoration: none;
+}
+.main-nav__item a:hover{
+    color: grey;
+}
+
+.main-nav__item a:active{
+    color: #00817d;
+}
+
+.main-nav__item a::after{
+    content: " | ";
 }
