@@ -7,31 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://kit.fontawesome.com/b5c5b9b46d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/index.css">
     <script src="./JavaScript/app.js" defer></script>
 </head>
 
 <body>
     <header>
-        <div class="help">
-            <a href="www.google.com" class="help-text">¿Quieres hablar con un psicólogo de inmediato?</a>
-        </div>
-        <nav class="menu">
-            <label class="logo">Consejería Académica UIS</label>
-            <ul class="main-nav">
-                <li class="main-nav__item"><a href="">Inicio</a></li>
-                <li class="main-nav__item"><a href="">Servicios</a></li>
-                <li class="main-nav__item"><a href="">Preguntas frecuentes</a></li>
-                <li class="main-nav__item"><a href="">Blog</a></li>
-                <li class="main-nav__item"><a href="" id="Login">Iniciar sesión</a></li>
-            </ul>
-            <span class="btn_menu">
-                <i class="fa fa-bars"></i>
-            </span>
-        </nav>
+        <iframe src="html/header.html"></iframe>
     </header>
-    <main>
-        <p id="page"></p>
+    <main> 
+        <p class="page"></p>
         <script>
             // Get the size of the entire webpage
             const pageWidth = document.documentElement.scrollWidth;
@@ -41,7 +26,7 @@
             z.innerHTML = "Webpage: width:" + pageWidth + ", height: " + pageHeight + ".";
         </script>
 
-        <div id="principal"></div>
+        <div class="principal"></div>
 
         <p style="font-size: 40px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium obcaecati, totam perspiciatis dolor doloremque quam itaque quasi atque cumque dolores quod reprehenderit consequuntur fuga! Alias quos exercitationem rem consequuntur enim.</p>
         <p style="font-size: 40px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium obcaecati, totam perspiciatis dolor doloremque quam itaque quasi atque cumque dolores quod reprehenderit consequuntur fuga! Alias quos exercitationem rem consequuntur enim.</p>
