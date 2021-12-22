@@ -5,9 +5,8 @@ $conn = mysqli_connect(
     'localhost',
     'root',
     '',
-    'psycho_project_db'
+    'psycho_project_db',
+    '3306'
 );
-
-
 
 ?>

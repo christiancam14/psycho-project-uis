@@ -2,7 +2,10 @@
 <?php include('php\header.php') ?>
 
 
-<div class="container p-4 ">
+<div class="justify-content-end">
+    <h3>Regístrate</h3>
+</div>
+<div class="container p-4 justify-content-end">
     <div class="row">
         <div class="col-md-4">
             <div class="card card-body">
