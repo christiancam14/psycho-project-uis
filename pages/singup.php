@@ -6,11 +6,11 @@
     if (!empty($_POST['name']) && !empty($_POST['last_name']) && !empty($_POST['email_address']) && !empty($_POST['password'])) {
         $sql = "INSERT INTO people (name, last_name, email_address, password) VALUES (:name, :last_name, :email_address, :password)";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':name', $_POST['name']);
-        $stmt->bindParam(':last_name', $_POST['last_name']);
-        $stmt->bindParam(':email_address', $_POST['email_address']);
+        $stmt->bindParam(':name', $_POST['name'], PDO::PARAM_STR);
+        $stmt->bindParam(':last_name', $_POST['last_name'], PDO::PARAM_STR);
+        $stmt->bindParam(':email_address', $_POST['email_address'], PDO::PARAM_STR);
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
 
         if($stmt->execute()){
             $message = 'Succesfully created new user';

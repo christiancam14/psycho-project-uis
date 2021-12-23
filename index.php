@@ -20,14 +20,15 @@
     require ('php\db.php');
 
     if(isset($_SESSION['id_person'])) {
-        $records = $conn->prepare('SELECT id_person, email_address, password FROM people WHERE id=:id');
-        $records->bindParam(':id', $_SESSION['id_person']);
-        $records->execute();
+        $conn->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
+        $records = $conn->prepare('SELECT id_person, email_address, password FROM people WHERE id_person=:id_person');
+        $records->bindParam(':id_person', $_SESSION['id_person']);
+        $records->execute([]);
         $results = $records->fetch(PDO::FETCH_ASSOC);
 
         $user = null;
 
-        if(count($results) > 0){
+        if(is_countable($results)){
             $user = $results;
             $mensaje = 'está bien';
         }else{

@@ -25,10 +25,11 @@
         $results = $records->fetch(PDO::FETCH_ASSOC);
 
         $message = '';
-
-        if( count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
-            $_SESSION['id_person'] = $results['id'];
-            header('Location: /login.php');
+        
+        if( is_countable($results) && password_verify($_POST['password'], $results['password'])) {
+            $_SESSION['id_person'] = $results['id_person'];
+            header('Location: ./login.php');
+            $message = 'Welcome';
         } else {
             $message = 'Sorry, those credentials do not match';
         }
