@@ -1,3 +1,5 @@
+<?php require('config.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,21 +15,29 @@
 
 <body>
     <div class="d-flex justify-content-center bg-dark">
-        <a href="https://www.instagram.com" class="text-light">¿Quieres hablar con un psicólogo de inmediato?</a>
+        <a href="#!" class="text-light">¿Quieres hablar con un psicólogo de inmediato?</a>
     </div>
+    
+    <base href="http://localhost/psycho-project-uis/" />
     <nav class="navbar navbar-expand-md navbar-light bg-light border-3 border-bottom border-dark shadow p-3 mb-5 bg-white rounded ">
         <div class="container-fluid">
-            <a href="../index.php" class="navbar-brand h1">CONSEJERÍA ACADÉMICA UIS</a>
+            <a href="index.php" class="navbar-brand h1">CONSEJERÍA ACADÉMICA UIS</a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#NavigationMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="NavigationMenu" class="collapse navbar-collapse d-flex justify-content-end">
                 <ul class="navbar-nav ms-3">
-                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="pill" href="../index.php">Inicio</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="pill" href="index.php">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link active" data-bs-toggle="pill" href="">Servicios</a></li>
                     <li class="nav-item"><a class="nav-link active" data-bs-toggle="pill" href="">Preguntas frecuentes</a></li>
                     <li class="nav-item"><a class="nav-link active" data-bs-toggle="pill" href="">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="pages\login.php"><kbd class="bg-info">Iniciar sesión</kbd></a></li>
+                    <?php if(!empty($user)): ?>
+                        <br>Welcome. <?= $user['email']; ?>
+                        <a href="logout.php">Logout</a>
+                    <?php else: ?>
+                        <li class="nav-item"><a class="nav-link active" href="pages/login.php"><kbd class="bg-info">Iniciar sesión</kbd></a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
