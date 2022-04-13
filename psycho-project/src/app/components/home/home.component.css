@@ -1,0 +1,66 @@
+.content{
+  position: relative;
+  text-align: center;
+}
+
+#landing{
+  max-width: 90%;
+  opacity: 100%;
+}
+
+.text-box{
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  left: 70px;
+  max-width: 90%;
+
+}
+
+.text-box h2{
+  font-size: 55px;
+  color: white;
+  text-shadow: 4px 3px 0px gray;
+}
+
+.text-box p{
+  padding-bottom: 340px;
+  font-weight: bold;
+}
+
+.text-box a{
+  width: 120px;
+  height: 30px;
+  padding-top: 3px;
+  background-color: #00817D;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.text-box a:hover{
+  font-weight: bold;
+}
+
+.landing-form{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.landing-form input{
+  height: 30px;
+  width: 200px;
+  margin-top: 3px;
+  margin-right: 10px;
+  border-radius: 20px;
+  border-width: 0.5px;
+  padding-left: 12px;
+  border-style: inherit;
+  border-color: #b8B6B9;
+  box-shadow: 0px 0px 14px 1px #b8B6B9;
+  font-size: 14px;
+}
+
