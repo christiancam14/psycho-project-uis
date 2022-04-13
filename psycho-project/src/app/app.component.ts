@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'psycho-project';
+  activeMenu = false;
+
+  constructor(){
+
+  }
+
+  toggleMenu(){
+    this.activeMenu = !this.activeMenu;
+    console.log(this.activeMenu);
+  }
 }
