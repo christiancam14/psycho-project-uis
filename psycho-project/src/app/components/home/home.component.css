@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap&family=Saira:wght@900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .content{
   position: relative;
   text-align: center;
@@ -12,15 +20,18 @@
   position: absolute;
   text-align: center;
   top: 10px;
-  left: 70px;
+  margin: 0px auto;
+  /* left: 50%; */
   max-width: 90%;
 
 }
 
 .text-box h2{
+  font-family: 'Saira', sans-serif;
+  -webkit-text-stroke: 2px gray;
+  text-shadow: 4px 3px 0px gray;
   font-size: 55px;
   color: white;
-  text-shadow: 4px 3px 0px gray;
 }
 
 .text-box p{
@@ -64,3 +75,218 @@
   font-size: 14px;
 }
 
+/* Prueba */
+
+.contenedor{
+  padding: 60px 0px;
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.titulo{
+  color: #642a73;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.cabeza{
+  width: 100%;
+  height: 600px;
+  background: #2980B9;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffffff96, #6dd4fa85, #2980B9), url(../../../assets/img/img18.jpg);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffffff96, #6dd4fa85, #2980B9), url(../../../assets/img/img18.jpg); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.cabeza .textos-header{
+  display: flex;
+  height: 430px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.textos-header h1{
+  font-size: 60px;
+  text-shadow: 4px 3px 0px gray;
+  color: white;
+}
+
+.textos-header h2{
+  font-size: 30px;
+  font-weight: 300;
+  color: white;
+}
+
+.wave{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* About us */
+
+.contenedor-sobre-nosotros{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.imagen-about-us{
+  width: 48%;
+}
+
+.sobre-nosotros .contenido-textos{
+  width: 48%;
+}
+
+.contenido-textos h3{
+  margin-bottom: 15px;
+}
+
+.contenido-textos h3 span{
+  background: #4d0686;
+  color: white;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
+  margin-right: 5px;
+}
+
+.contenido-textos p{
+  padding: 0px 0px 30px 15px;
+  font-weight: 300;
+  text-align: justify;
+}
+
+/* Galería */
+
+.portafolio{
+  background: #f2f2f2;
+}
+
+.galeria-port{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.imagen-port{
+  width: 24%;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.imagen-port > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hover-galeria{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  transform: scale(0);
+  background: hsla(273, 91%, 27%, 0.7);
+  transition: transform .5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hover-galeria img{
+  width: 50px;
+}
+
+.hover-galeria p{
+  color: white;
+}
+
+.imagen-port:hover .hover-galeria{
+  transform: scale(1);
+}
+
+/* Clients */
+
+.cards{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cards .card{
+  background: #4d0686;
+  display: flex;
+  width: 46%;
+  height: 200px;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.cards .card img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 3px solid white;
+  border-radius: 50%;
+  display: block;
+}
+
+.cards .card > .contenido-texto-card{
+  width: 60%;
+  color: white;
+}
+
+.cards .card > .contenido-text-card p{
+  font-weight: 300;
+  padding-top: 5px;
+}
+
+/* Our Team */
+
+.about-services{
+  background: #f2f2f2;
+  padding-bottom: 30px;
+}
+
+.servicio-cont{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.servicio-ind{
+  width: 28%;
+  text-align: center;
+}
+
+.servicio-ind img{
+  width: 90%;
+}
+
+.servicio-ind h3{
+  margin: 10px 0;
+}
+
+.servicio-ind p{
+  font-weight: 300;
+  text-align: justify;
+}

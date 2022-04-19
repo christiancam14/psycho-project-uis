@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public landingPageImg:any = "../../../assets/img/landing.jpg";
+
   constructor() { }
 
   ngOnInit(): void {
