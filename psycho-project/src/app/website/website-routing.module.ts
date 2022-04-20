@@ -6,37 +6,44 @@ import { FaqComponent } from './pages/faq/faq.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SingupComponent } from './pages/singup/singup.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'servicios',
-    component: ServicesComponent
-  },
-  {
-    path: 'preguntas',
-    component: FaqComponent
-  },
-  {
-    path: 'blog',
-    component: BlogComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'singup',
-    component: SingupComponent
-  },
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: 'servicios',
+        component: ServicesComponent
+      },
+      {
+        path: 'preguntas',
+        component: FaqComponent
+      },
+      {
+        path: 'blog',
+        component: BlogComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'singup',
+        component: SingupComponent
+      },
+    ]
+  }
 ];
 
 @NgModule({

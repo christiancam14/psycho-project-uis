@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 
 import { WebsiteRoutingModule } from './website-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FooterComponent } from './components/footer/footer.component';
     LoginComponent,
     SingupComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LayoutComponent
   ],
   imports: [
     CommonModule,
