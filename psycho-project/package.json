@@ -30,6 +30,7 @@
     "hammerjs": "^2.0.8",
     "jquery": "^3.6.0",
     "mdb-angular-ui-kit": "^2.1.0",
+    "ngx-quicklink": "^0.2.7",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
