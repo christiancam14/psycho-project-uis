@@ -12,6 +12,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
 import { SingupComponent } from './components/singup/singup.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SingupComponent } from './components/singup/singup.component';
     BlogComponent,
     LoginComponent,
     ErrorComponent,
-    SingupComponent
+    SingupComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
