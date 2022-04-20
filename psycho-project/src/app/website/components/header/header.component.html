@@ -1,43 +1,61 @@
-<!-- Mobile header -->
-<div class="show-mobile">
-    <div>
-      <button (click)="toggleMenu()">
-        <img src="../assets/svg/icon_menu.svg" alt="menu">
-      </button>
-      <a href="#" id="logo">
-        Psycho-Project
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img
+          src="../../../../assets/img/logoUis.png"
+          height="30"
+          alt="UIS Logo"
+          loading="lazy"
+        />
       </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/servicios']">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/preguntas']">Preguntas Frecuentes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/blog']">Blog</a>
+        </li>
+      </ul>
+      <!-- Left links -->
     </div>
-    <div class="side-menu" [class.active]="activeMenu">
-      <button (click)="toggleMenu()">X</button>
-      <div class="nav__links__side">
-        <ul>
-          <li><a (click)="toggleMenu()" [routerLink]="['/']">Inicio</a></li>
-          <li><a (click)="toggleMenu()" [routerLink]="['/servicios']">Servicios</a></li>
-          <li><a (click)="toggleMenu()" [routerLink]="['/preguntas']">Preguntas frecuentes</a></li>
-          <li><a (click)="toggleMenu()" [routerLink]="['/blog']">Blog</a></li>
-        </ul>
-      </div>
-      <a (click)="toggleMenu()" [routerLink]="['/login']"><button id="login-mobile">Iniciar Sesión</button></a>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <button type="button" class="btn btn-link px-3 me-2" [routerLink]="['/login']">
+        Login
+      </button>
+      <button type="button" class="btn btn-primary me-3" [routerLink]="['/signup']">
+        Sign up for free
+      </button>
     </div>
+    <!-- Right elements -->
   </div>
-  
-  <!-- Desktop header -->
-  
-  <div class="hide-mobile">
-    <section id="attention">
-      <p><a href="">¿Quieres hablar con un psicólogo de forma inmediata?</a></p>
-    </section>
-    <header>
-      <img class="logo" src="../assets/img/logoUis.png" alt="logo">
-      <nav>
-        <ul class="nav__links">
-          <li><a [routerLink]="['/']">Inicio</a></li>
-          <li><a [routerLink]="['/servicios']">Servicios</a></li>
-          <li><a [routerLink]="['/preguntas']">Preguntas frecuentes</a></li>
-          <li><a [routerLink]="['/blog']">Blog</a></li>
-        </ul>
-      </nav>
-      <a [routerLink]="['/login']"><button id="login">Iniciar Sesión</button></a>
-    </header>
-  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->

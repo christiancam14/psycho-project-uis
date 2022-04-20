@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { WebsiteRoutingModule } from './website-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { AttentionTopComponent } from './components/attention-top/attention-top.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { LayoutComponent } from './components/layout/layout.component';
     SingupComponent,
     HeaderComponent,
     FooterComponent,
-    LayoutComponent
+    LayoutComponent,
+    AttentionTopComponent
   ],
   imports: [
     CommonModule,
