@@ -1,24 +1,43 @@
-<p>header works!</p>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
-<h1>PRUEBA</h1>
+<!-- Mobile header -->
+<div class="show-mobile">
+    <div>
+      <button (click)="toggleMenu()">
+        <img src="../assets/svg/icon_menu.svg" alt="menu">
+      </button>
+      <a href="#" id="logo">
+        Psycho-Project
+      </a>
+    </div>
+    <div class="side-menu" [class.active]="activeMenu">
+      <button (click)="toggleMenu()">X</button>
+      <div class="nav__links__side">
+        <ul>
+          <li><a (click)="toggleMenu()" [routerLink]="['/']">Inicio</a></li>
+          <li><a (click)="toggleMenu()" [routerLink]="['/servicios']">Servicios</a></li>
+          <li><a (click)="toggleMenu()" [routerLink]="['/preguntas']">Preguntas frecuentes</a></li>
+          <li><a (click)="toggleMenu()" [routerLink]="['/blog']">Blog</a></li>
+        </ul>
+      </div>
+      <a (click)="toggleMenu()" [routerLink]="['/login']"><button id="login-mobile">Iniciar Sesión</button></a>
+    </div>
+  </div>
+  
+  <!-- Desktop header -->
+  
+  <div class="hide-mobile">
+    <section id="attention">
+      <p><a href="">¿Quieres hablar con un psicólogo de forma inmediata?</a></p>
+    </section>
+    <header>
+      <img class="logo" src="../assets/img/logoUis.png" alt="logo">
+      <nav>
+        <ul class="nav__links">
+          <li><a [routerLink]="['/']">Inicio</a></li>
+          <li><a [routerLink]="['/servicios']">Servicios</a></li>
+          <li><a [routerLink]="['/preguntas']">Preguntas frecuentes</a></li>
+          <li><a [routerLink]="['/blog']">Blog</a></li>
+        </ul>
+      </nav>
+      <a [routerLink]="['/login']"><button id="login">Iniciar Sesión</button></a>
+    </header>
+  </div>
