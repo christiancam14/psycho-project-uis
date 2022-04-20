@@ -135,15 +135,17 @@
 
 .contenedor-sobre-nosotros{
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
 }
 
 .imagen-about-us{
-  width: 48%;
+  width: 98%;
+  margin-bottom: 20px;
 }
 
 .sobre-nosotros .contenido-textos{
-  width: 48%;
+  width: 98%;
 }
 
 .contenido-textos h3{
@@ -181,8 +183,16 @@
   flex-wrap: wrap;
 }
 
+/* .galeria-port{
+  display: flex;
+  overflow: auto;
+  white-space: nowrap;
+  justify-content: space-evenly;
+
+} */
+
 .imagen-port{
-  width: 24%;
+  width: 70%;
   margin-bottom: 10px;
   overflow: hidden;
   position: relative;
@@ -227,23 +237,28 @@
 
 .cards{
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
 }
 
 .cards .card{
   background: #4d0686;
   display: flex;
-  width: 46%;
-  height: 200px;
+  flex-direction: column;
+  width: 98%;
+  height: 270px;
+  overflow: auto;
   align-items: center;
   justify-content: space-evenly;
   border-radius: 5px;
+  margin-bottom: 20px;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
 }
 
 .cards .card img{
   width: 100px;
   height: 100px;
+  margin-top: 40px;
   object-fit: cover;
   border: 3px solid white;
   border-radius: 50%;
@@ -251,7 +266,7 @@
 }
 
 .cards .card > .contenido-texto-card{
-  width: 60%;
+  width: 90%;
   color: white;
 }
 
@@ -269,12 +284,13 @@
 
 .servicio-cont{
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
 .servicio-ind{
-  width: 28%;
+  width: 48%;
   text-align: center;
 }
 
@@ -289,4 +305,73 @@
 .servicio-ind p{
   font-weight: 300;
   text-align: justify;
+  margin-bottom: 40px;
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  .imagen-port{
+    width: 44%;
+  }
+  .contenedor-sobre-nosotros{
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .imagen-about-us{
+    width: 48%;
+  }
+
+  .sobre-nosotros .contenido-textos{
+    width: 48%;
+  }
+  .cards{
+    flex-direction: row;
+  }
+  .cards .card{
+    flex-direction: row;
+    width: 46%;
+  }
+  .cards .card > .contenido-texto-card{
+    width: 60%;
+  }
+  .cards .card img{
+    margin-top: 0px;
+  }
+  .servicio-ind{
+    width: 28%;
+    text-align: center;
+  }
+
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+  .imagen-port{
+    width: 24%;
+  }
+  .contenedor-sobre-nosotros{
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .imagen-about-us{
+    width: 48%;
+  }
+
+  .sobre-nosotros .contenido-textos{
+    width: 48%;
+  }
+  .cards{
+    flex-direction: row;
+  }
+  .cards .card{
+    flex-direction: row;
+    width: 46%;
+  }
+  .cards .card > .contenido-texto-card{
+    width: 60%;
+  }
+  .servicio-ind{
+    width: 28%;
+    text-align: center;
+  }
 }
