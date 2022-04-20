@@ -23,6 +23,7 @@
       "dom"
     ]
   },
+  "include": ["node_modules/angular-bootstrap-md/**/*.ts", "src/**/*.ts"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
