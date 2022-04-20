@@ -92,45 +92,6 @@
   margin-bottom: 60px;
 }
 
-.cabeza{
-  width: 100%;
-  height: 600px;
-  background: #2980B9;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #ffffff96, #6dd4fa85, #2980B9), url(../../../../assets/img/img18.jpg);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #ffffff96, #6dd4fa85, #2980B9), url(../../../../assets/img/img18.jpg); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-size: cover;
-  background-attachment: fixed;
-  position: relative;
-}
-
-.cabeza .textos-header{
-  display: flex;
-  height: 430px;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.textos-header h1{
-  font-size: 60px;
-  text-shadow: 4px 3px 0px gray;
-  color: white;
-}
-
-.textos-header h2{
-  font-size: 30px;
-  font-weight: 300;
-  color: white;
-}
-
-.wave{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
 /* About us */
 
 .contenedor-sobre-nosotros{

@@ -12,6 +12,10 @@ import { WebsiteRoutingModule } from './website-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AttentionTopComponent } from './components/attention-top/attention-top.component';
+import { CarrouselComponent } from './components/shared/carrousel/carrousel.component';
+import { BannerComponent } from './components/shared/banner/banner.component';
+import { CardComponent } from './components/shared/card/card.component';
+import { ImgCardComponent } from './components/shared/img-card/img-card.component';
 
 
 @NgModule({
@@ -25,7 +29,11 @@ import { AttentionTopComponent } from './components/attention-top/attention-top.
     HeaderComponent,
     FooterComponent,
     LayoutComponent,
-    AttentionTopComponent
+    AttentionTopComponent,
+    CarrouselComponent,
+    BannerComponent,
+    CardComponent,
+    ImgCardComponent
   ],
   imports: [
     CommonModule,
