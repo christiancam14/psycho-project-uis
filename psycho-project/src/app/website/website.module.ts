@@ -12,6 +12,8 @@ import { WebsiteRoutingModule } from './website-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AttentionTopComponent } from './components/attention-top/attention-top.component';
+import { WorkshopsCardsComponent } from './components/workshops-cards/workshops-cards.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -25,11 +27,13 @@ import { AttentionTopComponent } from './components/attention-top/attention-top.
     HeaderComponent,
     FooterComponent,
     LayoutComponent,
-    AttentionTopComponent
+    AttentionTopComponent,
+    WorkshopsCardsComponent
   ],
   imports: [
     CommonModule,
-    WebsiteRoutingModule
+    WebsiteRoutingModule,
+    SharedModule
   ]
 })
 export class WebsiteModule { }
