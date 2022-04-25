@@ -16,6 +16,7 @@ import { CarrouselComponent } from './components/shared/carrousel/carrousel.comp
 import { BannerComponent } from './components/shared/banner/banner.component';
 import { CardComponent } from './components/shared/card/card.component';
 import { ImgCardComponent } from './components/shared/img-card/img-card.component';
+import { OpinionCardComponent } from './components/shared/opinion-card/opinion-card.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ImgCardComponent } from './components/shared/img-card/img-card.componen
     CarrouselComponent,
     BannerComponent,
     CardComponent,
-    ImgCardComponent
+    ImgCardComponent,
+    OpinionCardComponent
   ],
   imports: [
     CommonModule,
