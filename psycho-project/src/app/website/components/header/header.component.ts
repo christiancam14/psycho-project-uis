@@ -10,6 +10,7 @@ export class HeaderComponent {
 
   title = 'psycho-project';
   activeMenu = false;
+  public isMenuCollapsed = true
 
   constructor(){
 
@@ -17,7 +18,6 @@ export class HeaderComponent {
 
   toggleMenu(){
     this.activeMenu = !this.activeMenu;
-    console.log(this.activeMenu);
   }
 
 }

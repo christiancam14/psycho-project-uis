@@ -19,6 +19,7 @@ import { ImgCardComponent } from './components/shared/img-card/img-card.componen
 import { OpinionCardComponent } from './components/shared/opinion-card/opinion-card.component';
 import { SharedModule } from '../shared/shared.module';
 import { WorkshopsCardsComponent } from './components/workshops-cards/workshops-cards.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { WorkshopsCardsComponent } from './components/workshops-cards/workshops-
   imports: [
     CommonModule,
     WebsiteRoutingModule,
-    SharedModule
+    SharedModule,
+    NgbModule
   ]
 })
 export class WebsiteModule { }
