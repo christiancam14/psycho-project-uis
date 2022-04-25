@@ -126,9 +126,9 @@
 }
 
 .galeria-port{
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-rows: (1, 1fr);
+  gap: 1em;
 }
 
 /* .galeria-port{
@@ -139,7 +139,7 @@
 
 } */
 
-.imagen-port{
+/* .imagen-port{
   width: 70%;
   margin-bottom: 10px;
   overflow: hidden;
@@ -180,7 +180,7 @@
 .imagen-port:hover .hover-galeria{
   transform: scale(1);
 }
-
+ */
 /* Clients */
 
 .cards{
@@ -321,5 +321,10 @@
   .servicio-ind{
     width: 28%;
     text-align: center;
+  }
+  .galeria-port{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
   }
 }
