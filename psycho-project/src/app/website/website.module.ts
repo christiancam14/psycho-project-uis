@@ -19,6 +19,7 @@ import { ImgCardComponent } from './components/shared/img-card/img-card.componen
 import { OpinionCardComponent } from './components/shared/opinion-card/opinion-card.component';
 import { SharedModule } from '../shared/shared.module';
 import { WorkshopsCardsComponent } from './components/workshops-cards/workshops-cards.component';
+import { FormLoginSingupComponent } from './components/shared/form-login-singup/form-login-singup.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { WorkshopsCardsComponent } from './components/workshops-cards/workshops-
     CardComponent,
     ImgCardComponent,
     OpinionCardComponent,
-    WorkshopsCardsComponent
+    WorkshopsCardsComponent,
+    FormLoginSingupComponent
   ],
   imports: [
     CommonModule,
