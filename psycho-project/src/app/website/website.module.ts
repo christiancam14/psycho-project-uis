@@ -20,6 +20,7 @@ import { OpinionCardComponent } from './components/shared/opinion-card/opinion-c
 import { SharedModule } from '../shared/shared.module';
 import { WorkshopsCardsComponent } from './components/workshops-cards/workshops-cards.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormLoginSingupComponent } from './components/shared/form-login-singup/form-login-singup.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     CardComponent,
     ImgCardComponent,
     OpinionCardComponent,
-    WorkshopsCardsComponent
+    WorkshopsCardsComponent,
+    FormLoginSingupComponent
   ],
   imports: [
     CommonModule,
