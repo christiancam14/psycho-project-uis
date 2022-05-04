@@ -1,5 +1,5 @@
-// Acá ponemos el root del backend
+// Acá ponemos el servidor del backend
 
 export var global = {
-  url: 'http://localhost:3700/api/'
+  url: 'http://localhost:3000/'
 }

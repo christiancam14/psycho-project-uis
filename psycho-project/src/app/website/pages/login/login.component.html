@@ -4,13 +4,13 @@
     <!-- Email input -->
   <div class="form-outline mb-4">
     <input type="email" id="form1Example1" class="form-control" />
-    <label class="form-label" for="form1Example1">Email address</label>
+    <label class="form-label" for="form1Example1">Correo</label>
   </div>
 
   <!-- Password input -->
   <div class="form-outline mb-4">
     <input type="password" id="form1Example2" class="form-control" />
-    <label class="form-label" for="form1Example2">Password</label>
+    <label class="form-label" for="form1Example2">Contraseña</label>
   </div>
 
   <!-- 2 column grid layout for inline styling -->
@@ -19,18 +19,21 @@
       <!-- Checkbox -->
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-        <label class="form-check-label" for="form1Example3"> Remember me </label>
+        <label class="form-check-label" for="form1Example3"> Recuérdame </label>
       </div>
     </div>
 
     <div class="col">
       <!-- Simple link -->
-      <a href="#!">Forgot password?</a>
+      <a href="#!">¿Olvidaste tu contraseña?</a>
     </div>
   </div>
 
   <!-- Submit button -->
-  <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-  </form>
+  <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+  <a class="d-flex justify-content-center py-3" [routerLink]="['/singup']">Crear cuenta nueva</a>
+</form>
+
+
 </main>
 
