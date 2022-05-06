@@ -1,0 +1,43 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3308,
+            "driver": "MySQL",
+            "username": "root",
+            "database": "proyecto_grado",
+            "name": "proyecto_grado",
+            "password": "root"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3308,
+            "askForPassword": true,
+            "driver": "MySQL",
+            "name": "proyecto_grado",
+            "database": "proyecto_grado",
+            "username": "root"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3308,
+            "askForPassword": true,
+            "driver": "MySQL",
+            "name": "proyecto_grado",
+            "database": "proyecto_grado",
+            "username": "root"
+        }
+    ]
+}

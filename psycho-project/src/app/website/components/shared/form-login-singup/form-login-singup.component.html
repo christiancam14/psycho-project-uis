@@ -1,41 +1,44 @@
-    <form class="py-5">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" class="py-5" action="register" method="post">
+      {{ userForm.value | json }}
+      <hr>
+      {{ userRegister | json}}
       <!-- Name input -->
       <div class="form-outline mb-4">
-        <input type="text" id="registerName" class="form-control" />
+        <input type="text" id="registerName" class="form-control" name="name" ngModel/>
         <label class="form-label" for="registerName">Nombre</label>
       </div>
 
       <!-- Username input -->
       <div class="form-outline mb-4">
-        <input type="text" id="registerUsername" class="form-control" />
+        <input type="text" id="registerUsername" class="form-control" name="lastName" #lastName="ngModel" ngModel/>
         <label class="form-label" for="registerUsername">Apellido</label>
       </div>
 
       <!-- Email input -->
       <div class="form-outline mb-4">
-        <input type="email" id="registerEmail" class="form-control" />
+        <input type="email" id="registerEmail" class="form-control" name="email" #email="ngModel" ngModel/>
         <label class="form-label" for="registerEmail">Correo</label>
       </div>
 
       <!-- Email input -->
       <div class="form-outline mb-4">
-        <input type="number" id="registerCode" class="form-control" />
+        <input type="number" id="registerCode" class="form-control" name="code" #code="ngModel" ngModel/>
         <label class="form-label" for="registerEmail">Codigo</label>
       </div>
 
       <!-- Password input -->
       <div class="form-outline mb-4">
-        <input type="password" id="registerPassword" class="form-control" />
+        <input type="password" id="registerPassword" class="form-control" name="password" #password="ngModel" ngModel/>
         <label class="form-label" for="registerPassword">Contraseña</label>
       </div>
 
       <!-- Repeat Password input -->
       <div class="form-outline mb-4">
-        <input type="password" id="registerRepeatPassword" class="form-control" />
+        <input type="password" id="registerRepeatPassword" class="form-control" name="passwordConfirm" #passwordConfirm="ngModel" ngModel/>
         <label class="form-label" for="registerRepeatPassword">Repite la contraseña</label>
       </div>
 
       <!-- Submit button -->
-      <button type="submit" class="btn btn-primary btn-block mb-3">Registrarme</button>
+      <button type="submit" class="btn btn-primary btn-block mb-3" value="Save">Registrarme</button>
       <a class="d-flex justify-content-center py-3" [routerLink]="['/login']">Iniciar sesión</a>
     </form>

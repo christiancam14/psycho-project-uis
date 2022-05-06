@@ -21,6 +21,8 @@ import { SharedModule } from '../shared/shared.module';
 import { WorkshopsCardsComponent } from './components/workshops-cards/workshops-cards.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormLoginSingupComponent } from './components/shared/form-login-singup/form-login-singup.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { FormLoginSingupComponent } from './components/shared/form-login-singup/
     CommonModule,
     WebsiteRoutingModule,
     SharedModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    HttpClientModule
   ]
 })
 export class WebsiteModule { }
