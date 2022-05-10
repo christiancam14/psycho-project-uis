@@ -50,6 +50,20 @@ app.get('/register', (req, res)=>{
 
 /* Metodos Get and Post */
 //people
+//get
+app.get("/", (res) => {
+        var query = "select * FROM people ORDER BY id DESC";
+        connection.query(query, function (error, data) {
+
+            if (error) {
+                throw error;
+            }
+            else {
+                res.render('people', { title: 'psycho-project database', action: 'list', people:data });
+            }
+        });
+    })
+//post
 app.post('/', async (req, res)=>{
     const name = req.body.name
     const user_name = req.body.user_name
@@ -67,6 +81,20 @@ app.post('/', async (req, res)=>{
     })
 })
 //students
+//get
+app.get("/", (res) => {
+    var query = "select * FROM students ORDER BY id DESC";
+    connection.query(query, function (error, data) {
+
+        if (error) {
+            throw error;
+        }
+        else {
+            res.render('students', { title: 'psycho-project database', action: 'list', students:data });
+        }
+    });
+})
+//post
 app.post('/', async (req, res)=>{
     const student_code = req.body.student_code
     const image = req.body.image
@@ -80,7 +108,20 @@ app.post('/', async (req, res)=>{
 })
 
 //psychologists
+//get
+app.get("/", (res) => {
+    var query = "select * FROM psychologists ORDER BY id DESC";
+    connection.query(query, function (error, data) {
 
+        if (error) {
+            throw error;
+        }
+        else {
+            res.render('psychologists', { title: 'psycho-project database', action: 'list', psychologists:data });
+        }
+    });
+})
+//post
 app.post('/', async (req, res)=>{
     const image = req.body.image
     connection.query('INSERT INTO psychologists SET ?', {image:image}, async(error, results)=>{
@@ -92,8 +133,37 @@ app.post('/', async (req, res)=>{
     })
 })
 
+// administrators
+//get
+app.get("/", (res) => {
+    var query = "select * FROM administrators ORDER BY id DESC";
+    connection.query(query, function (error, data) {
+
+        if (error) {
+            throw error;
+        }
+        else {
+            res.render('administrators', { title: 'psycho-project database', action: 'list', administrators:data });
+        }
+    });
+})
+//post
 // appointments
 
+//get
+app.get("/", (res) => {
+    var query = "select * FROM appointments ORDER BY id DESC";
+    connection.query(query, function (error, data) {
+
+        if (error) {
+            throw error;
+        }
+        else {
+            res.render('appointments', { title: 'psycho-project database', action: 'list', appointments:data });
+        }
+    });
+})
+//post
 app.post('/', async (req, res)=>{
     const registration_date = req.body.registration_date
     connection.query('INSERT INTO appointments SET ?', {registration_date:registration_date}, async(error, results)=>{
@@ -107,6 +177,20 @@ app.post('/', async (req, res)=>{
 
 // consultations
 
+//get
+app.get("/", (res) => {
+    var query = "select * FROM consultations ORDER BY id DESC";
+    connection.query(query, function (error, data) {
+
+        if (error) {
+            throw error;
+        }
+        else {
+            res.render('consultations', { title: 'psycho-project database', action: 'list', consultations:data });
+        }
+    });
+})
+//post
 app.post('/', async (req, res)=>{
     const description = req.body.description
     const clasification = req.body.clasification
@@ -121,6 +205,20 @@ app.post('/', async (req, res)=>{
 
 // landingpages
 
+//get
+app.get("/", (res) => {
+    var query = "select * FROM landingpages ORDER BY id DESC";
+    connection.query(query, function (error, data) {
+
+        if (error) {
+            throw error;
+        }
+        else {
+            res.render('landingpages', { title: 'psycho-project database', action: 'list', landingpages:data });
+        }
+    });
+})
+//post
 app.post('/', async (req, res)=>{
     const email = req.body.email
     const text = req.body.text
@@ -135,6 +233,20 @@ app.post('/', async (req, res)=>{
 
 // tests
 
+//get
+app.get("/", (res) => {
+    var query = "select * FROM tests ORDER BY id DESC";
+    connection.query(query, function (error, data) {
+
+        if (error) {
+            throw error;
+        }
+        else {
+            res.render('tests', { title: 'psycho-project database', action: 'list', tests:data });
+        }
+    });
+})
+//post
 app.post('/', async (req, res)=>{
     const report = req.body.report
     connection.query('INSERT INTO tests SET ?', {report:report},
@@ -149,6 +261,20 @@ app.post('/', async (req, res)=>{
 
 // locations
 
+//get
+app.get("/", (res) => {
+    var query = "select * FROM locations ORDER BY id DESC";
+    connection.query(query, function (error, data) {
+
+        if (error) {
+            throw error;
+        }
+        else {
+            res.render('locations', { title: 'psycho-project database', action: 'list', locations:data });
+        }
+    });
+})
+//post
 app.post('/', async (req, res)=>{
     const street = req.body.street
     const city = req.body.city
