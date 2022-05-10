@@ -48,14 +48,29 @@ app.get('/register', (req, res)=>{
     res.render('register')
 })
 
-//hacer registro de usuarios
-app.post('/register', async (req, res)=>{
-    const user = req.body.user
+/* Metodos Get and Post */
+//people
+app.post('/', async (req, res)=>{
     const name = req.body.name
-    const rol = req.body.rol
+    const user_name = req.body.user_name
+    const phone_number = req.body.phone_number
+    const date_of_birth = req.body.date_of_birth
     const pass = req.body.pass
     let passwordHash = await bcrypts.hash(pass, 8) //contraseña encriptada
-    connection.query('INSERT INTO users SET ?', {user:user, name:name, rol:rol, pass:passwordHash}, async(error, results)=>{
+    connection.query('INSERT INTO people SET ?', { name:name, user_name:user_name, 
+        phone_number:phone_number,date_of_birth:date_of_birth, pass:passwordHash}, async(error, results)=>{
+        if(error){
+            console.log(error)
+        }else{
+            res.send("alta exitosa")
+        }
+    })
+})
+//students
+app.post('/', async (req, res)=>{
+    const student_code = req.body.student_code
+    const image = req.body.image
+    connection.query('INSERT INTO students SET ?', {id_student:id_student, student_code:student_code, image:image,}, async(error, results)=>{
         if(error){
             console.log(error)
         }else{
@@ -64,8 +79,70 @@ app.post('/register', async (req, res)=>{
     })
 })
 
-//ejecutamos nuestro servidor con el puerto 3000
-app.listen(3000, (req, res)=>{
-    console.log('Servidor conrriendo en http://localhost:3000 ')
+//psychologists
+
+app.post('/', async (req, res)=>{
+    const image = req.body.image
+    connection.query('INSERT INTO psychologists SET ?', {image:image}, async(error, results)=>{
+        if(error){
+            console.log(error)
+        }else{
+            res.send("alta exitosa")
+        }
+    })
 })
 
+// appointments
+
+app.post('/', async (req, res)=>{
+    const registration_date = req.body.registration_date
+    connection.query('INSERT INTO appointments SET ?', {registration_date:registration_date}, async(error, results)=>{
+        if(error){
+            console.log(error)
+        }else{
+            res.send("alta exitosa")
+        }
+    })
+})
+
+// consultations
+
+app.post('/', async (req, res)=>{
+    const description = req.body.description
+    const clasification = req.body.clasification
+    connection.query('INSERT INTO consultations SET ?', {description:description, clasification:clasification}, async(error, results)=>{
+        if(error){
+            console.log(error)
+        }else{
+            res.send("alta exitosa")
+        }
+    })
+})
+
+// landingpages
+
+app.post('/', async (req, res)=>{
+    const email = req.body.email
+    const text = req.body.text
+    connection.query('INSERT INTO landingpages SET ?', {email:email, text:text}, async(error, results)=>{
+        if(error){
+            console.log(error)
+        }else{
+            res.send("alta exitosa")
+        }
+    })
+})
+
+// tests
+
+app.post('/', async (req, res)=>{
+    const report = req.body.report
+    connection.query('INSERT INTO tests SET ?', {report:report},
+     async(error, results)=>{
+        if(error){
+            console.log(error)
+        }else{
+            res.send("alta exitosa")
+        }
+    })
+})
