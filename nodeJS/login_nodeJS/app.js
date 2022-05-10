@@ -70,7 +70,7 @@ app.post('/', async (req, res)=>{
 app.post('/', async (req, res)=>{
     const student_code = req.body.student_code
     const image = req.body.image
-    connection.query('INSERT INTO students SET ?', {id_student:id_student, student_code:student_code, image:image,}, async(error, results)=>{
+    connection.query('INSERT INTO students SET ?', { student_code:student_code, image:image,}, async(error, results)=>{
         if(error){
             console.log(error)
         }else{
@@ -139,6 +139,24 @@ app.post('/', async (req, res)=>{
     const report = req.body.report
     connection.query('INSERT INTO tests SET ?', {report:report},
      async(error, results)=>{
+        if(error){
+            console.log(error)
+        }else{
+            res.send("alta exitosa")
+        }
+    })
+})
+
+// locations
+
+app.post('/', async (req, res)=>{
+    const street = req.body.street
+    const city = req.body.city
+    const state = req.body.state
+    const postal_code = req.body.postal_code
+    const country = req.body.country
+    connection.query('INSERT INTO locations SET ?', { street:street, city:city, 
+        state:state, postal_code:postal_code, country:country}, async(error, results)=>{
         if(error){
             console.log(error)
         }else{
