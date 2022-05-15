@@ -3,8 +3,7 @@ import db from "../database/db.js"
 // importamos sequelize
 import { DataTypes } from "sequelize"
 
-const LocationModel = db.define('locations', {
-    id_location: { type: DataTypes.INTEGER },
+const AppointmentModel = db.define('appointment', {
     street: { type: DataTypes.STRING },
     city: { type: DataTypes.STRING },
     state: { type: DataTypes.STRING },
@@ -12,4 +11,4 @@ const LocationModel = db.define('locations', {
     country: { type: DataTypes.STRING }
 })
 
-export default LocationModel
+export default AppointmentModel
