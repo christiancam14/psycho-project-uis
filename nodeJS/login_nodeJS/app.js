@@ -51,20 +51,20 @@ app.get('/register', (req, res)=>{
 /* Metodos Get and Post */
 //people
 //get
-app.get("/", (res) => {
-        var query = "select * FROM people ORDER BY id DESC";
-        connection.query(query, function (error, data) {
-
-            if (error) {
-                throw error;
-            }
-            else {
-                res.render('people', { title: 'psycho-project database', action: 'list', people:data });
-            }
-        });
-    })
+app.get("/people", (req, res) => {
+    const query = "select * FROM students ORDER BY id DESC";
+    connection.query(query, (error, data) => {
+      if (error) throw error;
+  
+      res.render("people", {
+        title: "psycho-project database",
+        action: "list",
+        people: data,
+      });
+    });
+  });
 //post
-app.post('/', async (req, res)=>{
+app.post('/people', async (req, res)=>{
     const name = req.body.name
     const user_name = req.body.user_name
     const phone_number = req.body.phone_number
@@ -82,20 +82,20 @@ app.post('/', async (req, res)=>{
 })
 //students
 //get
-app.get("/", (res) => {
-    var query = "select * FROM students ORDER BY id DESC";
-    connection.query(query, function (error, data) {
-
-        if (error) {
-            throw error;
-        }
-        else {
-            res.render('students', { title: 'psycho-project database', action: 'list', students:data });
-        }
+app.get("/students", (req, res) => {
+    const query = "select * FROM students ORDER BY id DESC";
+    connection.query(query, (error, data) => {
+      if (error) throw error;
+  
+      res.render("students", {
+        title: "psycho-project database",
+        action: "list",
+        students: data,
+      });
     });
-})
+  });
 //post
-app.post('/', async (req, res)=>{
+app.post('/students', async (req, res)=>{
     const student_code = req.body.student_code
     const image = req.body.image
     connection.query('INSERT INTO students SET ?', { student_code:student_code, image:image,}, async(error, results)=>{
@@ -109,20 +109,20 @@ app.post('/', async (req, res)=>{
 
 //psychologists
 //get
-app.get("/", (res) => {
-    var query = "select * FROM psychologists ORDER BY id DESC";
-    connection.query(query, function (error, data) {
-
-        if (error) {
-            throw error;
-        }
-        else {
-            res.render('psychologists', { title: 'psycho-project database', action: 'list', psychologists:data });
-        }
+app.get("/psychologists", (req, res) => {
+    const query = "select * FROM psychologists ORDER BY id DESC";
+    connection.query(query, (error, data) => {
+      if (error) throw error;
+  
+      res.render("psychologists", {
+        title: "psycho-project database",
+        action: "list",
+        psychologists: data,
+      });
     });
-})
+  });
 //post
-app.post('/', async (req, res)=>{
+app.post('/psychologists', async (req, res)=>{
     const image = req.body.image
     connection.query('INSERT INTO psychologists SET ?', {image:image}, async(error, results)=>{
         if(error){
@@ -135,36 +135,36 @@ app.post('/', async (req, res)=>{
 
 // administrators
 //get
-app.get("/", (res) => {
-    var query = "select * FROM administrators ORDER BY id DESC";
-    connection.query(query, function (error, data) {
-
-        if (error) {
-            throw error;
-        }
-        else {
-            res.render('administrators', { title: 'psycho-project database', action: 'list', administrators:data });
-        }
+app.get("/administrators", (req, res) => {
+    const query = "select * FROM administrators ORDER BY id DESC";
+    connection.query(query, (error, data) => {
+      if (error) throw error;
+  
+      res.render("administrators", {
+        title: "psycho-project database",
+        action: "list",
+        administrators: data,
+      });
     });
-})
+  });
 //post
 // appointments
 
 //get
-app.get("/", (res) => {
-    var query = "select * FROM appointments ORDER BY id DESC";
-    connection.query(query, function (error, data) {
-
-        if (error) {
-            throw error;
-        }
-        else {
-            res.render('appointments', { title: 'psycho-project database', action: 'list', appointments:data });
-        }
+app.get("/appointments", (req, res) => {
+    const query = "select * FROM appointments ORDER BY id DESC";
+    connection.query(query, (error, data) => {
+      if (error) throw error;
+  
+      res.render("appointments", {
+        title: "psycho-project database",
+        action: "list",
+        appointments: data,
+      });
     });
-})
+  });
 //post
-app.post('/', async (req, res)=>{
+app.post('/appointments', async (req, res)=>{
     const registration_date = req.body.registration_date
     connection.query('INSERT INTO appointments SET ?', {registration_date:registration_date}, async(error, results)=>{
         if(error){
@@ -178,20 +178,20 @@ app.post('/', async (req, res)=>{
 // consultations
 
 //get
-app.get("/", (res) => {
-    var query = "select * FROM consultations ORDER BY id DESC";
-    connection.query(query, function (error, data) {
-
-        if (error) {
-            throw error;
-        }
-        else {
-            res.render('consultations', { title: 'psycho-project database', action: 'list', consultations:data });
-        }
+app.get("/consultations", (req, res) => {
+    const query = "select * FROM consultations ORDER BY id DESC";
+    connection.query(query, (error, data) => {
+      if (error) throw error;
+  
+      res.render("consultations", {
+        title: "psycho-project database",
+        action: "list",
+        consultations: data,
+      });
     });
-})
+  });
 //post
-app.post('/', async (req, res)=>{
+app.post('/consultations', async (req, res)=>{
     const description = req.body.description
     const clasification = req.body.clasification
     connection.query('INSERT INTO consultations SET ?', {description:description, clasification:clasification}, async(error, results)=>{
@@ -206,20 +206,20 @@ app.post('/', async (req, res)=>{
 // landingpages
 
 //get
-app.get("/", (res) => {
-    var query = "select * FROM landingpages ORDER BY id DESC";
-    connection.query(query, function (error, data) {
-
-        if (error) {
-            throw error;
-        }
-        else {
-            res.render('landingpages', { title: 'psycho-project database', action: 'list', landingpages:data });
-        }
+app.get("/landingpages", (req, res) => {
+    const query = "select * FROM landingpages ORDER BY id DESC";
+    connection.query(query, (error, data) => {
+      if (error) throw error;
+  
+      res.render("landingpages", {
+        title: "psycho-project database",
+        action: "list",
+        landingpages: data,
+      });
     });
-})
+  });
 //post
-app.post('/', async (req, res)=>{
+app.post('/landingpages', async (req, res)=>{
     const email = req.body.email
     const text = req.body.text
     connection.query('INSERT INTO landingpages SET ?', {email:email, text:text}, async(error, results)=>{
@@ -234,20 +234,20 @@ app.post('/', async (req, res)=>{
 // tests
 
 //get
-app.get("/", (res) => {
-    var query = "select * FROM tests ORDER BY id DESC";
-    connection.query(query, function (error, data) {
-
-        if (error) {
-            throw error;
-        }
-        else {
-            res.render('tests', { title: 'psycho-project database', action: 'list', tests:data });
-        }
+app.get("/tests", (req, res) => {
+    const query = "select * FROM tests ORDER BY id DESC";
+    connection.query(query, (error, data) => {
+      if (error) throw error;
+  
+      res.render("tests", {
+        title: "psycho-project database",
+        action: "list",
+        tests: data,
+      });
     });
-})
+  });
 //post
-app.post('/', async (req, res)=>{
+app.post('/tests', async (req, res)=>{
     const report = req.body.report
     connection.query('INSERT INTO tests SET ?', {report:report},
      async(error, results)=>{
@@ -262,20 +262,20 @@ app.post('/', async (req, res)=>{
 // locations
 
 //get
-app.get("/", (res) => {
-    var query = "select * FROM locations ORDER BY id DESC";
-    connection.query(query, function (error, data) {
-
-        if (error) {
-            throw error;
-        }
-        else {
-            res.render('locations', { title: 'psycho-project database', action: 'list', locations:data });
-        }
+app.get("/locations", (req, res) => {
+    const query = "select * FROM locations ORDER BY id DESC";
+    connection.query(query, (error, data) => {
+      if (error) throw error;
+  
+      res.render("locations", {
+        title: "psycho-project database",
+        action: "list",
+        locations: data,
+      });
     });
-})
+  });
 //post
-app.post('/', async (req, res)=>{
+app.post('/locations', async (req, res)=>{
     const street = req.body.street
     const city = req.body.city
     const state = req.body.state
