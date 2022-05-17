@@ -9,7 +9,9 @@ const PeopleModel = db.define('people', {
     phone_number : { type: DataTypes.STRING },
     email_address : { type: DataTypes.STRING },
     password  : { type: DataTypes.STRING },
-    date_of_birth  : { type: DataTypes.DATE }
+    date_of_birth  : { type: DataTypes.DATE },
+    createdAt: { type: DataTypes.DATE },
+    updatedAt: { type: DataTypes.DATE }
 })
 
 export default PeopleModel

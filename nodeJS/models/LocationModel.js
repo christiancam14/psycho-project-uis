@@ -4,12 +4,13 @@ import db from "../database/db.js"
 import { DataTypes } from "sequelize"
 
 const LocationModel = db.define('locations', {
-    id_location: { type: DataTypes.INTEGER },
     street: { type: DataTypes.STRING },
     city: { type: DataTypes.STRING },
     state: { type: DataTypes.STRING },
     postal_code: { type: DataTypes.STRING },
-    country: { type: DataTypes.STRING }
+    country: { type: DataTypes.STRING },
+    createdAt: { type: DataTypes.DATE },
+    updatedAt: { type: DataTypes.DATE }
 })
 
 export default LocationModel
