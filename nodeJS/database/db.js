@@ -5,4 +5,5 @@ const db = new Sequelize('proyecto_grado', 'root', '',{
     dialect: 'mysql'
 })
 
+
 export default db

@@ -2,6 +2,7 @@ import express  from "express"
 import cors from "cors"
 //importar conexión a la base de datos
 import db from "./database/db.js"
+
 //importar enrutador
 import proyectoRoutes from './routes/routes.js'
 

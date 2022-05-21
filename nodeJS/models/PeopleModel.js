@@ -1,5 +1,6 @@
 // importamos conecion base de datos
 import db from "../database/db.js"
+import locations from '../models/LocationModel.js'
 // importamos sequelize
 import { DataTypes } from "sequelize"
 
@@ -10,8 +11,10 @@ const PeopleModel = db.define('people', {
     email_address : { type: DataTypes.STRING },
     password  : { type: DataTypes.STRING },
     date_of_birth  : { type: DataTypes.DATE },
-    createdAt: { type: DataTypes.DATE },
-    updatedAt: { type: DataTypes.DATE }
-})
+    id_location: {type: DataTypes.INTEGER}
+}, { timestamps: false })
+
+//Relacion locations
+PeopleModel.hasOne(locations, {foreignKey: 'id' })
 
 export default PeopleModel

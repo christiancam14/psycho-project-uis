@@ -8,9 +8,7 @@ const LocationModel = db.define('locations', {
     city: { type: DataTypes.STRING },
     state: { type: DataTypes.STRING },
     postal_code: { type: DataTypes.STRING },
-    country: { type: DataTypes.STRING },
-    createdAt: { type: DataTypes.DATE },
-    updatedAt: { type: DataTypes.DATE }
-})
+    country: { type: DataTypes.STRING }
+},  { timestamps: false })
 
 export default LocationModel
