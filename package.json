@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "http-proxy-middleware": "^2.0.6",
+    "primeicons": "^5.0.0",
+    "primeng": "^13.4.1"
+  }
+}

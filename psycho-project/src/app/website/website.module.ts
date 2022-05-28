@@ -24,6 +24,8 @@ import { FormLoginSingupComponent } from './components/shared/form-login-singup/
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ButtonModule } from 'primeng/button';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule
   ]
 })
 export class WebsiteModule { }
