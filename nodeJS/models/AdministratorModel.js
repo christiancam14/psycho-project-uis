@@ -1,15 +1,16 @@
 // importamos conecion base de datos
 import db from "../database/db.js"
-import People from '../models/PeopleModel.js'
+/* import People from '../models/PeopleModel.js' */
 // importamos sequelize
 import { DataTypes } from "sequelize"
 
 const AdministratorsModel = db.define('appointment', {
-    id_person: {type: DataTypes.INTEGER}
+    user: {type: DataTypes.STRING},
+    password: {type: DataTypes.STRING}
 },  { timestamps: false })
 
 //relacion people
-AdministratorsModel.hasMany(People, {foreignKey: 'id' })
+/* AdministratorsModel.hasMany(People, {foreignKey: 'id' }) */
 
 
 export default AdministratorsModel
