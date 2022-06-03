@@ -1,7 +1,7 @@
 // importamos conecion base de datos
 import db from "../database/db.js"
-/* import students from '../models/StudentModel.js'
-import psychologist  from '../models/PsychologistModel.js' */
+import appointment from '../models/AppointmentModel.js'
+import psychologist  from '../models/PsychologistModel.js'
 // importamos sequelize
 import { DataTypes } from "sequelize"
 
@@ -14,9 +14,9 @@ const ConsultationModel = db.define('consultations', {
     id_medical_appointment: {type: DataTypes.INTEGER}
 },  { timestamps: false })
 
-/* //relacion con students
-ConsultationModel.hasOne(students, {foreignKey: 'id' })
+//relacion con appointment
+ConsultationModel.hasOne(appointment, {foreignKey: 'id' })
 //relacion con psychologist
-ConsultationModel.hasOne(psychologist, {foreignKey: 'id' }) */
+ConsultationModel.hasOne(psychologist, {foreignKey: 'id' })
 
 export default ConsultationModel

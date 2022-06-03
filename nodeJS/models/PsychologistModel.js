@@ -1,6 +1,6 @@
 // importamos conecion base de datos
 import db from "../database/db.js"
-/* import people from '../models/PeopleModel.js' */
+/* import consultation from '../models/ConsultationModel.js' */
 // importamos sequelize
 import { DataTypes } from "sequelize"
 
@@ -12,7 +12,7 @@ const PsychologistModel = db.define('psychologists', {
     phone: { type: DataTypes.STRING }
 },  { timestamps: false })
 
-//relacion con people
-/* PsychologistModel.hasMany(people, {foreignKey: 'id' }) */
+//relacion con consultation
+/* PsychologistModel.belongsToMany(consultation, {foreignKey: 'id' }) */
 
 export default PsychologistModel

@@ -1,7 +1,6 @@
 // importamos conecion base de datos
 import db from "../database/db.js"
-/* import landings from '../models/LandingpageModel.js'
-import people from '../models/PeopleModel.js' */
+import appointment from '../models/AppointmentModel.js'
 // importamos sequelize
 import { DataTypes } from "sequelize"
 
@@ -14,9 +13,7 @@ const StudentModel = db.define('students', {
     email: {type: DataTypes.STRING},
 }, { timestamps: false })
 
-/* //relacion con people
-StudentModel.hasMany(people, {foreignKey: 'id' })
-//relacion con landing
-StudentModel.hasOne(landings, {foreignKey: 'id' }) */
+//relacion con appointment
+StudentModel.hasMany(appointment, {foreignKey: 'id' })
 
 export default StudentModel
