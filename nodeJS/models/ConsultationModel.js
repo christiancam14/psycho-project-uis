@@ -1,11 +1,10 @@
 // importamos conecion base de datos
 import db from "../database/db.js"
-import appointment from '../models/AppointmentModel.js'
 import psychologist  from '../models/PsychologistModel.js'
 // importamos sequelize
 import { DataTypes } from "sequelize"
 
-const ConsultationModel = db.define('consultations', {
+const ConsultationModel = db.define('medical_consultations', {
     date_medical_consultation: { type: DataTypes.DATE },
     date_medical_appointmet: { type: DataTypes.DATE },
     code_student: { type: DataTypes.STRING },
@@ -14,8 +13,6 @@ const ConsultationModel = db.define('consultations', {
     id_medical_appointment: {type: DataTypes.INTEGER}
 },  { timestamps: false })
 
-//relacion con appointment
-ConsultationModel.hasOne(appointment, {foreignKey: 'id' })
 //relacion con psychologist
 ConsultationModel.hasOne(psychologist, {foreignKey: 'id' })
 
