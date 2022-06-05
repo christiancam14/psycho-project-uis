@@ -9,6 +9,7 @@ const StudentModel = db.define('students', {
     name_student: { type: DataTypes.STRING },
     password_student: {type: DataTypes.STRING},
     code_student : {type: DataTypes.STRING},
+    address: {type:DataTypes.STRING},
     phone: {type: DataTypes.STRING},
     email: {type: DataTypes.STRING},
 }, { timestamps: false })

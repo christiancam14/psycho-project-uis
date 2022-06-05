@@ -3,6 +3,9 @@ import { getAllAppointment, getAppointment, createAppointment, updateAppointment
 import { getAllConsultation, getConsultation, createConsultation, updateConsultation, deleteConsultation} from '../controllers/ConsultationController.js'
 import { getAllPsychologist, getPsychologist, createPsychologist, updatePsychologist, deletePsychologist} from '../controllers/PsychologistController.js'
 import { getAllStudent, getStudent, createStudent, updateStudent, deleteStudent} from '../controllers/StudentController.js'
+//login and register
+import {singUpStudent, singUpPsychologis} from '../controllers/AuthController.js'
+
 const router = express.Router()
 
 
@@ -35,5 +38,12 @@ router.get('/student/:id', getStudent)
 router.post('student', createStudent)
 router.put('student/id', updateStudent)
 router.delete('student/id', deleteStudent)
+
+// rutas login y register student
+router.post('/register/student', singUpStudent)
+
+// rutas login y register psychologist
+router.post('/register/psychologist', singUpPsychologis)
+
 
 export default router
