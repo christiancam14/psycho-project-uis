@@ -31,6 +31,24 @@ export const singUpStudent = (req,res) =>{
     })
 }
 
+export const singInStudent = (req,res) =>{
+    let {user_student, password_student} = req.body
+    //buscar estudiante
+    StudentModel.findAll({
+        where:{
+            user_student:user_student
+        }.then(StudentModel =>{
+            if(!user){
+                res.status(404).json({msg: 'usuario no encontrado'})
+            }else{
+                //voy aqui
+            }
+        }).catch(error =>{
+            res.status(500).json(error)
+        })
+    })
+}
+
 // inicio secion y registrarse de student
 export const singUpPsychologis = (req,res) =>{
     /* let password = bcrypt.hashSync(req.body.password,8) */
