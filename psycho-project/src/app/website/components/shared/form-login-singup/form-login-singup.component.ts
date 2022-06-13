@@ -33,7 +33,7 @@ export class FormLoginSingupComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
   onSubmit(form: any){
 
     this.userRegister = {

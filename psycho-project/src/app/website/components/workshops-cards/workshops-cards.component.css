@@ -1,42 +1,27 @@
-.imagen-port{
-    width: 100%;
-    margin-bottom: 10px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-  }
-  
-  .imagen-port > img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  
-  .hover-galeria{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    transform: scale(0);
-    background: hsla(273, 91%, 27%, 0.7);
-    transition: transform .5s;
+#workshop-cards{
+  margin: 40px 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .hover-galeria img{
-    width: 50px;
-  }
-  
-  .hover-galeria p{
-    color: white;
-  }
-  
-  .imagen-port:hover .hover-galeria{
-    transform: scale(1);
-  }
+}
+
+#workshop-cards .content{
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  max-width: 1400px;
+}
+
+#workshop-cards .content .card{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border: none;
+}
+
+#workshop-cards .content .titulo{
+  color: #3789B6;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 60px;
+}

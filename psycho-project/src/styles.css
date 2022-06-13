@@ -86,3 +86,6 @@ button.calendar, button.calendar:active {
   ngb-modal-window{
 	  z-index: 1056 !important;
   }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

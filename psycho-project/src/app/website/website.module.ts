@@ -22,9 +22,30 @@ import { WorkshopsCardsComponent } from './components/workshops-cards/workshops-
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormLoginSingupComponent } from './components/shared/form-login-singup/form-login-singup.component';
 import { FormsModule } from '@angular/forms';
+import { TooltipModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
+import { ChipsModule } from 'primeng/chips';
+import { DividerModule } from 'primeng/divider';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { ListboxModule } from 'primeng/listbox';
+import { MatSliderModule } from '@angular/material/slider';
+import { MessageModule } from 'primeng/message';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { PasswordModule } from 'primeng/password';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { RippleModule } from 'primeng/ripple';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { WorkshopComponent } from './components/shared/workshop/workshop.component';
 
 
 @NgModule({
@@ -45,7 +66,8 @@ import { ButtonModule } from 'primeng/button';
     ImgCardComponent,
     OpinionCardComponent,
     WorkshopsCardsComponent,
-    FormLoginSingupComponent
+    FormLoginSingupComponent,
+    WorkshopComponent,
   ],
   imports: [
     CommonModule,
@@ -54,7 +76,29 @@ import { ButtonModule } from 'primeng/button';
     NgbModule,
     FormsModule,
     HttpClientModule,
-    ButtonModule
+    ButtonModule,
+    CalendarModule,
+    ChipsModule,
+    DropdownModule,
+    DividerModule,
+    FormsModule,
+    HttpClientModule,
+    InputTextModule,
+    InputMaskModule,
+    InputSwitchModule,
+    InputTextareaModule,
+    InputNumberModule,
+    KeyFilterModule,
+    ListboxModule,
+    MessageModule,
+    MatSliderModule,
+    MultiSelectModule,
+    PasswordModule,
+    SelectButtonModule,
+    ScrollingModule,
+    RadioButtonModule,
+    RippleModule,
+    TooltipModule
   ]
 })
 export class WebsiteModule { }

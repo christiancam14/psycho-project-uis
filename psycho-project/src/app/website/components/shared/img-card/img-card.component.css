@@ -1,7 +1,14 @@
-section{
+#imgCard{
   padding: 30px 60px;
   text-align: center;
   background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+#imgCard .content{
+  width: 100%;
+  max-width: 1400px;
 }
 
 .title{

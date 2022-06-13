@@ -21,4 +21,10 @@ export class UserService {
       JSON.stringify(data);
     }));
   }
+
+  login(password: any, email: string){
+    return this._http.get(this.url + 'login').pipe(map(data => {
+      JSON.stringify(data);
+    }));
+  }
 }
