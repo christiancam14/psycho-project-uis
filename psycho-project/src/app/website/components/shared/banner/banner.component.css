@@ -35,10 +35,17 @@
   color: white;
 }
 
-#banner .banner-text h2{
+#banner .banner-text a{
   font-size: 35px;
-  font-weight: 200;
+  font-weight: 300;
   color: white;
+}
+
+
+#banner .banner-text a:hover{
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 #wave{

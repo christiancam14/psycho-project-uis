@@ -5,6 +5,10 @@ ul{
     margin: 0;
 }
 
+#logoUis{
+    border-bottom: none;
+}
+
 .show-mobile {
     display: block;
    box-shadow: 0px 2px 5px #bebebe;
@@ -86,6 +90,7 @@ ul{
     display: flex;
     list-style: none;
     justify-content: space-evenly;
+    align-items: center;
     width: 100%;
 }
 .hide-mobile nav ul a {

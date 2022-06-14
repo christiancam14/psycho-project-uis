@@ -5,7 +5,7 @@
     <a (click)="toggleMenu()">
       <i class="fa-solid fa-bars"></i>
     </a>
-    <a [routerLink]="['/home']">
+    <a [routerLink]="['/home']" id="logoUis">
       <img
         src="../../../../assets/img/logoUis.png"
         height="30"
@@ -46,14 +46,16 @@
 <div class="hide-mobile sticky-top">
   <div>
     <nav>
-      <ul>
+      <ul id="nav-menu">
         <li>
-          <img
+          <a [routerLink]="['/home']" id="logoUis">
+            <img
             src="../../../../assets/img/logoUis.png"
             height="30"
             alt="UIS Logo"
             loading="lazy"
-          />
+            />
+          </a>
         </li>
         <li>
           <a [routerLink]="['/home']" routerLinkActive="active">Inicio</a>

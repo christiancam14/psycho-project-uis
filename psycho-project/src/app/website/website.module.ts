@@ -46,7 +46,7 @@ import { RippleModule } from 'primeng/ripple';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { WorkshopComponent } from './components/shared/workshop/workshop.component';
-
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
   declarations: [
@@ -78,6 +78,7 @@ import { WorkshopComponent } from './components/shared/workshop/workshop.compone
     HttpClientModule,
     ButtonModule,
     CalendarModule,
+    CarouselModule,
     ChipsModule,
     DropdownModule,
     DividerModule,
