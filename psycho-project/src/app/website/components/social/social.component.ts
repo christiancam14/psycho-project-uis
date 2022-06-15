@@ -16,23 +16,24 @@ export class SocialComponent implements OnInit {
     
     this.items = [
       {
-          icon: 'pi pi-pencil',
-          command: () => { }
+          icon: 'pi pi-whatsapp',
+          url: 'https://wa.link/ssb2y4'
       },
       {
-          icon: 'pi pi-refresh',
-          command: () => { }
+          icon: 'pi pi-facebook',
+          url: 'https://www.facebook.com/UISenLinea/'
       },
       {
-          icon: 'pi pi-trash',
-          command: () => { }
+          icon: 'pi pi-youtube',
+          url: 'https://www.youtube.com/user/uisvideo'
       },
       {
-          icon: 'pi pi-upload',
+          icon: 'pi pi-twitter',
+          url: 'https://twitter.com/UIS'
       },
       {
-          icon: 'pi pi-external-link',
-          url: 'http://angular.io'
+          icon: 'pi pi-book',
+          url: 'https://uis.edu.co/inicio/'
 
       }
   ];

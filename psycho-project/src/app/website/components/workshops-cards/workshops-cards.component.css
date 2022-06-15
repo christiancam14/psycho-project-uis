@@ -19,12 +19,17 @@
   border: none;
   margin: 0 auto;
   white-space:nowrap;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 #workshop-cards .content .cards .card{
   width: 30%;
   height: auto;
+  border: none;
+}
+
+#workshop-cards .content .cards .card:hover{
+  cursor: pointer;
 }
 
 
