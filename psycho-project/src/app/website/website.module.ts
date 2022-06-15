@@ -25,6 +25,7 @@ import { FormsModule } from '@angular/forms';
 import { TooltipModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AccordionModule } from 'primeng/accordion';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { ChipsModule } from 'primeng/chips';
@@ -51,6 +52,7 @@ import { SocialComponent } from './components/social/social.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 import { SpeedDialModule } from 'primeng/speeddial';
+import { AccordionQuestionsComponent } from './components/shared/accordion-questions/accordion-questions.component';
 
 @NgModule({
   declarations: [
@@ -73,8 +75,10 @@ import { SpeedDialModule } from 'primeng/speeddial';
     FormLoginSingupComponent,
     WorkshopComponent,
     SocialComponent,
+    AccordionQuestionsComponent,
   ],
   imports: [
+    AccordionModule,
     CommonModule,
     WebsiteRoutingModule,
     SharedModule,

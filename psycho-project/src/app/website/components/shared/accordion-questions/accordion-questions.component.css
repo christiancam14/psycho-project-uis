@@ -1,0 +1,22 @@
+#accordion-questions{
+    padding: 30px 30px;
+    text-align: center;
+    background-color: #F2F2F2;
+    display: flex;
+    justify-content: center;
+}
+  
+#accordion-questions .content{
+    width: 100%;
+    max-width: 1400px;
+}
+
+#accordion-questions .title{
+    color: #3789B6;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 60px;
+  }
+  
+  

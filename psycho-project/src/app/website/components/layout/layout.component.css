@@ -1,6 +1,3 @@
-/* #social{
-    position: fixed;
-    background-color: none;
-    bottom: 20px;
-    right: 20px;
-} */
+#contentBody{
+    min-height: 100vh;
+}
