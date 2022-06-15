@@ -1,0 +1,21 @@
+#social-icons{
+    width: 100%;
+    max-width: 1400px;
+}
+
+#social-icons .socialButton {
+    position: fixed;
+    z-index: 100;
+    top: 570px;
+    right: 200px;    
+}
+
+.p-speeddial-direction-up{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.p-speeddial-direction-up{
+    background: red;
+}

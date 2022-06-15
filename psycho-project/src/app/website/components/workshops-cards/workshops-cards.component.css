@@ -1,7 +1,8 @@
 #workshop-cards{
-  margin: 40px 0;
-    display: flex;
-    justify-content: center;
+  padding: 30px 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 #workshop-cards .content{
@@ -11,12 +12,21 @@
   max-width: 1400px;
 }
 
-#workshop-cards .content .card{
+#workshop-cards .content .cards{
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   border: none;
+  margin: 0 auto;
+  white-space:nowrap;
+  overflow-x: scroll;
 }
+
+#workshop-cards .content .cards .card{
+  width: 30%;
+  height: auto;
+}
+
 
 #workshop-cards .content .titulo{
   color: #3789B6;

@@ -47,6 +47,10 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { WorkshopComponent } from './components/shared/workshop/workshop.component';
 import { CarouselModule } from 'primeng/carousel';
+import { SocialComponent } from './components/social/social.component';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ToastModule } from 'primeng/toast';
+import { SpeedDialModule } from 'primeng/speeddial';
 
 @NgModule({
   declarations: [
@@ -68,6 +72,7 @@ import { CarouselModule } from 'primeng/carousel';
     WorkshopsCardsComponent,
     FormLoginSingupComponent,
     WorkshopComponent,
+    SocialComponent,
   ],
   imports: [
     CommonModule,
@@ -95,6 +100,11 @@ import { CarouselModule } from 'primeng/carousel';
     MatSliderModule,
     MultiSelectModule,
     PasswordModule,
+    ProgressSpinnerModule,
+    RadioButtonModule,
+    RippleModule,
+    ToastModule,
+    SpeedDialModule,
     SelectButtonModule,
     ScrollingModule,
     RadioButtonModule,
