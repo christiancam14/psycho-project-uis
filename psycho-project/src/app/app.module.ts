@@ -38,7 +38,7 @@ import { TabViewModule } from 'primeng/tabview';
 @NgModule({
   declarations: [
     AppComponent,
-    ErrorComponent
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

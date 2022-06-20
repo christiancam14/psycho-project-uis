@@ -15,6 +15,9 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./website/website.module').then(m => m.WebsiteModule),
+  },{
+    path: 'psy-admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   /* {path: '', component: HomeComponent},
   {path: 'servicios', component: ServicesComponent},

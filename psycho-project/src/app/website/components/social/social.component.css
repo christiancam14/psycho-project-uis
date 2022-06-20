@@ -9,3 +9,7 @@
     top: 570px;
     right: 200px;    
 }
+
+#social-icons .card{
+    position: relative;
+}

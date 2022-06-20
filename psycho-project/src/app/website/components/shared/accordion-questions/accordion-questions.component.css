@@ -19,4 +19,12 @@
     margin-bottom: 60px;
   }
   
+#accordion-questions .content .answer{
+    text-align: start;   
+}
+
+#accordion-questions .content .answer-date{
+    text-align: start;
+    font-weight: 500;    
+}
   

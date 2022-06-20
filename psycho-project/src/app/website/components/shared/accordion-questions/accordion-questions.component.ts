@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FrequentQuestionsService } from 'src/app/services/frequent-questions.service';
 
 @Component({
   selector: 'app-accordion-questions',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccordionQuestionsComponent implements OnInit {
 
-  constructor() { }
+  public questionsList:any;
+
+  constructor(private _frequentQuestionsService: FrequentQuestionsService) { }
 
   ngOnInit(): void {
+    this.cargarPreguntasFrecuentes();
   }
+
+  public cargarPreguntasFrecuentes() {
+    this._frequentQuestionsService.getFrequentQuestions("https://demo2800314.mockable.io/frecuent_questions")
+    .subscribe(response => {this.questionsList = response["frecuent questions"]});
+  };
 
 }

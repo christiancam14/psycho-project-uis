@@ -37,7 +37,7 @@ export class CardComponent implements OnInit {
 
   public cargarCursos() {
     this._coursesService.getCourses("https://demo9850821.mockable.io/workshop/all")
-    .subscribe(response => {this.coursesList = response["workshops"]});
+    .subscribe(response => {this.coursesList = response["workshops"]; console.log(this.coursesList);});
   }
   
 }
