@@ -21,4 +21,5 @@ export class AccordionQuestionsComponent implements OnInit {
     .subscribe(response => {this.questionsList = response["frecuent questions"]});
   };
 
+
 }

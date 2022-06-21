@@ -5,7 +5,7 @@
       <div *ngFor="let question of questionsList">
 
         <p-accordionTab
-        header= "{{question.asked_by}}: ¿{{question.question}}?"
+        header= "{{question.asked_by | uppercase}}: ¿{{question.question}}?"
         [selected]="false"
       >
         <p class="answer">
