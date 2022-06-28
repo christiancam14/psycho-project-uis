@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, JsonpClientBackend } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { User } from '../models/user';
 import { global } from './global.service';
-import { WebsiteModule } from '../website/website.module';
+import { tap } from 'rxjs/operators';
+import { TokenService } from './token.service';
+import { Auth } from '../models/auth';
 
 @Injectable({
   providedIn: 'any'
@@ -11,8 +13,13 @@ import { WebsiteModule } from '../website/website.module';
 export class UserService {
 
   public url: string = global.url;
+
+  private user = new BehaviorSubject<User | null>(null);
+  user$ = this.user.asObservable();
+
   constructor(
-    private _http: HttpClient
+    private _http: HttpClient,
+    private tokenService: TokenService
   ) {
   }
 
@@ -23,8 +30,21 @@ export class UserService {
   }
 
   login(password: any, email: string){
-    return this._http.get(this.url + 'login').pipe(map(data => {
-      JSON.stringify(data);
+    const data: any = {
+      "nickname": email,
+      "password": password
+    }
+    return this._http.post<Auth>(this.url + 'students/login', data).pipe(tap(res => {
+      JSON.stringify(res);
+      this.tokenService.saveToken(res.access_token);
     }));
+  }
+
+  profile(){
+    return this._http.get<User>(this.url + 'profile').pipe(
+      tap(user => {
+        this.user.next(user);
+      })
+    );
   }
 }

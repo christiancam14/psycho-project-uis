@@ -35,7 +35,7 @@
           >Preguntas Frecuentes</a
         >
       </li>
-      <li>
+      <li *ngIf="userLogin">
         <a [routerLink]="['/blog']" routerLinkActive="active">Blog</a>
       </li>
     </ul>
@@ -70,7 +70,7 @@
             >Preguntas Frecuentes</a
           >
         </li>
-        <li>
+        <li *ngIf="userLogin">
           <a [routerLink]="['/blog']" routerLinkActive="active">Blog</a>
         </li>
         <li>

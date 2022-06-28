@@ -8,6 +8,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { SingupComponent } from './pages/singup/singup.component';
 import { LayoutComponent } from './components/layout/layout.component';
 
+import { UserGuardGuard } from '../guards/user-guard.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -32,6 +34,7 @@ const routes: Routes = [
       },
       {
         path: 'blog',
+        canActivate: [ UserGuardGuard ],
         component: BlogComponent
       },
       {
