@@ -2,7 +2,7 @@
     padding: 30px 30px;
     text-align: center;
     background-color: #F2F2F2;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
 }
@@ -29,4 +29,4 @@
     text-align: start;
     font-weight: 500;    
 }
-  
+

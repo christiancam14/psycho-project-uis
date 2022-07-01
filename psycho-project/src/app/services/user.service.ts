@@ -4,6 +4,8 @@ import { map, Observable } from 'rxjs';
 import { User } from '../models/user';
 import { global } from './global.service';
 import { WebsiteModule } from '../website/website.module';
+import { userLogin } from '../models/userLogin';
+import { studentRegister } from '../models/studentRegister';
 
 @Injectable({
   providedIn: 'any'
@@ -14,17 +16,29 @@ export class UserService {
   constructor(
     private _http: HttpClient
   ) {
+    
   }
 
-  saveUser(user: any){
-    return this._http.post(this.url + 'register', user).pipe(map(data => {
-      JSON.stringify(data);
-    }));
+  
+
+  saveUser(formRegister: any){
+    let reg: studentRegister = {
+      "nickname": formRegister.nickname,
+      "name": formRegister.name,
+      "password": formRegister.password,
+      "email": formRegister.email,
+      "phone": formRegister.phone,
+      "city": formRegister.city,
+      "code_student": formRegister.code_student,
+      "academic_program": formRegister.academic_program,
+      "semester": formRegister.semester
+  }
+    return this._http.post(this.url + 'students', reg);
   }
 
-  login(password: any, email: string){
-    return this._http.get(this.url + 'login').pipe(map(data => {
-      JSON.stringify(data);
-    }));
+  login(formLogin : userLogin){
+    return this._http.post(this.url + 'students/login', {"nickname": formLogin.usuario,
+    "password": formLogin.password});
+
   }
 }

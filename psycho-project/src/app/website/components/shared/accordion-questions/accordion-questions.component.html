@@ -1,22 +1,97 @@
 <section id="accordion-questions">
   <article class="content">
     <h2 class="title">Preguntas frecuentes</h2>
+    <div *ngIf="mostrarNotificacion">
+      <p-messages  [(value)]="msgs1" [enableService]="false"></p-messages>
+    </div>
+    <form [formGroup]="newQuestion" (ngSubmit)="sendQuestion(newQuestion)">
+      <!-- Question input -->
+      <div class="form-outline mb-4">
+        <input
+          type="textArea"
+          id="password_estudiante_form"
+          placeholder="Realiza una nueva pregunta"
+          class="form-control"
+          formControlName="question"
+        />
+        <label class="form-label" for="password"></label>
+      </div>
+
+      <!-- 2 column grid layout for inline styling -->
+
+      <div class="row mb-4">
+        <div class="col d-flex justify-content-center">
+          <!-- Checkbox -->
+          <div class="form-check">
+            <!-- <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="form1Example3"
+              formControlName="anonymous"
+            /> -->
+            <label class="form-check-label col" for="form1Example3"
+              >¿Deseas que tu pregunta sea anónima?</label
+            >
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="radio"
+                id="customRadioInline1"
+                name="anonymous"
+                value="true"
+                class="custom-control-input"
+                formControlName="anonymous"
+              />
+              <label class="custom-control-label" for="customRadioInline1"
+                >Sí</label
+              >
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="radio"
+                id="customRadioInline2"
+                name="anonymous"
+                value="false"
+                class="custom-control-input"
+                formControlName="anonymous"
+              />
+              <label class="custom-control-label" for="customRadioInline2"
+                >No</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <button
+        id="btn_iniciar_sesion"
+        type="submit"
+        class="btn btn-primary btn-block"
+        [disabled]="newQuestion.invalid"
+      >
+        Enviar pregunta
+      </button>
+    </form>
+    <br />
+    <h2 class="title">Otras frecuentes</h2>
     <p-accordion>
       <div *ngFor="let question of questionsList">
-
         <p-accordionTab
-        header= "{{question.asked_by | uppercase}}: ¿{{question.question}}?"
-        [selected]="false"
-      >
-        <p class="answer">
-          {{question.answered_by}}: {{question.answer}}
-        </p>
-        <p class="answer-date">
-          {{question.updated_at}}
-        </p>
-      </p-accordionTab>
-
+          header="{{ question.asked_by | uppercase }}: ¿{{
+            question.question
+          }}?"
+          [selected]="false"
+        >
+          <p class="answer">
+            {{ question.answered_by }}: {{ question.answer }}
+          </p>
+          <p class="answer-date">
+            {{ question.updated_at | date }}
+          </p>
+        </p-accordionTab>
       </div>
     </p-accordion>
+    
   </article>
 </section>

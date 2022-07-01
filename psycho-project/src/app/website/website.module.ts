@@ -21,7 +21,7 @@ import { SharedModule } from '../shared/shared.module';
 import { WorkshopsCardsComponent } from './components/workshops-cards/workshops-cards.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormLoginSingupComponent } from './components/shared/form-login-singup/form-login-singup.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TooltipModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -52,6 +52,7 @@ import { SocialComponent } from './components/social/social.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 import { SpeedDialModule } from 'primeng/speeddial';
+import {MessagesModule} from 'primeng/messages';
 import { AccordionQuestionsComponent } from './components/shared/accordion-questions/accordion-questions.component';
 
 @NgModule({
@@ -101,6 +102,7 @@ import { AccordionQuestionsComponent } from './components/shared/accordion-quest
     KeyFilterModule,
     ListboxModule,
     MessageModule,
+    MessagesModule,
     MatSliderModule,
     MultiSelectModule,
     PasswordModule,
@@ -112,6 +114,7 @@ import { AccordionQuestionsComponent } from './components/shared/accordion-quest
     SelectButtonModule,
     ScrollingModule,
     RadioButtonModule,
+    ReactiveFormsModule,
     RippleModule,
     TooltipModule
   ]

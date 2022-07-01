@@ -1,39 +1,42 @@
-
-<main>
-  <form>
-    <!-- Email input -->
-  <div class="form-outline mb-4">
-    <input type="email" id="form1Example1" class="form-control" />
-    <label class="form-label" for="form1Example1">Correo</label>
-  </div>
-
-  <!-- Password input -->
-  <div class="form-outline mb-4">
-    <input type="password" id="form1Example2" class="form-control" />
-    <label class="form-label" for="form1Example2">Contraseña</label>
-  </div>
-
-  <!-- 2 column grid layout for inline styling -->
-  <div class="row mb-4">
-    <div class="col d-flex justify-content-center">
-      <!-- Checkbox -->
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-        <label class="form-check-label" for="form1Example3"> Recuérdame </label>
+<section id="login_estudiante">
+  <div class="contenido">
+    <form [formGroup]="loginEstudiante" (ngSubmit)="onSubmit(loginEstudiante)">
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input
+          type="text"
+          id="nickname_estudiante_form"
+          placeholder="Usuario"
+          class="form-control"
+          formControlName="usuario"
+        />
+        <label class="form-label" for="nickname">Usuario</label>
       </div>
-    </div>
 
-    <div class="col">
-      <!-- Simple link -->
-      <a href="#!">¿Olvidaste tu contraseña?</a>
-    </div>
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input
+          type="password"
+          id="password_estudiante_form"
+          placeholder="Contraseña"
+          class="form-control"
+          formControlName="password"
+        />
+        <label class="form-label" for="password">Contraseña</label>
+      </div>
+
+      <!-- Submit button -->
+      <button
+        id="btn_iniciar_sesion"
+        type="submit"
+        class="btn btn-primary btn-block"
+        disabled
+      >
+        Iniciar sesión
+      </button>
+      <a class="d-flex justify-content-center py-3" [routerLink]="['/singup']"
+        >Crear cuenta nueva</a
+      >
+    </form>
   </div>
-
-  <!-- Submit button -->
-  <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
-  <a class="d-flex justify-content-center py-3" [routerLink]="['/singup']">Crear cuenta nueva</a>
-</form>
-
-
-</main>
-
+</section>

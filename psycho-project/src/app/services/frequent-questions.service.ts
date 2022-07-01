@@ -8,13 +8,21 @@ import { global } from './global.service';
 })
 export class FrequentQuestionsService {
 
-  public url: string = global.url;
-  constructor(private http: HttpClient) {
+  private url: string = global.url;
+  constructor(private _http: HttpClient) {
     
   }
 
-  public getFrequentQuestions(urlCourses: string) {
-    return this.http.get(urlCourses);
+  getFrequentQuestions() {
+    return this._http.get(this.url + 'frequent-questions');
   }
+
+  newQuestion(newQuestion){
+    console.log(newQuestion);
+
+    return this._http.post(this.url + 'frequent-questions/', {"question": newQuestion.question,
+    "anonymous": newQuestion.anonymous, "auth_token": localStorage.getItem("jwt_token")});
+  }
+
 
 }
