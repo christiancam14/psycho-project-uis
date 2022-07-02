@@ -21,7 +21,7 @@ import { SharedModule } from '../shared/shared.module';
 import { WorkshopsCardsComponent } from './components/workshops-cards/workshops-cards.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormLoginSingupComponent } from './components/shared/form-login-singup/form-login-singup.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { TooltipModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -54,6 +54,7 @@ import { ToastModule } from 'primeng/toast';
 import { SpeedDialModule } from 'primeng/speeddial';
 import {MessagesModule} from 'primeng/messages';
 import { AccordionQuestionsComponent } from './components/shared/accordion-questions/accordion-questions.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,6 @@ import { AccordionQuestionsComponent } from './components/shared/accordion-quest
     ChipsModule,
     DropdownModule,
     DividerModule,
-    FormsModule,
     HttpClientModule,
     InputTextModule,
     InputMaskModule,
@@ -116,7 +116,9 @@ import { AccordionQuestionsComponent } from './components/shared/accordion-quest
     RadioButtonModule,
     ReactiveFormsModule,
     RippleModule,
-    TooltipModule
-  ]
+    TooltipModule,
+    ReactiveFormsModule 
+  ],
+  providers: [ CookieService ],
 })
 export class WebsiteModule { }

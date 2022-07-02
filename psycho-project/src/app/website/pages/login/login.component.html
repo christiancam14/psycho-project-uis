@@ -1,16 +1,25 @@
-<section id="login_estudiante">
-  <div class="contenido">
-    <form [formGroup]="loginEstudiante" (ngSubmit)="onSubmit(loginEstudiante)">
-      <!-- Email input -->
-      <div class="form-outline mb-4">
-        <input
-          type="text"
-          id="nickname_estudiante_form"
-          placeholder="Usuario"
-          class="form-control"
-          formControlName="usuario"
-        />
-        <label class="form-label" for="nickname">Usuario</label>
+
+<main>
+  <form (submit)="onSubmit()" [formGroup]="loginForm">
+    <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input type="email" id="form1Example1" class="form-control" formControlName="user"/>
+    <label class="form-label" for="form1Example1">Correo</label>
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <input type="password" id="form1Example2" class="form-control" formControlName="password"/>
+    <label class="form-label" for="form1Example2">Contraseña</label>
+  </div>
+
+  <!-- 2 column grid layout for inline styling -->
+  <div class="row mb-4">
+    <div class="col d-flex justify-content-center">
+      <!-- Checkbox -->
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" [value]="termsCheck" id="form1Example3" binary="true"/>
+        <label class="form-check-label" for="form1Example3"> Acepto los términos y condiciones </label>
       </div>
 
       <!-- Password input -->
@@ -39,4 +48,12 @@
       >
     </form>
   </div>
-</section>
+
+  <!-- Submit button -->
+  <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+  <a class="d-flex justify-content-center py-3" [routerLink]="['/singup']">Crear cuenta nueva</a>
+</form>
+
+<button class="btn btn-primary btn-block" (click)="removeToken()">Borrar token</button>
+</main>
+

@@ -32,7 +32,7 @@
           >Preguntas Frecuentes</a
         >
       </li>
-      <li>
+      <li *ngIf="userLogin">
         <a [routerLink]="['/blog']" routerLinkActive="active">Blog</a>
       </li>
     </ul>
@@ -40,46 +40,40 @@
 </div>
 
 <!-- WEB AND TABLET -->
-<section id="header">
-  <div class="contenido-header">
-    <div class="hide-mobile sticky-top">
-      <div>
-        <nav>
-          <ul id="nav-menu">
-            <li>
-              <a [routerLink]="['/home']" id="logoUis">
-                <img
-                  src="../../../../assets/img/logoUis.png"
-                  height="30"
-                  alt="UIS Logo"
-                  loading="lazy"
-                />
-              </a>
-            </li>
-            <li>
-              <a [routerLink]="['/home']" routerLinkActive="active">Inicio</a>
-            </li>
-            <li>
-              <a [routerLink]="['/servicios']" routerLinkActive="active"
-                >Servicios</a
-              >
-            </li>
-            <li>
-              <a [routerLink]="['/preguntas']" routerLinkActive="active"
-                >Preguntas Frecuentes</a
-              >
-            </li>
-            <li>
-              <a [routerLink]="['/blog']" routerLinkActive="active">Blog</a>
-            </li>
-            <li>
-              <button [routerLink]="['/login']" class="btn btn-primary me-3">
-                Iniciar sesión
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+<div class="hide-mobile sticky-top">
+  <div>
+    <nav>
+      <ul id="nav-menu">
+        <li>
+          <a [routerLink]="['/home']" id="logoUis">
+            <img
+            src="../../../../assets/img/logoUis.png"
+            height="30"
+            alt="UIS Logo"
+            loading="lazy"
+            />
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/home']" routerLinkActive="active">Inicio</a>
+        </li>
+        <li>
+          <a [routerLink]="['/servicios']" routerLinkActive="active"
+            >Servicios</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/preguntas']" routerLinkActive="active"
+            >Preguntas Frecuentes</a
+          >
+        </li>
+        <li *ngIf="userLogin">
+          <a [routerLink]="['/blog']" routerLinkActive="active">Blog</a>
+        </li>
+        <li>
+          <button [routerLink]="['/login']" class="btn btn-primary me-3">Iniciar sesión</button>
+        </li>
+      </ul>
+    </nav>
   </div>
 </section>

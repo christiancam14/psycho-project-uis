@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSliderModule } from '@angular/material/slider';
 
 import { AutoCompleteModule } from 'primeng/autocomplete';
@@ -33,6 +33,8 @@ import {SelectButtonModule} from 'primeng/selectbutton';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { TooltipModule } from 'primeng/tooltip';
 import { TabViewModule } from 'primeng/tabview';
+
+import { JwtInterceptorInterceptor } from './interceptors/jwt-interceptor.interceptor'
 
 
 @NgModule({
@@ -77,7 +79,9 @@ import { TabViewModule } from 'primeng/tabview';
   schemas: [
     NO_ERRORS_SCHEMA
   ],
-  providers: [],
+  providers: [
+    {provide : HTTP_INTERCEPTORS, useClass : JwtInterceptorInterceptor, multi : true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
