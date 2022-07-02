@@ -15,6 +15,7 @@ import { CarouselModule } from 'primeng/carousel';
 import {MessagesModule} from 'primeng/messages';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AccordionModule } from 'primeng/accordion';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { AccordionModule } from 'primeng/accordion';
     AccordionModule,
     FormsModule,
     ReactiveFormsModule
+    
   ]
 })
 export class PsychologistModule { }

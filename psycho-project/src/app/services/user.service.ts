@@ -84,18 +84,6 @@ export class UserService {
   }
 
   /* Servicios del administrador */
-  loginAdmin(password: any, email: string) {
-    const data: any = {
-      nickname: email,
-      password: password,
-    };
-    return this._http.post<Auth>(this.url + 'superusers/login', data).pipe(
-      tap((res) => {
-        JSON.stringify(res);
-        this.tokenService.saveToken(res.access_token);
-      })
-    );
-  }
 
   /* Registro de psicologos */
   savePsychologist(formRegister: any) {
@@ -131,6 +119,32 @@ export class UserService {
       })
     );
   }
+    
+  
 
+
+
+ /* Servicios del administrador */
+ loginAdmin(password: string, email: string){
+  const data: any = {
+    "nickname": email,
+    "password": password
+  }
+  return this._http.post<Auth>(this.url + 'superusers/login', data).pipe(tap(res => {
+    JSON.stringify(res);
+    this.tokenService.saveToken(res.access_token);
+  }));
 }
 
+loginPsycho(password: any, nickname: string){
+  const data: any = {
+    "nickname": nickname,
+    "password": password
+  }
+  return this._http.post<any>(this.url + 'psychologists/login', data).pipe(tap(res => {
+    JSON.stringify(res);
+    this.tokenService.saveToken(res.access_token);
+  }));
+}
+
+}
