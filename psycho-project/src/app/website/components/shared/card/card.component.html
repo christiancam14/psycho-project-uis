@@ -1,0 +1,21 @@
+<section id="card">
+  <article class="content">
+    <h2 class="title">Nuestros talleres</h2>
+    <p-carousel [value]="coursesList" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="10000" [responsiveOptions]="responsiveOptions">
+    <ng-template let-coursesList pTemplate="item">
+      <div class="product-item" onClick="window.open('/blog')" >
+          <div class="product-item-content">
+              <div class="p-mb-3">
+              </div>
+              <div>
+                <div class="img-card">
+                  <img [src]="coursesList.image" width="100" height="" alt="">
+                </div>
+                  <h4 class="p-mb-1">{{coursesList.title}}</h4>
+                  <h6 class="p-mt-0 p-mb-3">{{coursesList.created_at | date: 'dd/MM/yyyy'}}</h6>
+                  <p>{{coursesList.body}}</p>
+              </div>
+          </div>
+      </div>
+  </ng-template>
+</p-carousel>

@@ -1,0 +1,64 @@
+#imgCard{
+  padding: 30px 30px;
+  text-align: center;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+#imgCard .content{
+  width: 100%;
+  max-width: 1400px;
+}
+
+#imgCard .title{
+  color: #3789B6;
+  font-family: Amsi;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 60px;
+}
+
+#imgCard .number{
+  text-align: center;
+  color: white;
+  min-width: 35px;
+  height: 150px;
+}
+
+#imgCard .text-content{
+  padding: 30px 0;
+}
+
+#imgCard .subTitle{
+  display: flex;
+  justify-content: start;
+  margin-bottom: 10px;
+}
+
+#imgCard .subTitle .bg-primary{
+  background-color: #4285f4;
+  margin-right: 10px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding-top: 8px;
+}
+
+#imgCard .subTitle h3{
+  margin: 0;
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+#imgCard .text-content p{
+  text-align: justify;
+}
+
+#imgCard .steps{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}

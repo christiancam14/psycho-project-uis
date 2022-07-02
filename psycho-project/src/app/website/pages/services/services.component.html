@@ -1,0 +1,85 @@
+<section id="servicios">
+  <section>
+    <article class="contenido">
+      <h1 class="title">Programa tu cita</h1>
+
+      <!-- <div class="p-fluid p-grid p-formgrid"> -->
+      <div class="container">
+        <!-- <div class="p-field-col p-col-12 p-md-4"> -->
+        <div class="row">
+          <div class="col-sm">
+            <h2>Selecciona la fecha de tu cita</h2>
+            <p-calendar
+              [(ngModel)]="fecha"
+              [inline]="true"
+              [disabledDates]="invalidDates"
+              [disabledDays]="[0, 6]"
+              [minDate]="valFechaMinima"
+              [maxDate]="valFechaMaxima"
+              dateFormat="dd/mm/yy"
+              [readonlyInput]="true"
+              inputId="disabledays"
+            ></p-calendar>
+          </div>
+          
+          <div class="col-sm">
+            <h2>Hora</h2>
+            <p-dropdown
+              [options]="groupedCities"
+              [(ngModel)]="selectedCity3"
+              placeholder="Hora"
+              [group]="true"
+              class="dropwdown-hora"
+            >
+              <ng-template let-group pTemplate="group">
+                <div class="p-d-flex p-ai-center">
+                  <span>{{ group.label }}</span>
+                </div>
+              </ng-template>
+            </p-dropdown>
+          </div>
+          <div class="col-sm">
+              <h2>Citas disponibles</h2>
+          </div>
+        </div>
+        {{ fecha }}
+
+        <h5>Group</h5>
+        <p-dropdown
+          [options]="groupedCities"
+          [(ngModel)]="selectedCity3"
+          placeholder="Select a City"
+          [group]="true"
+        >
+          <ng-template let-group pTemplate="group">
+            <div class="p-d-flex p-ai-center">
+              <span>{{ group.label }}</span>
+            </div>
+          </ng-template>
+        </p-dropdown>
+
+        <div class="p-field p-col-12 p-md-4">
+          <label for="template">Date Template</label>
+          <p-calendar [(ngModel)]="date10" inputId="template">
+            <ng-template pTemplate="date" let-date>
+              <span
+                [ngStyle]="{
+                  backgroundColor:
+                    date.day < 21 && date.day > 10 ? '#81C784' : 'inherit'
+                }"
+                style="
+                  border-radius: 50%;
+                  padding: 0.25em;
+                  width: 2em;
+                  height: 2em;
+                  display: block;
+                "
+                >{{ date.day }}</span
+              >
+            </ng-template>
+          </p-calendar>
+        </div>
+      </div>
+    </article>
+  </section>
+</section>

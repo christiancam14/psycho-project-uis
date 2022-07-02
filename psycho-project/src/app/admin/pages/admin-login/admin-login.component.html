@@ -1,0 +1,42 @@
+<section id="admin-login">
+
+  <div>
+    <p-messages  [(value)]="msgs1" [enableService]="false"></p-messages>
+  </div>
+
+  <form (submit)="onSubmit()" [formGroup]="loginForm">
+
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <input
+        type="email"
+        id="form1Example1"
+        class="form-control"
+        formControlName="user"
+      />
+      <label class="form-label" for="form1Example1">Usuario</label>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input
+        type="password"
+        id="form1Example2"
+        class="form-control"
+        formControlName="password"
+      />
+      <label class="form-label" for="form1Example2">Contraseña</label>
+    </div>
+
+    <!-- Submit button -->
+    <button
+    [disabled]="loginForm.invalid"
+    type="submit"
+    class="btn btn-primary btn-block"
+    >
+    Iniciar sesión
+    </button>
+    
+  </form>
+
+</section>

@@ -1,0 +1,222 @@
+<section id="admin_panel">
+
+
+<div id="mensaje" *ngIf="mostrarNotificacion">
+    <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+  </div>
+  
+  <form
+    [formGroup]="registroEstudiante"
+    (ngSubmit)="onSubmit(registroEstudiante)"
+    class="py-3 needs-validation"
+    action="register"
+  >
+    <!-- Nickname input -->
+    <div class="row">
+      <div class="form-outline mb-4 col-6">
+        <label class="form-label" for="registerName">Nombre de usuario</label>
+        <input
+          autocomplete="off"
+          type="text"
+          class="form-control"
+          name="nickname"
+          formControlName="nickname"
+        />
+        <span class="invalid-feedback"> Campo requerido</span>
+      </div>
+  
+      <!-- name input -->
+      <div class="form-outline mb-4 col-6">
+        <label class="form-label" for="registerUsername">Nombre</label>
+        <input
+          autocomplete="off"
+          type="text"
+          class="form-control"
+          name="name"
+          formControlName="name"
+        />
+        <span class="invalid-feedback"> Campo requerido</span>
+      </div>
+    </div>
+  
+    <div class="row">
+      <!-- Email input -->
+      <div class="form-outline mb-4 col-6">
+        <label class="form-label" for="registerEmail">Correo</label>
+        <input
+          autocomplete="off"
+          type="email"
+          class="form-control"
+          name="email"
+          formControlName="email"
+        />
+        <span class="invalid-feedback"> Campo requerido</span>
+      </div>
+  
+      <!-- Phone input -->
+      <div class="form-outline mb-4 col-6">
+        <label class="form-label" for="registerEmail">Teléfono</label>
+        <input
+          autocomplete="off"
+          type="number" pattern="[0-9]"
+          class="form-control"
+          name="phone"
+          formControlName="phone"
+        />
+        <span class="invalid-feedback"> Campo requerido</span>
+      </div>
+    </div>
+  
+    <div class="row">
+      <!-- City input -->
+      <div class="form-outline mb-4 col-6">
+        <label class="form-label" for="registerEmail">Ciudad de residencia</label>
+        <input
+          autocomplete="off"
+          type="text"
+          class="form-control"
+          name="city"
+          formControlName="city"
+        />
+        <span class="invalid-feedback"> Campo requerido</span>
+      </div>
+  
+      <!-- code_psychologist input -->
+      <div class="form-outline mb-4 col-6">
+        <label class="form-label" for="registerEmail">Código de psicólogo</label>
+        <input
+          autocomplete="off"
+          type="number"
+          class="form-control"
+          name="code_psychology"
+          formControlName="code_psychology"
+        />
+        <span class="invalid-feedback"> Campo requerido</span>
+      </div>
+    </div>
+  
+    <div class="row">
+      <!-- active input -->
+      <div class="form-outline mb-4 col-6">
+        <div class="input-group-prepend"></div>
+        <label class="form-label" for="registerEmail">Activo</label>
+        <select
+          class="custom-select"
+          id="inputGroupSelect01"
+          name="active"
+          formControlName="active"
+        >
+          <option value=true>Si</option>
+          <option value=false>No</option>
+        </select>
+        <span class="invalid-feedback"> Campo requerido</span>
+      </div>
+  
+      <!-- rating_average  input -->
+      <div class="form-outline mb-4 col-6">
+        <label class="form-label" for="registerEmail">Puntuación</label>
+        <input
+          autocomplete="off"
+          type="text"
+          class="form-control"
+          name="rating_average"
+          formControlName="rating_average"
+        />
+        <span class="invalid-feedback"> Campo requerido</span>
+      </div>
+    </div>
+  
+    <div class="row">
+      <!-- Password input -->
+      <div class="form-outline mb-4 col-6">
+        <label class="form-label" for="registerPassword">Contraseña</label>
+        <input
+          autocomplete="off"
+          type="password"
+          class="form-control"
+          name="password"
+          formControlName="password"
+        />
+        <span class="invalid-feedback"> Campo requerido</span>
+      </div>
+  
+      <!-- Repeat Password input -->
+      <div class="form-outline mb-4 col-6">
+        <label class="form-label" for="registerRepeatPassword"
+          >Repite la contraseña</label
+        >
+        <input
+          autocomplete="off"
+          type="password"
+          class="form-control"
+          name="passwordConfirm"
+          formControlName="passwordConfirm"
+        />
+        <label
+          *ngIf="passwordInvalid"
+          style="margin-top: 0.25rem; font-size: 80%; color: #dc3545"
+          >Las contraseñas no coinciden</label
+        >
+        <span class="invalid-feedback"> Campo requerido</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- appointments_number  input -->
+    <div class="form-outline mb-4 col-6">
+      <label class="form-label" for="registerEmail">Numero de cita</label>
+      <input
+        autocomplete="off"
+        type="text"
+        class="form-control"
+        name="appointments_number"
+        formControlName="appointments_number"
+      />
+      <span class="invalid-feedback"> Campo requerido</span>
+    </div>
+    </div>
+  
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+      <div class="col d-flex justify-content-center">
+        <!-- Checkbox -->
+        <div class="form-check">
+          <input
+            class="form-check-input is-valid"
+            type="checkbox"
+            name="terminos"
+            id="form1Example3"
+            formControlName="terminos"
+          />
+          <label class="form-check-label" for="form1Example3"
+            >Acepto los términos y condiciones</label
+          >
+        </div>
+      </div>
+  
+      <div class="col">
+        <!-- Simple link -->
+        <a href="#">Ver términos y condiciones</a>
+      </div>
+    </div>
+  
+    <!-- Submit button -->
+    <button
+      type="submit"
+      class="btn btn-primary btn-block mb-3"
+      id="btn_registrar"
+      disabled
+    >
+      Registrarme
+    </button>
+  
+    <!-- Volver a iniciar sesión -->
+    <a class="d-flex justify-content-center py-3" [routerLink]="['/login']"
+      >Iniciar sesión</a
+    >
+  </form>
+
+</section>
+
+<app-psychologist-manager></app-psychologist-manager>
+  
