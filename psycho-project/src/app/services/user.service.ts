@@ -86,7 +86,6 @@ export class UserService {
 
 
 
-  */
  /* Servicios del administrador */
  loginAdmin(password: any, email: string){
   const data: any = {
