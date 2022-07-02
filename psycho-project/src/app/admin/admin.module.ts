@@ -8,6 +8,9 @@ import { AdminLoginComponent } from './pages/admin-login/admin-login.component';
 import { AdminLayoutComponent } from './components/admin-layout/admin-layout.component';
 import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
 import { FooterAdminComponent } from './components/footer-admin/footer-admin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MessagesModule} from 'primeng/messages';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,7 +24,11 @@ import { FooterAdminComponent } from './components/footer-admin/footer-admin.com
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MessagesModule,
+    HttpClientModule
   ]
 })
 export class AdminModule { }

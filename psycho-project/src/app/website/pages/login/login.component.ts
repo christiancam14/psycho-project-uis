@@ -16,8 +16,6 @@ import { TokenService } from '../../../services/token.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  formV: boolean = false;
-  termsCheck: boolean;
   storage = window.localStorage;
 
   constructor(
