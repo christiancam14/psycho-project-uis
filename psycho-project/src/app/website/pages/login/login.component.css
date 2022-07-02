@@ -1,0 +1,20 @@
+#login_estudiante{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#login_estudiante .contenido{
+  padding: 40px;
+}
+
+#login_estudiante .contenido form{
+  margin: 0 auto;
+  width: 80%;
+  max-width: 500px;
+}
+
+#login_estudiante .contenido button[type="submit"]{
+  /* background-color: #C2c2c2;
+  cursor: default; */
+}

@@ -1,0 +1,15 @@
+#social-icons{
+    width: 100%;
+    max-width: 1400px;
+}
+
+#social-icons .socialButton {
+    position: fixed;
+    z-index: 100;
+    top: 570px;
+    right: 200px;    
+}
+
+#social-icons .card{
+    position: relative;
+}
