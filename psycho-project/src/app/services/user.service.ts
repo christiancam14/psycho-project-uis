@@ -113,17 +113,9 @@ savePsychologist(formRegister: any){
   return this._http.post(this.url + 'psychologists', reg);
 }
 
- /* 
-       "nickname": "MJ2",
-    "name": "Jumi Delgado",
-    "password": "hola mundo",
-    "email": "Jumialone11@gmail.com",
-    "phone": "3006754477",
-    "city": "Villanueva",
-    "code_psychology": "1237",
-    "active": true,
-    "rating_average": 0,
-        "appointments_number": 4,
-        "auth_token"
-    */
+getAllPsychology() {
+  return this._http.get(this.url + 'psychologists/all');
+}
+
+ _
 }

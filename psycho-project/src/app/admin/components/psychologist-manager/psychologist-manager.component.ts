@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-psychologist-manager',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PsychologistManagerComponent implements OnInit {
 
-  constructor() { }
+  public psychologyList: any;
+
+  constructor(private _UserService :UserService
+
+  ) { }
 
   ngOnInit(): void {
   }
+
+  cargarTodosPsicologos() {
+    this._UserService.getAllPsychology()
+    .subscribe(Response =>{this.psychologyList = Response; console.log(this.psychologyList) })
+    
+  };
 
 }
