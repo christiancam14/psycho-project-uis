@@ -1,0 +1,43 @@
+#workshop-cards{
+  padding: 30px 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+#workshop-cards .content{
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  max-width: 1400px;
+}
+
+#workshop-cards .content .cards{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border: none;
+  margin: 0 auto;
+  white-space:nowrap;
+  overflow-x: auto;
+}
+
+#workshop-cards .content .cards .card{
+  width: 30%;
+  height: auto;
+  border: none;
+}
+
+#workshop-cards .content .cards .card:hover{
+  cursor: pointer;
+}
+
+
+#workshop-cards .content .title{
+  color: #3789B6;
+  font-family: Amsi;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 60px;
+}

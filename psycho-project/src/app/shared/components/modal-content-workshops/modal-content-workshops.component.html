@@ -1,0 +1,18 @@
+
+    <div class="modal-header">
+        <h4 class="modal-title">{{workshopTitle}}</h4>
+        <button class="btn btn-outline-primary" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="left-side">
+            <img [src]="workshopImg" alt="">
+        </div>
+        <div class="right-side">
+            <p>{{shortDescription}}</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+    </div>

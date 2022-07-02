@@ -1,0 +1,33 @@
+#opinionCard{
+  padding: 30px 30px;
+  text-align: center;
+  background-color: #F2F2F2;
+  display: flex;
+  justify-content: center;
+}
+
+#opinionCard .content{
+  width: 100%;
+  max-width: 1400px;
+}
+
+#opinionCard .content .cards{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+#opinionCard .content .cards .card{
+  width: 30%;
+}
+
+#opinionCard .title{
+  color: #3789B6;
+  font-family: Amsi;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 60px;
+}
