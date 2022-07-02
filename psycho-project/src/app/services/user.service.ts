@@ -55,6 +55,7 @@ export class UserService {
     }));
   }
 
+  /*
   profile(){
     return this._http.get<User>(this.url + 'profile').pipe(
       tap(user => {
@@ -62,4 +63,5 @@ export class UserService {
       })
     );
   }
+  */
 }

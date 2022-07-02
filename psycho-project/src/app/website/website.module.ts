@@ -54,7 +54,7 @@ import { ToastModule } from 'primeng/toast';
 import { SpeedDialModule } from 'primeng/speeddial';
 import {MessagesModule} from 'primeng/messages';
 import { AccordionQuestionsComponent } from './components/shared/accordion-questions/accordion-questions.component';
-import { CookieService } from 'ngx-cookie-service';
+
 
 @NgModule({
   declarations: [
@@ -119,6 +119,6 @@ import { CookieService } from 'ngx-cookie-service';
     TooltipModule,
     ReactiveFormsModule 
   ],
-  providers: [ CookieService ],
+  providers: [ ],
 })
 export class WebsiteModule { }

@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     const token = this.tokenService.getToken();
     if(token){
-      this.userService.profile().toPromise();
+      // this.userService.profile().toPromise();
     }
   }
 }
