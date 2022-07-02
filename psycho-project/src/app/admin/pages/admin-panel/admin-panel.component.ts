@@ -35,7 +35,7 @@ export class AdminPanelComponent implements OnInit {
       email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       phone: ['', [Validators.required]],
       city: ['', [Validators.required]],
-      code_psychologist: ['', [Validators.required]],
+      code_psychology: ['', [Validators.required]],
       appointments_number:  ['', [Validators.required]],
       active: ['', [Validators.required]],
       rating_average: ['', [Validators.required]],
@@ -101,7 +101,7 @@ export class AdminPanelComponent implements OnInit {
       city: '',
       rating_average: 0,
       appointments_number: 0,
-      code_psychologist: ''
+      code_psychology: ''
     };
 
     this._userService.savePsychologist(this.userRegister).subscribe(response => {
@@ -124,7 +124,7 @@ export class AdminPanelComponent implements OnInit {
       city: form.value.city,
       rating_average: parseInt(form.value.rating_average),
       appointments_number: parseInt(form.value.appointments_number),
-      code_psychologist: String(form.value.code_psychologist)
+      code_psychology: String(form.value.code_psychology)
     };
     
 
@@ -135,7 +135,7 @@ export class AdminPanelComponent implements OnInit {
        this.msgs1 = [{severity:'error', summary:'Código de psicólogo invalido:', detail:'Este Código de psicólogo ya se encuentra registrado.'}];
        this.mostrarNotificacion = true;
        console.log('Psicologo existe');
-      }else if(response["message"] == "Psychologists created"){
+      }else if(response["message"] == "Psychologist created"){
        this.msgs1 = [{severity:'success', summary:'Psicólogo registrado.', detail:'El  psicólogo fue creado con éxito'}];
        this.mostrarNotificacion = true;
        console.log('Psicologo creado');
@@ -149,7 +149,7 @@ export class AdminPanelComponent implements OnInit {
        this.mostrarNotificacion = true;
        console.log('Codigo de psicologo ya registrado');
       }else if(response["message"] == "Failed UnauthorizedException: Unauthorized"){
-        /* this.router.navigate(['/psy-admin/']); */
+        this.router.navigate(['/psy-admin/']);
       }
     });
 

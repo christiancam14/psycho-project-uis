@@ -1,3 +1,6 @@
+<section id="admin_panel">
+
+
 <div id="mensaje" *ngIf="mostrarNotificacion">
     <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
   </div>
@@ -55,7 +58,7 @@
         <label class="form-label" for="registerEmail">Teléfono</label>
         <input
           autocomplete="off"
-          type="number"
+          type="number" pattern="[0-9]"
           class="form-control"
           name="phone"
           formControlName="phone"
@@ -85,8 +88,8 @@
           autocomplete="off"
           type="number"
           class="form-control"
-          name="code_psychologist"
-          formControlName="code_psychologist"
+          name="code_psychology"
+          formControlName="code_psychology"
         />
         <span class="invalid-feedback"> Campo requerido</span>
       </div>
@@ -212,4 +215,6 @@
       >Iniciar sesión</a
     >
   </form>
+
+</section>
   
