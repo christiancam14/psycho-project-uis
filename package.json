@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "datepicker": "^0.0.0",
-    "http-proxy-middleware": "^2.0.6",
-    "ngx-cookie-service": "^14.0.0",
-    "primeicons": "^5.0.0",
-    "primeng": "^13.4.1"
-  }
-}
