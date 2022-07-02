@@ -21,7 +21,7 @@ export class FrequentQuestionsService {
     console.log(newQuestion);
 
     return this._http.post(this.url + 'frequent-questions/', {"question": newQuestion.question,
-    "anonymous": newQuestion.anonymous, "auth_token": localStorage.getItem("jwt_token")});
+    "anonymous": newQuestion.anonymous, "auth_token": localStorage.getItem("token")});
   }
 
 

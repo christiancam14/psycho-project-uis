@@ -14,6 +14,7 @@
     </a>
     <div>
       <a [routerLink]="['/login']">
+        Perfil
         <i class="fa-solid fa-user"></i>
       </a>
     </div>
@@ -70,9 +71,17 @@
         <li *ngIf="userLogin">
           <a [routerLink]="['/blog']" routerLinkActive="active">Blog</a>
         </li>
-        <li>
+        <li *ngIf="!sesionIniciada">
           <button [routerLink]="['/login']" class="btn btn-primary me-3">Iniciar sesión</button>
         </li>
+        <li *ngIf="sesionIniciada">
+          <div>
+            <a [routerLink]="['/profile']">
+              <i class="fa-solid fa-user"></i>
+            </a>
+          </div>
+        </li>
+
       </ul>
     </nav>
   </div>

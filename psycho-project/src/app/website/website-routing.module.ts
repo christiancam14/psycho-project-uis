@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SingupComponent } from './pages/singup/singup.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 import { UserGuardGuard } from '../guards/user-guard.guard';
 
@@ -17,7 +18,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/home',
+        redirectTo: '/psy-psychology/home',
         pathMatch: 'full'
       },
       {
@@ -44,6 +45,10 @@ const routes: Routes = [
       {
         path: 'singup',
         component: SingupComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
       },
     ]
   }

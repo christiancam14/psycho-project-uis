@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { FrequentQuestionsService } from 'src/app/services/frequent-questions.service';
 import { Message } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-accordion-questions',
@@ -20,7 +21,8 @@ export class AccordionQuestionsComponent implements OnInit {
 
   constructor(private _frequentQuestionsService: FrequentQuestionsService,
     private primengConfig: PrimeNGConfig,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private tokenService: TokenService
     ) { }
 
   ngOnInit(): void {
@@ -57,7 +59,8 @@ export class AccordionQuestionsComponent implements OnInit {
     this.questionForm = 
       {
         "question": form.value.question,
-        "anonymous": anonymousQuestion
+        "anonymous": anonymousQuestion,
+        "auth_token": this.tokenService.getToken()
       }
 
     this._frequentQuestionsService.newQuestion(this.questionForm).subscribe(response => { 

@@ -1,5 +1,9 @@
 <section id="login_estudiante">
   <main>
+    <div id="mensaje" *ngIf="mostrarNotificacion">
+      <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+    </div>
+    
     <form (submit)="onSubmit()" [formGroup]="loginForm">
       <!-- Email input -->
       <div class="form-outline mb-4">
@@ -9,7 +13,7 @@
           class="form-control"
           formControlName="user"
         />
-        <label class="form-label" for="form1Example1">Correo</label>
+        <label class="form-label" for="form1Example1">Usuario</label>
       </div>
 
       <!-- Password input -->
@@ -22,50 +26,7 @@
         />
         <label class="form-label" for="form1Example2">Contraseña</label>
       </div>
-      <!-- 2 column grid layout for inline styling -->
-      <div class="row mb-4">
-        <div class="col d-flex justify-content-center">
-          <!-- Checkbox -->
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              [value]="termsCheck"
-              id="form1Example3"
-              binary="true"
-            />
-            <label class="form-check-label" for="form1Example3">
-              Acepto los términos y condiciones
-            </label>
-          </div>
-
-          <!-- Password input -->
-          <div class="form-outline mb-4">
-            <input
-              type="password"
-              id="password_estudiante_form"
-              placeholder="Contraseña"
-              class="form-control"
-              formControlName="password"
-            />
-            <label class="form-label" for="password">Contraseña</label>
-          </div>
-
-          <!-- Submit button -->
-          <!-- <button
-        id="btn_iniciar_sesion"
-        type="submit"
-        class="btn btn-primary btn-block"
-        disabled
-      >
-        Iniciar sesión
-      </button>
-      <a class="d-flex justify-content-center py-3" [routerLink]="['/singup']"
-        >Crear cuenta nueva</a
-      > -->
-          <!-- </form>  -->
-        </div>
-      </div>
+    
       <!-- Submit button -->
       <button
         [disabled]="loginForm.invalid"

@@ -11,18 +11,23 @@ export class HeaderComponent implements OnInit{
 
   title = 'psycho-project';
   activeMenu = false;
+  private storage = window.localStorage;
   public isMenuCollapsed = true
-
+  sesionIniciada: boolean = false;
+  
   constructor(
-    private userService: UserService,
+    private _userService: UserService,
   ){
-
+    this._userService.getEstadoSesion().subscribe(estado => {
+      this.sesionIniciada = estado;
+      console.log("La sesion " + this.sesionIniciada);
+    })
   }
 
   userLogin: User | null  = null;
 
   ngOnInit(): void {
-    this.userService.user$.subscribe(user => {
+    this._userService.user$.subscribe(user => {
       this.userLogin = user;
     });
   }

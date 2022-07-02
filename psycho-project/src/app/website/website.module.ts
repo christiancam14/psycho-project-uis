@@ -54,6 +54,7 @@ import { ToastModule } from 'primeng/toast';
 import { SpeedDialModule } from 'primeng/speeddial';
 import {MessagesModule} from 'primeng/messages';
 import { AccordionQuestionsComponent } from './components/shared/accordion-questions/accordion-questions.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { AccordionQuestionsComponent } from './components/shared/accordion-quest
     WorkshopComponent,
     SocialComponent,
     AccordionQuestionsComponent,
+    ProfileComponent,
   ],
   imports: [
     AccordionModule,
@@ -93,7 +95,6 @@ import { AccordionQuestionsComponent } from './components/shared/accordion-quest
     ChipsModule,
     DropdownModule,
     DividerModule,
-    HttpClientModule,
     InputTextModule,
     InputMaskModule,
     InputSwitchModule,
