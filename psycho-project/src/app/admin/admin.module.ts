@@ -9,6 +9,9 @@ import { AdminLayoutComponent } from './components/admin-layout/admin-layout.com
 import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
 import { FooterAdminComponent } from './components/footer-admin/footer-admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MessagesModule} from 'primeng/messages';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MessagesModule,
+    HttpClientModule
   ]
 })
 export class AdminModule { }

@@ -7,6 +7,7 @@ import { WebsiteModule } from '../website/website.module';
 import { userLogin } from '../models/userLogin';
 import { Subject } from 'rxjs';
 import { studentRegister } from '../models/studentRegister';
+import { psychologistRegister } from '../models/psychologistRegister'
 import { tap } from 'rxjs/operators';
 import { TokenService } from './token.service';
 import { HttpHeaderResponse } from '@angular/common/http';
@@ -51,20 +52,6 @@ export class UserService {
     return this._http.post(this.url + 'students', reg);
   }
 
-  login(password: any, email: string){
-    const data: any = {
-      "nickname": email,
-      "password": password
-    }
-    return this._http.post<Auth>(this.url + 'students/login', data).pipe(tap(res => {
-      JSON.stringify(res);
-      if(res["access_token"]){
-        this.estadoSesion.next(true);
-        this.tokenService.saveToken(res.access_token);
-      }
-    }));
-  }
-
   profile(tokenLocal){
     const data: any = { "auth_token": tokenLocal }
     return this._http.post<User>(this.url + 'students/details', data).pipe(
@@ -83,5 +70,90 @@ export class UserService {
     );
   }
 
+  login(password: any, email: string){
+    const data: any = {
+      "nickname": email,
+      "password": password
+    }
+    return this._http.post<Auth>(this.url + 'students/login', data).pipe(tap(res => {
+      JSON.stringify(res);
+      if(res["access_token"]){
+        this.estadoSesion.next(true);
+        this.tokenService.saveToken(res.access_token);
+      }
+    }));
+  }
 
+
+
+ /* Servicios del administrador */
+ loginAdmin(password: any, email: string){
+  const data: any = {
+    "nickname": email,
+    "password": password
+  }
+  return this._http.post<Auth>(this.url + 'superusers/login', data).pipe(tap(res => {
+    JSON.stringify(res);
+    this.tokenService.saveToken(res.access_token);
+  }));
 }
+
+loginPsycho(password: any, nickname: string){
+  const data: any = {
+    "nickname": nickname,
+    "password": password
+  }
+  return this._http.post<any>(this.url + 'psychologists/login', data).pipe(tap(res => {
+    JSON.stringify(res);
+    this.tokenService.saveToken(res.access_token);
+  }));
+}
+
+
+
+/* Registro de psicologos */
+savePsychologist(formRegister: any){
+  let reg: psychologistRegister = {
+    "nickname": formRegister.nickname,
+    "name": formRegister.name,
+    "password": formRegister.password,
+    "email": formRegister.email,
+    "phone": formRegister.phone,
+    "city": formRegister.city,
+    "code_psychology": formRegister.code_psychology,
+    "active": formRegister.active,
+    "rating_average": formRegister.rating_average,
+    "appointments_number": formRegister.appointments_number,
+    "auth_token": localStorage.getItem('token')
+}
+  return this._http.post(this.url + 'psychologists', reg);
+}
+
+
+
+ /* 
+       "nickname": "MJ2",
+    "name": "Jumi Delgado",
+    "password": "hola mundo",
+    "email": "Jumialone11@gmail.com",
+    "phone": "3006754477",
+    "city": "Villanueva",
+    "code_psychology": "1237",
+    "active": true,
+    "rating_average": 0,
+        "appointments_number": 4,
+        "auth_token"
+    */
+}
+function loginAdmin(password: any, any: any, email: any, string: any) {
+  throw new Error('Function not implemented.');
+}
+
+function password(password: any, any: any, email: any, string: any) {
+  throw new Error('Function not implemented.');
+}
+
+function email(password: (password: any, any: any, email: any, string: any) => void, any: any, email: any, string: any) {
+  throw new Error('Function not implemented.');
+}
+

@@ -13,8 +13,8 @@
   background: #2980B9;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #ffffff96, #6dd4fa85, #2980B9), url(../../../../../assets/img/img23.jpg);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #ffffff96, #6dd4fa85, #2980B9), url(../../../../../assets/img/img23.jpg); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-size: contain;
-  background-attachment: fixed;
+  background-size: cover;
+  background-attachment: initial;
   position: relative;
 }
 

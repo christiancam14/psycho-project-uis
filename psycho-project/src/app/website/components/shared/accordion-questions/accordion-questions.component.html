@@ -15,6 +15,7 @@
           formControlName="question"
         />
         <label class="form-label" for="password"></label>
+        <span>No pongas los signos de pregunta, ya lo hemos hecho por ti 💙</span>
       </div>
 
       <!-- 2 column grid layout for inline styling -->
@@ -78,7 +79,7 @@
     <p-accordion>
       <div *ngFor="let question of questionsList">
         <p-accordionTab
-          header="{{ question.asked_by | uppercase }}: ¿{{
+          header="{{ question.asked_by | titlecase }}: ¿{{
             question.question
           }}?"
           [selected]="false"

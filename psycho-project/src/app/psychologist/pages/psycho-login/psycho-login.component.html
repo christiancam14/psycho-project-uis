@@ -1,1 +1,39 @@
-<p>psycho-login works!</p>
+<section id="psycho-login">
+    <article class="content">
+      <form (submit)="onSubmit(loginForm)" [formGroup]="loginForm">
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="form1Example1"
+            class="form-control"
+            formControlName="nickname"
+          />
+          <label class="form-label" for="form1Example1">Usuario</label>
+        </div>
+  
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <input
+            type="password"
+            id="form1Example2"
+            class="form-control"
+            formControlName="password"
+          />
+          <label class="form-label" for="form1Example2">Contraseña</label>
+        </div>
+  
+        <!-- Submit button -->
+        <button
+          [disabled]="loginForm.invalid"
+          type="submit"
+          class="btn btn-primary btn-block"
+        >
+          Iniciar sesión
+        </button>
+        <a class="d-flex justify-content-center py-3" [routerLink]="['/singup']"
+          >Crear cuenta nueva</a
+        >
+      </form>
+    </article>
+  </section>
