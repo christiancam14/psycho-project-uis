@@ -129,7 +129,6 @@ export class ServicesComponent implements OnInit {
         date_appointment: this.date_appointment,
       }
       this._userService.setAppointment(form).subscribe(response => {
-        console.log(response);
         
         if(response["message"] == "Appointment created"){
           // Ya existe el usuario
