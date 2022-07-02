@@ -1,0 +1,209 @@
+<div id="mensaje" *ngIf="mostrarNotificacion">
+  <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+</div>
+
+<form
+  [formGroup]="registroEstudiante"
+  (ngSubmit)="onSubmit(registroEstudiante)"
+  class="py-3 needs-validation"
+  action="register"
+>
+  <!-- Nickname input -->
+  <div class="row">
+    <div class="form-outline mb-4 col-6">
+      <label class="form-label" for="registerName">Nombre de usuario</label>
+      <input
+        type="text"
+        class="form-control"
+        name="nickname"
+        formControlName="nickname"
+      />
+      <span class="invalid-feedback"> Campo requerido</span>
+    </div>
+
+    <!-- name input -->
+    <div class="form-outline mb-4 col-6">
+      <label class="form-label" for="registerUsername">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        formControlName="name"
+      />
+      <span class="invalid-feedback"> Campo requerido</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Email input -->
+    <div class="form-outline mb-4 col-6">
+      <label class="form-label" for="registerEmail">Correo</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        formControlName="email"
+      />
+      <span class="invalid-feedback"> Campo requerido</span>
+    </div>
+
+    <!-- Phone input -->
+    <div class="form-outline mb-4 col-6">
+      <label class="form-label" for="registerEmail">Teléfono</label>
+      <input
+        type="number"
+        class="form-control"
+        name="phone"
+        formControlName="phone"
+      />
+      <span class="invalid-feedback"> Campo requerido</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- City input -->
+    <div class="form-outline mb-4 col-6">
+      <label class="form-label" for="registerEmail">Ciudad de residencia</label>
+      <input
+        type="text"
+        class="form-control"
+        name="city"
+        formControlName="city"
+      />
+      <span class="invalid-feedback"> Campo requerido</span>
+    </div>
+
+    <!-- code_student input -->
+    <div class="form-outline mb-4 col-6">
+      <label class="form-label" for="registerEmail">Código de estudiante</label>
+      <input
+        type="number"
+        class="form-control"
+        name="code_student"
+        formControlName="code_student"
+      />
+      <span class="invalid-feedback"> Campo requerido</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- academic_program input -->
+    <div class="form-outline mb-4 col-6">
+      <div class="input-group-prepend"></div>
+      <label class="form-label" for="registerEmail">Programa académico</label>
+      <select
+        class="custom-select"
+        id="inputGroupSelect01"
+        name="academic_program"
+        formControlName="academic_program"
+      >
+        <option selected disabled>Programa académico</option>
+        <option value="10">10 - Biología</option>
+        <option value="11">11 - Ingeniería de sistemas</option>
+        <option value="14">14 - Química</option>
+        <option value="16">16 - Licenciatura en matemáticas</option>
+        <option value="18">18 - Física</option>
+        <option value="19">
+          19 - Lic en educ básica con enfas ciencias nat edu ambi
+        </option>
+        <option value="20">20 - Licenciatura en inglés</option>
+        <option value="21">21 - Ingeniería civil</option>
+        <option value="22">22 - Ingeniería eléctrica</option>
+        <option value="23">23 - Ingeniería industrial</option>
+      </select>
+      <span class="invalid-feedback"> Campo requerido</span>
+    </div>
+
+    <!-- Semester  input -->
+    <div class="form-outline mb-4 col-6">
+      <div class="input-group-prepend"></div>
+      <label class="form-label" for="registerEmail">Semestre actual</label>
+      <select class="custom-select" name="semester" formControlName="semester">
+        <option selected disabled>Semestre...</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      <span class="invalid-feedback"> Campo requerido</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Password input -->
+    <div class="form-outline mb-4 col-6">
+      <label class="form-label" for="registerPassword">Contraseña</label>
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        formControlName="password"
+      />
+      <span class="invalid-feedback"> Campo requerido</span>
+    </div>
+
+    <!-- Repeat Password input -->
+    <div class="form-outline mb-4 col-6">
+      <label class="form-label" for="registerRepeatPassword"
+        >Repite la contraseña</label
+      >
+      <input
+        type="password"
+        class="form-control"
+        name="passwordConfirm"
+        formControlName="passwordConfirm"
+      />
+      <label
+        *ngIf="passwordInvalid"
+        style="margin-top: 0.25rem; font-size: 80%; color: #dc3545"
+        >Las contraseñas no coinciden</label
+      >
+      <span class="invalid-feedback"> Campo requerido</span>
+    </div>
+  </div>
+
+  <!-- 2 column grid layout for inline styling -->
+  <div class="row mb-4">
+    <div class="col d-flex justify-content-center">
+      <!-- Checkbox -->
+      <div class="form-check">
+        <input
+          class="form-check-input is-valid"
+          type="checkbox"
+          name="terminos"
+          id="form1Example3"
+          formControlName="terminos"
+        />
+        <label class="form-check-label" for="form1Example3"
+          >Acepto los términos y condiciones</label
+        >
+      </div>
+    </div>
+
+    <div class="col">
+      <!-- Simple link -->
+      <a href="#">Ver términos y condiciones</a>
+    </div>
+  </div>
+
+  <!-- Submit button -->
+  <button
+    type="submit"
+    class="btn btn-primary btn-block mb-3"
+    id="btn_registrar"
+    disabled
+  >
+    Registrarme
+  </button>
+
+  <!-- Volver a iniciar sesión -->
+  <a class="d-flex justify-content-center py-3" [routerLink]="['/login']"
+    >Iniciar sesión</a
+  >
+</form>
