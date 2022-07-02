@@ -7,7 +7,7 @@
       <div class="container">
         <!-- <div class="p-field-col p-col-12 p-md-4"> -->
         <div class="row">
-          <div class="col-sm">
+          <div class="col-sm" style="display: flex; flex-direction: column; align-items: center;">
             <h2>Selecciona la fecha de tu cita</h2>
             <p-calendar
               [(ngModel)]="fecha"
@@ -16,17 +16,17 @@
               [disabledDays]="[0, 6]"
               [minDate]="valFechaMinima"
               [maxDate]="valFechaMaxima"
-              dateFormat="dd/mm/yy"
+              dateFormat="yyyy/mm/dd"
               [readonlyInput]="true"
               inputId="disabledays"
             ></p-calendar>
           </div>
           
-          <div class="col-sm">
+          <div class="col-sm" style="display: flex; flex-direction: column; align-items: center;">
             <h2>Hora</h2>
             <p-dropdown
-              [options]="groupedCities"
-              [(ngModel)]="selectedCity3"
+              [options]="hourAppointment"
+              [(ngModel)]="hour"
               placeholder="Hora"
               [group]="true"
               class="dropwdown-hora"
@@ -38,47 +38,15 @@
               </ng-template>
             </p-dropdown>
           </div>
-          <div class="col-sm">
-              <h2>Citas disponibles</h2>
+          <div class="col-sm" style="display: flex; flex-direction: column; align-items: center;">
+              <h2>Psicólogos disponibles</h2>
+              <p-dropdown [options]="psychologyList" [(ngModel)]="psicologoSeleccionado" (onChange)="cambioPsycho($event)" placeholder="Selecciona un psicólogo" optionLabel="name"
+	              [showClear]="true">
+              </p-dropdown>
           </div>
         </div>
-        {{ fecha }}
-
-        <h5>Group</h5>
-        <p-dropdown
-          [options]="groupedCities"
-          [(ngModel)]="selectedCity3"
-          placeholder="Select a City"
-          [group]="true"
-        >
-          <ng-template let-group pTemplate="group">
-            <div class="p-d-flex p-ai-center">
-              <span>{{ group.label }}</span>
-            </div>
-          </ng-template>
-        </p-dropdown>
-
-        <div class="p-field p-col-12 p-md-4">
-          <label for="template">Date Template</label>
-          <p-calendar [(ngModel)]="date10" inputId="template">
-            <ng-template pTemplate="date" let-date>
-              <span
-                [ngStyle]="{
-                  backgroundColor:
-                    date.day < 21 && date.day > 10 ? '#81C784' : 'inherit'
-                }"
-                style="
-                  border-radius: 50%;
-                  padding: 0.25em;
-                  width: 2em;
-                  height: 2em;
-                  display: block;
-                "
-                >{{ date.day }}</span
-              >
-            </ng-template>
-          </p-calendar>
-        </div>
+        <hr>
+        <p-button [disabled]=completo (onClick)="solicitarCita()" label="Submit"></p-button>
       </div>
     </article>
   </section>

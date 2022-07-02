@@ -1,0 +1,36 @@
+#accordion-questions{
+    padding: 30px 30px;
+    text-align: center;
+    background-color: #F2F2F2;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+  
+#accordion-questions .content{
+    width: 100%;
+    max-width: 1400px;
+}
+
+#accordion-questions .title{
+    color: #3789B6;
+    font-family: Amsi;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 60px;
+  }
+  
+#accordion-questions .content .answer{
+    text-align: start;   
+}
+
+#accordion-questions .content .sin-responder{
+    background-color: red;
+}
+
+#accordion-questions .content .answer-date{
+    text-align: start;
+    font-weight: 500;    
+}
+

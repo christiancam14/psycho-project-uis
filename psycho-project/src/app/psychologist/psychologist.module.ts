@@ -11,6 +11,10 @@ import { AppointmentsComponent } from './pages/appointments/appointments.compone
 import { WorkshopsComponent } from './pages/workshops/workshops.component';
 import { FaqsComponent } from './pages/faqs/faqs.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { CarouselModule } from 'primeng/carousel';
+import {MessagesModule} from 'primeng/messages';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { AccordionModule } from 'primeng/accordion';
 
 
 @NgModule({
@@ -27,7 +31,12 @@ import { ProfileComponent } from './pages/profile/profile.component';
   ],
   imports: [
     CommonModule,
-    PsychologistRoutingModule
+    PsychologistRoutingModule,
+    CarouselModule,
+    MessagesModule,
+    AccordionModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PsychologistModule { }

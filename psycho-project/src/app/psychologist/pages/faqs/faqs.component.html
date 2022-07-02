@@ -1,1 +1,90 @@
-<p>faqs works!</p>
+<section id="accordion-questions">
+    <article class="content">
+      <h2 class="title">Preguntas frecuentes</h2>
+      <div *ngIf="mostrarNotificacion">
+        <p-messages  [(value)]="msgs1" [enableService]="false"></p-messages>
+      </div>
+      <form [formGroup]="newAnswer" (ngSubmit)="sendAnswer(newAnswer)">
+        <!-- Question input -->
+        <div class="form-outline mb-4">
+          <input
+            type="textArea"
+            id="password_estudiante_form"
+            placeholder="Responde unas preguntas"
+            class="form-control"
+            formControlName="answer"
+          />
+          <label class="form-label" for="password"></label>
+          <span>Estamos agradecidos de contar con un profesional como tú 💙</span>
+        </div>
+
+        <div style="
+            display: flex;
+            width: 350px;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        ">
+            <label for="">Ingresa el ID de la pregunta a responder</label>
+            <input 
+            type="number"
+            class="form-control"
+            style="width: 70px;"
+            formControlName="question_id"
+            >
+        </div>
+  
+        <!-- Submit button -->
+        <button
+          id="btn_iniciar_sesion"
+          type="submit"
+          class="btn btn-primary btn-block"
+          [disabled]="newAnswer.invalid"
+        >
+          Enviar respuesta
+        </button>
+      </form>
+      <br />
+      <h2 class="title">Preguntas pendientes</h2>
+      <p-accordion>
+        <div *ngFor="let question of questionsList">
+          <p-accordionTab *ngIf="!question.answer" class="sin-responder"
+            header="ID: {{ question.id}} Realizada por: {{ question.asked_by | titlecase }}: ¿{{
+              question.question
+            }}?  "
+            [selected]="false"
+          >
+            <p class="answer">
+              {{ question.answered_by }}: {{ question.answer }}
+            </p>
+            <p class="answer-date">
+              {{ question.updated_at | date }}
+            </p>
+          </p-accordionTab>
+        </div>
+      </p-accordion>
+
+      <br> <hr>
+      <h2 class="title">Todas las preguntas</h2>
+      <p-accordion>
+        <div *ngFor="let question of questionsList">
+          <p-accordionTab 
+            header="ID: {{ question.id}} Realizada por: {{ question.asked_by | titlecase }}: ¿{{
+              question.question
+            }}?  "
+            [selected]="false"
+          >
+            <p class="answer">
+              {{ question.answered_by }}: {{ question.answer }}
+            </p>
+            <p class="answer-date">
+              {{ question.updated_at | date }}
+            </p>
+          </p-accordionTab>
+        </div>
+      </p-accordion>
+      
+    </article>
+  </section>
+  

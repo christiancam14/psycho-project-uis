@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from 'src/app/models/course';
 import { CoursesService } from 'src/app/services/courses.service';
 import {NgbCalendar, NgbDate, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
-import {SelectItemGroup} from 'primeng/api';
+import {Message, SelectItemGroup} from 'primeng/api';
+import { UserService } from 'src/app/services/user.service';
+import { psychoDropDown } from 'src/app/models/psychoDropDown';
 
 @Component({
   selector: 'app-services',
@@ -13,37 +15,50 @@ import {SelectItemGroup} from 'primeng/api';
 export class ServicesComponent implements OnInit {
 
   selected: Date | null;
+  msgs1: Message[];
+  mostrarNotificacion: boolean = false;
   fecha: Date;
   date10: Date;
+  hour: any;
   valFechaMinima: Date;
+  psicologoSeleccionado;
+  date_appointment;
   valFechaMaxima: Date;
+  completo: boolean;
+  psychoListado: psychoDropDown;
+  psychologist_id: number;
+  psychologyList;
+  psychoDropDown: Array<psychoDropDown>;
   es: any;
   invalidDates: Array<Date>
-  groupedCities: SelectItemGroup[];
+  hourAppointment: SelectItemGroup[];
   selectedCity3: string;
 
   constructor(
-    private _coursesService: CoursesService
+    private _coursesService: CoursesService,
+    private _userService: UserService
     ) {
-      this.groupedCities = [
+      this.completo = true;
+      this.psychoList();
+      this.hourAppointment = [
         {
             label: 'Mañana', value: 'am', 
             items: [
-                {label: '8:00 am', value: '8:00 am'},
-                {label: '9:00 am', value: '9:00 am'},
-                {label: '10:00 am', value: '10:00 am'},
-                {label: '11:00 am', value: '11:00 am'},
-                {label: '12:00 am', value: '12:00 am'}
+                {label: '8:00 am', value: '8:00:00'},
+                {label: '9:00 am', value: '9:00:00'},
+                {label: '10:00 am', value: '10:00:00'},
+                {label: '11:00 am', value: '11:00:00'},
+                {label: '12:00 am', value: '12:00:00'}
             ]
         },
         {
             label: 'Tarde', value: 'pm', 
             items: [
-              {label: '1:00 pm', value: '1:00 pm'},
-              {label: '2:00 pm', value: '2:00 pm'},
-              {label: '3:00 pm', value: '3:00 pm'},
-              {label: '4:00 pm', value: '4:00 pm'},
-              {label: '5:00 pm', value: '5:00 pm'}
+              {label: '1:00 pm', value: '1:00:00'},
+              {label: '2:00 pm', value: '2:00:00'},
+              {label: '3:00 pm', value: '3:00:00'},
+              {label: '4:00 pm', value: '4:00:00'},
+              {label: '5:00 pm', value: '5:00:00'}
           ]
       },
     ];
@@ -79,9 +94,60 @@ export class ServicesComponent implements OnInit {
     let invalidDate = new Date();
     invalidDate.setDate(today.getDate() + 3);
     this.invalidDates = [today,invalidDate];
-    console.log("Fechas inválidas " + this.invalidDates + " Día inválido ");
-    console.log(invalidDate.getDate());
+  }  
+  
+  psychoList(){
+    this._userService.getPsychologist().subscribe(listado => {
+      console.log(listado);
+      this.psychologyList = listado; 
+    });
   }
 
- 
+  cambioPsycho(evento){
+    this.psychologist_id = evento.value.id;
+    let year = String(this.fecha.getFullYear());
+    let month =  String("0"+(this.fecha.getMonth()+1));
+    let day =  String(this.fecha.getUTCDate());
+    let date = year + "-" + month + "-" + day;
+    console.log(date);
+    console.log(this.hour);
+    let fullDate = date + " " +this.hour;
+    this.date_appointment = fullDate;
+    console.log(fullDate);
+    if(this.date_appointment && this.psychologist_id){
+      this.completo = false;
+    }else{
+      this.completo = true;
+    }
+  }
+
+  solicitarCita(){
+    if(this.date_appointment && this.psychologist_id){
+      console.log("Sí está bien");
+      let form = {
+        psychologist_id : this.psychologist_id,
+        date_appointment: this.date_appointment,
+      }
+      this._userService.setAppointment(form).subscribe(response => {
+        console.log(response);
+        
+        if(response["message"] == "Appointment created"){
+          // Ya existe el usuario
+          this.msgs1 = [{severity:'success', summary:'Felicitaciones:', detail:'Tu cita fue asignada. A tu correo llegará la información de la cita'}];
+          this.mostrarNotificacion = true;
+         }else if(response["message"] == "This hour is not available for create an appointment"){
+          this.msgs1 = [{severity:'success', summary:'Lo sentimos.', detail:'Esa hora no es válida para citas 😔'}];
+          this.mostrarNotificacion = true;
+         }else if(response["message"] == "Failed UnauthorizedException: Unauthorized"){
+          this.msgs1 = [{severity:'info', summary:'Por favor:', detail:'Inicia sesión.'}];
+          this.mostrarNotificacion = true;
+         }else if(response["message"] == "Psychologist not found"){
+          this.msgs1 = [{severity:'info', summary:'Qué raro.', detail:'Al parecer, ese psicólogo no está en nuestra lista. Intenta con otro a ver'}];
+          this.mostrarNotificacion = true;
+         }
+      })
+    }else{
+      console.log("no está bien");
+    }
+  }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, JsonpClientBackend } from '@angular/common/http';
 import { global } from './global.service';
-
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,9 @@ import { global } from './global.service';
 export class FrequentQuestionsService {
 
   private url: string = global.url;
-  constructor(private _http: HttpClient) {
+  constructor(private _http: HttpClient,
+    private tokenService: TokenService
+    ) {
     
   }
 
@@ -24,5 +26,13 @@ export class FrequentQuestionsService {
     "anonymous": newQuestion.anonymous, "auth_token": localStorage.getItem("token")});
   }
 
+  answerQuestion(answerQuestion){
+    console.log(answerQuestion);
+    return this._http.post(this.url + 'frequent-questions/give-answer', {
+      "question_id": answerQuestion.question_id,
+      "answer": answerQuestion.answer,
+      "auth_token": this.tokenService.getToken()
+    })
+  }
 
 }
