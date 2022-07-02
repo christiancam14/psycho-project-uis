@@ -1,0 +1,13 @@
+<section id="profile">
+    <article>
+        <div *ngIf="perfil">
+            <h1>Bienvenido</h1>
+            <h2>Nombre:</h2>{{ perfil.name }}
+            <h2>Nombre de usuario:</h2>{{ perfil.nickname }}
+            <h2>Código:</h2>{{ perfil.code_student }}
+            <h2>Correo:</h2><h4>{{ perfil.email }}</h4>
+            <h2>Semestre:</h2>{{ perfil.semester }}
+        </div>
+            
+    </article>
+</section>

@@ -1,0 +1,87 @@
+<!-- MOBILE -->
+<div class="show-mobile sticky-top">
+  <div>
+    <a (click)="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </a>
+    <a [routerLink]="['/home']" id="logoUis">
+      <img
+        src="../../../../assets/img/logoUis.png"
+        height="30"
+        alt="UIS Logo"
+        loading="lazy"
+      />
+    </a>
+    <div>
+      <a [routerLink]="['/login']">
+        Perfil
+        <i class="fa-solid fa-user"></i>
+      </a>
+    </div>
+  </div>
+  <div class="side-menu" [class.active]="activeMenu">
+    <a class="close-button" (click)="toggleMenu()">
+      <i class="fa-solid fa-xmark"></i>
+    </a>
+    <ul>
+      <li><a [routerLink]="['/home']" routerLinkActive="active">Inicio</a></li>
+      <li>
+        <a [routerLink]="['/servicios']" routerLinkActive="active">Servicios</a>
+      </li>
+      <li>
+        <a [routerLink]="['/preguntas']" routerLinkActive="active"
+          >Preguntas Frecuentes</a
+        >
+      </li>
+      <li *ngIf="userLogin">
+        <a [routerLink]="['/blog']" routerLinkActive="active">Blog</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- WEB AND TABLET -->
+<div class="hide-mobile sticky-top">
+  <div>
+    <nav>
+      <ul id="nav-menu">
+        <li>
+          <a [routerLink]="['/home']" id="logoUis">
+            <img
+            src="../../../../assets/img/logoUis.png"
+            height="30"
+            alt="UIS Logo"
+            loading="lazy"
+            />
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/home']" routerLinkActive="active">Inicio</a>
+        </li>
+        <li>
+          <a [routerLink]="['/servicios']" routerLinkActive="active"
+            >Servicios</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/preguntas']" routerLinkActive="active"
+            >Preguntas Frecuentes</a
+          >
+        </li>
+        <li *ngIf="userLogin">
+          <a [routerLink]="['/blog']" routerLinkActive="active">Blog</a>
+        </li>
+        <li *ngIf="!sesionIniciada">
+          <button [routerLink]="['/login']" class="btn btn-primary me-3">Iniciar sesión</button>
+        </li>
+        <li *ngIf="sesionIniciada">
+          <div>
+            <a [routerLink]="['/profile']">
+              <i class="fa-solid fa-user"></i>
+            </a>
+          </div>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
