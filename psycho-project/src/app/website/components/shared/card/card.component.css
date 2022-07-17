@@ -1,3 +1,7 @@
+*{
+  font-family: 'Gilroy' !important;
+}
+
 #card{
   padding: 30px 30px;
   text-align: center;
@@ -11,12 +15,24 @@
   max-width: 1400px;
 }
 
+.reveal{
+  position: relative;
+  transform: translateY(100px);
+  opacity: 0.1;
+  transition: 1s all ease;
+}
+
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
+}
+
 #card .title{
   color: #3789B6;
-  font-family: Amsi;
+  /* font-family: Amsi; */
   font-size: 30px;
   text-align: center;
-  font-weight: bold;
+  font-weight: 900;
   margin-bottom: 60px;
 }
 
@@ -72,12 +88,4 @@
 #card .btn-rounded{
   margin: 0 auto;
   width: 30%;
-}
-
-@supports(object-fit: cover){
-  /* #card .product-item img{
-    height: 100%;
-    object-fit: fill;
-    object-position: center center;
-  } */
 }

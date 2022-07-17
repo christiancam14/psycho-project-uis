@@ -3,6 +3,8 @@ import { UserService } from 'src/app/services/user.service';
 import { global } from 'src/app/services/global.service';
 import { studentRegister } from 'src/app/models/studentRegister';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-profile',
@@ -18,13 +20,13 @@ export class ProfileComponent implements OnInit {
   constructor(
     private _userService: UserService,
     private router: Router,
+    private cookieService: CookieService
     ) { 
       this.getProfile();
-
     }
 
   ngOnInit(): void {
-    
+    setTimeout(this.recargarPagina,1000)
   }
 
   getProfile(){
@@ -40,6 +42,21 @@ export class ProfileComponent implements OnInit {
       // No está logueado
       this.router.navigate(['/login']);
     }
+  }
+
+  recargarPagina(){
+    if (location.search.indexOf("reload=true") != -1) {
+      // refresh the page, but no "reload" this time
+      location.href = "www.example.com/incidents";
+    }
+  }
+
+  cerrarSesion(){
+    this.cookieService.delete('token');
+    this.storage.clear();
+    this.router.navigate(['/login']);
+    window.location.reload();
+    
   }
 
 

@@ -1,3 +1,22 @@
+section .editar-perfil{
+  color: white;
+  transition: all .25s;
+}
+
+section .editar-perfil > .icono-editar{
+  transition: all .25s;
+}
+
+section .editar-perfil:hover > .icono-editar{
+  transform: scale(1.2);
+}
+
+
+
+
+
+
+
 .gradient-custom {
     /* fallback for old browsers */
     background: #1162ac;
@@ -7,4 +26,4 @@
     
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background:radial-gradient(200px top, ellipse, white, #1162ac, black);
-    }
+}

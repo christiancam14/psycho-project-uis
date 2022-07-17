@@ -23,7 +23,6 @@
       <i class="fa-solid fa-xmark"></i>
     </a>
     <ul>
-      <li><a [routerLink]="['/psy-psychology/home']" routerLinkActive="active">Inicio</a></li>
       <li>
         <a [routerLink]="['/psy-psychology/appointments']" routerLinkActive="active">Citas</a>
       </li>
@@ -45,7 +44,7 @@
         <nav>
           <ul id="nav-menu">
             <li>
-              <a [routerLink]="['/psy-psychology/home']" id="logoUis">
+              <a  id="logoUis">
                 <img
                   src="../../../../assets/img/logoUis.png"
                   height="30"
@@ -54,34 +53,33 @@
                 />
               </a>
             </li>
-            <li>
-              <a [routerLink]="['/psy-psychology/home']" routerLinkActive="active">Inicio</a>
-            </li>
-            <li>
+            
+            <li *ngIf="cookie">
               <a [routerLink]="['/psy-psychology/appointments']" routerLinkActive="active"
                 >Citas</a
               >
             </li>
-            <li>
+            <li *ngIf="cookie">
               <a [routerLink]="['/psy-psychology/faqs']" routerLinkActive="active"
                 >Preguntas</a
               >
             </li>
-            <li>
+            <li *ngIf="cookie">
               <a [routerLink]="['/psy-psychology/workshops']" routerLinkActive="active">Talleres</a>
             </li>
-            <li *ngIf="!sesionIniciada">
+            <li *ngIf="!cookie">
               <button [routerLink]="['/psy-psychology/login']" class="btn btn-primary me-3">
                 Iniciar sesión
               </button>
             </li>
-            <li *ngIf="sesionIniciada">
+            <li *ngIf="cookie">
               <div>
                 <a [routerLink]="['/psy-psychology/profile']">
                   <i class="fa-solid fa-user"></i>
                 </a>
               </div>
             </li>
+            
           </ul>
         </nav>
       </div>

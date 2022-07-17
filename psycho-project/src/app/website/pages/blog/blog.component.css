@@ -1,0 +1,101 @@
+*{
+    font-family: 'Gilroy' !important;
+  }
+
+#misCitas{
+    width: 100%;
+}
+
+#misCitas .content{
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+#misCitas .content .tablas{
+    display: flex;
+    justify-content: center;
+}
+
+#misCitas .content .citasEstudiante_cancelar{
+    width: 10%;
+}
+
+#misCitas .content table{
+    width: 80%;
+    margin: 20px 0;
+}
+
+#misCitas .content table tbody tr:nth-child(even){
+    background-color: #ebf3ff;
+}
+
+#misCitas .content table thead{
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #c2c2c2;
+    border-top-left-radius: 12px;
+    height: 20px;
+    width: 100%;
+}
+
+#misCitas .content .titulo{    
+    color: #3789B6;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+
+#misCitas .content table thead tr{
+    height: 40px; 
+}
+
+#misCitas .content table thead tr th{
+    padding-left: 20px;
+}
+
+#misCitas .content table tbody tr td{
+    padding: 10px 0 10px 20px;
+    border-bottom: 1px solid #c2c2c2;
+}
+
+#misCitas .content table tbody tr td .boton-cancelar{
+    background: linear-gradient(to right, #0362fa 50%, #3b82F6 50%) no-repeat right / 200%;
+    width: 42px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: all .25s;
+
+}
+
+#misCitas .content table tbody tr td .boton-cancelar:hover{
+    transform: scale(1.1);
+    background-position: left;
+}
+
+#misCitas .content table tbody tr td .boton-cancelar:disabled{
+    background: #a9cbff;
+}
+
+#misCitas .content .descargar-tabla{
+    background: linear-gradient(to right, #0362fa 50%, #3b82F6 50%) no-repeat right / 200%;
+    width: 200px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: all .25s;
+}
+
+#misCitas .content .descargar-tabla:hover{
+    transform: scale(1.1);
+    transition: all .25s ease-in-out;
+    font-weight: bold;
+    background-position: left;
+}

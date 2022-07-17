@@ -1,0 +1,21 @@
+<section id="pre_header_section">
+    <div class="content">
+        <table class="tabla-psicologos">
+            
+            <thead>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Oficina</th>
+                <th>Tel</th>
+            </thead>
+            <tbody>        
+                <tr *ngFor="let psycho of psychoList">
+                    <td>{{ psycho.name }}</td>
+                    <td> <a href="mailto:{{psycho.email}}">{{psycho.email}}</a></td>
+                    <td>{{ psycho.office }}</td>
+                    <td> <a href="tel:{{psycho.phone}}">{{ psycho.phone }}</a></td>
+                </tr>                
+            </tbody>
+        </table>
+    </div>
+</section>

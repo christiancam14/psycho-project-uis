@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
-import { Message, PrimeNGConfig } from 'primeng/api';
+import { ConfirmationService, Message, MessageService, PrimeNGConfig } from 'primeng/api';
 import { FrequentQuestionsService } from 'src/app/services/frequent-questions.service';
 import { TokenService } from 'src/app/services/token.service';
 
@@ -20,7 +20,9 @@ export class FaqsComponent implements OnInit {
   constructor(private _frequentQuestionsService: FrequentQuestionsService,
     private primengConfig: PrimeNGConfig,
     private fb: FormBuilder,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService,
     ) { }
 
     ngOnInit(): void {
@@ -46,8 +48,7 @@ export class FaqsComponent implements OnInit {
       "auth_token": this.tokenService.getToken()
     }
 
-    this._frequentQuestionsService.answerQuestion(this.questionForm).subscribe(response => { 
-      console.log(response); 
+    this._frequentQuestionsService.answerQuestion(this.questionForm).subscribe(response => {
       if(response["message"] == "Answer already exists"){
         // Recargamos las preguntas
         this.msgs1 = [{severity:'info', summary:'¡Te ganaron!', detail:'Esta pregunta ya fue respondida'}];
@@ -69,4 +70,47 @@ export class FaqsComponent implements OnInit {
     this.cargarPreguntasFrecuentes();
 
   }
+
+  cancelarCita(id){
+    console.log(id);
+  }
+
+  confirm(event: Event, id) {
+    console.log(id);
+    this.confirmationService.confirm({
+      target: event.target,
+      message: "¿Estás seguro de eliminar esta pregunta?",
+      icon: "pi pi-exclamation-triangle",
+      accept: () => {
+        this._frequentQuestionsService.deleteQuestion(id).subscribe(response => {
+          if(response["message"] == "Frequent question deleted"){
+            this.messageService.add({
+              severity: "success",
+              summary: "Pregunta eliminada",
+              detail: "la pregunta ha sido eliminada"
+            });
+            setTimeout(() => {
+              window.location.reload();
+            }, 1500);
+          }else{
+            this.messageService.add({
+              severity: "error",
+              summary: "Cancelada",
+              detail: "La pregunta no pudo ser eliminada"
+            });
+          }
+        });
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: "error",
+          summary: "Cancelada",
+          detail: "La pregunta no será eliminada"
+        });
+      }
+    });
+  }
+
+
+
 }

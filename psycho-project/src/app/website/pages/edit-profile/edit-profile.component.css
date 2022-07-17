@@ -1,0 +1,22 @@
+*{
+    font-family: 'Gilroy' !important;
+  }
+
+
+#edit_profile{
+    width: 100%;
+}
+
+#edit_profile .content{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+#edit_profile .content .title{
+    color: #3789B6;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 60px;
+  }

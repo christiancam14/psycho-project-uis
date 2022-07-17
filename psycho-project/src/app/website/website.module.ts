@@ -55,10 +55,23 @@ import { SpeedDialModule } from 'primeng/speeddial';
 import {MessagesModule} from 'primeng/messages';
 import { AccordionQuestionsComponent } from './components/shared/accordion-questions/accordion-questions.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { CookieService } from 'ngx-cookie-service';
+import { CitasEstudianteComponent } from './components/citas-estudiante/citas-estudiante.component';
+import { DescriptionComponent } from './components/description/description.component';
+import { VideosComponent } from './components/videos/videos.component';
+import { SafePipe } from '../safe.pipe';
+import { VgCoreModule } from '@videogular/ngx-videogular/core';
+import { VgControlsModule } from '@videogular/ngx-videogular/controls';
+import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
+import { VgBufferingModule  }from '@videogular/ngx-videogular/buffering';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { PreHeaderPageComponent } from './pages/pre-header-page/pre-header-page.component';
 
+// import { ConvertirStringPipe } from '../convertir-string.pipe';
 
 @NgModule({
   declarations: [
+    SafePipe,
     HomeComponent,
     ServicesComponent,
     FaqComponent,
@@ -80,6 +93,13 @@ import { ProfileComponent } from './pages/profile/profile.component';
     SocialComponent,
     AccordionQuestionsComponent,
     ProfileComponent,
+    CitasEstudianteComponent,
+    DescriptionComponent,
+    VideosComponent,
+    EditProfileComponent,
+    PreHeaderPageComponent,
+    
+    // ConvertirStringPipe
   ],
   imports: [
     AccordionModule,
@@ -118,8 +138,12 @@ import { ProfileComponent } from './pages/profile/profile.component';
     ReactiveFormsModule,
     RippleModule,
     TooltipModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule ,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
-  providers: [ ],
+  providers: [CookieService ],
 })
 export class WebsiteModule { }

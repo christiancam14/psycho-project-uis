@@ -1,0 +1,41 @@
+<section id="videos">
+  <article class="content">
+    <h2 class="title">Nuestros talleres</h2>
+    <p-carousel
+      [value]="videosList"
+      styleClass="custom-carousel"
+      [numVisible]="3"
+      [numScroll]="1"
+      [circular]="true"
+      [responsiveOptions]="responsiveOptions"
+    >
+
+    <!-- <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/yXtqQU_m6GU"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe> -->
+      <ng-template pTemplate="item">
+        <div class="product-item">
+          
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/yXtqQU_m6GU"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <!-- <iframe width="560" height="315" [src]="https://www.youtube.com/embed/yXtqQU_m6GU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        </div>
+      </ng-template>
+      
+    </p-carousel>
+
+  </article>
+</section>

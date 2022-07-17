@@ -7,7 +7,7 @@ import { WorkshopsComponent } from './pages/workshops/workshops.component'
 import { FaqsComponent } from './pages/faqs/faqs.component';
 import { AppointmentsComponent } from './pages/appointments/appointments.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-
+import { PsychoGuardGuard } from '../psycho-guard.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
     component: PsychologistLayoutComponent,
     children: [
       {
-        path: 'home',
+        path: '/home',
         component: PsychoHomeComponent
       },
       {
@@ -38,8 +38,6 @@ const routes: Routes = [
         path: 'profile',
         component: ProfileComponent
       }
-
-      
     ]
   }
 ];

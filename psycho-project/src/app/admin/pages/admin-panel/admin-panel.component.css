@@ -4,3 +4,34 @@
     margin: 0 auto;
     padding: 30px;
 }
+
+
+#admin_panel .title{
+    color: #3789B6;
+    font-family: Amsi;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+
+#admin_panel .crear-psycho{
+    background: linear-gradient(to right, #0362fa 50%, #3b82F6 50%) no-repeat right / 200%;
+    width: 200px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: all .25s;
+    margin: 0 auto;
+}
+
+#admin_panel .crear-psycho:hover{
+    transform: scale(1.1);
+    background-position: left;
+}
+
+#admin_panel .crear-psycho:disabled{
+    background: #a4c8ff;
+}

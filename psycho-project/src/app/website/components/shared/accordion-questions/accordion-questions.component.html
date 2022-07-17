@@ -68,7 +68,7 @@
       <button
         id="btn_iniciar_sesion"
         type="submit"
-        class="btn btn-primary btn-block"
+        class="boton-enviar-pregunta"
         [disabled]="newQuestion.invalid"
       >
         Enviar pregunta
@@ -78,14 +78,16 @@
     <h2 class="title">Otras frecuentes</h2>
     <p-accordion>
       <div *ngFor="let question of questionsList">
+        <!-- question.asked_by | titlecase -->
         <p-accordionTab
-          header="{{ question.asked_by | titlecase }}: ¿{{
+          header=" ¿{{
             question.question
           }}?"
           [selected]="false"
         >
           <p class="answer">
-            {{ question.answered_by }}: {{ question.answer }}
+            {{ question.answered_by }}: 
+            {{ question.answer }}
           </p>
           <p class="answer-date">
             {{ question.updated_at | date }}

@@ -1,0 +1,59 @@
+*{
+  font-family: 'Gilroy' !important;
+}
+
+#description-program{
+    padding: 30px 30px;
+    text-align: center;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #description-program .content{
+    width: 100%;
+    max-width: 1400px;
+  }
+  
+  #description-program .title{
+    color: #3789B6;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 30px;
+  }
+  
+  #description-program .number{
+    text-align: center;
+    color: white;
+    min-width: 35px;
+    height: 150px;
+  }
+  
+  #description-program .text-content{
+    padding: 30px 0;
+  }
+
+  #description-program .text-content p{
+    font-size: 16px;
+    line-height: 32px;
+    font-family: 'Fira sans', sans-serif;
+    text-align: justify;
+  }
+  
+  #description-program .text-content p span{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 32px;
+    font-family: 'Fira sans', sans-serif;
+  }
+  
+
+  
+  #description-program .steps{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+  

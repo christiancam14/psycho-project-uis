@@ -1,1 +1,30 @@
-<p>psychologist-manager works!</p>
+<section id="psycho_manager">
+    <div class="content">
+        <h2 class="title">Lista de psicólogos</h2>
+
+        <table class="tabla-psicologos">
+            
+            <thead>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Oficina</th>
+                <th>Tel</th>
+                <th>Desactivar</th>
+            </thead>
+            <tbody>        
+                <tr *ngFor="let psycho of psychoList">
+                    <td>{{ psycho.name }}</td>
+                    <td> <a href="mailto:{{psycho.email}}">{{psycho.email}}</a></td>
+                    <td>{{ psycho.office }}</td>
+                    <td> <a href="tel:{{psycho.phone}}">{{ psycho.phone }}</a></td>
+                    <td *ngIf="psycho.active">
+                        <button class="activo" (click)="desactivarPsicologo( $event , psycho.id, psycho.name)">Desactivar</button>
+                        <p-confirmPopup></p-confirmPopup>
+                        <p-toast></p-toast>
+                    </td>
+                    <td *ngIf="!psycho.active"><button class="inactivo">Inactivo</button></td>
+                </tr>                
+            </tbody>
+        </table>
+    </div>
+</section>

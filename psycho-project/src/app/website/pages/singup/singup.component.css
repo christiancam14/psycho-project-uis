@@ -1,3 +1,7 @@
+*{
+  font-family: 'Gilroy' !important;
+}
+
 section{
   width: 100%;
   max-width: 1200px;

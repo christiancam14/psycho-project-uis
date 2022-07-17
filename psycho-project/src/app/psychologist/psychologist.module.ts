@@ -16,7 +16,10 @@ import {MessagesModule} from 'primeng/messages';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AccordionModule } from 'primeng/accordion';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { CookieService } from 'ngx-cookie-service';
+import {ConfirmPopupModule} from 'primeng/confirmpopup';
+import { ConfirmationService, MessageService } from "primeng/api";
+import { ToastModule } from "primeng/toast";
 
 @NgModule({
   declarations: [
@@ -32,13 +35,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    ConfirmPopupModule,
     PsychologistRoutingModule,
     CarouselModule,
     MessagesModule,
     AccordionModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastModule
     
-  ]
+  ],
+  providers: [CookieService, ConfirmationService, MessageService ],
 })
 export class PsychologistModule { }

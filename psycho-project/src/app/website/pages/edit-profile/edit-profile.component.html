@@ -1,0 +1,115 @@
+<section id="edit_profile">
+  <div class="content">
+    <h2 class="title">Edita tu perfil</h2>
+    <div id="mensaje" *ngIf="mostrarNotificacion">
+      <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+    </div>
+
+    <form
+      [formGroup]="actualizarEstudiante"
+      (ngSubmit)="onSubmit(actualizarEstudiante)"
+      class="py-3 needs-validation"
+      action="register"
+    >
+      
+      <div class="row">
+        <!-- Email input -->
+        <!-- City input -->
+        <div class="form-outline mb-4 col-6">
+            <label class="form-label" for="registerEmail"
+              >Ciudad de residencia</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="city"
+              formControlName="city"
+            />
+            <span class="invalid-feedback"> Campo requerido</span>
+          </div>
+
+        <!-- Phone input -->
+        <div class="form-outline mb-4 col-6">
+          <label class="form-label" for="registerEmail">Teléfono</label>
+          <input
+            type="number"
+            class="form-control"
+            name="phone"
+            formControlName="phone"
+          />
+          <span class="invalid-feedback"> Campo requerido</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- academic_program input -->
+        <div class="form-outline mb-4 col-6">
+          <div class="input-group-prepend"></div>
+          <label class="form-label" for="registerEmail"
+            >Programa académico</label
+          >
+          <select
+            class="custom-select"
+            id="inputGroupSelect01"
+            name="academic_program"
+            formControlName="academic_program"
+          >
+            <option selected disabled>Programa académico</option>
+            <option value="10">10 - Biología</option>
+            <option value="11">11 - Ingeniería de sistemas</option>
+            <option value="14">14 - Química</option>
+            <option value="16">16 - Licenciatura en matemáticas</option>
+            <option value="18">18 - Física</option>
+            <option value="19">
+              19 - Lic en educ básica con enfas ciencias nat edu ambi
+            </option>
+            <option value="20">20 - Licenciatura en inglés</option>
+            <option value="21">21 - Ingeniería civil</option>
+            <option value="22">22 - Ingeniería eléctrica</option>
+            <option value="23">23 - Ingeniería industrial</option>
+          </select>
+          <span class="invalid-feedback"> Campo requerido</span>
+        </div>
+
+        <!-- Semester  input -->
+        <div class="form-outline mb-4 col-6">
+          <div class="input-group-prepend"></div>
+          <label class="form-label" for="registerEmail">Semestre actual</label>
+          <select
+            class="custom-select"
+            name="semester"
+            formControlName="semester"
+          >
+            <option selected disabled>Semestre...</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <span class="invalid-feedback"> Campo requerido</span>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <button
+        type="submit"
+        class="btn btn-primary btn-block mb-3"
+        id="btn_registrar"
+        style="margin-top: 40px;"
+        disabled
+      >
+        Actualizar
+      </button>
+
+      <!-- Volver a iniciar sesión -->
+      <a class="d-flex justify-content-center py-3" [routerLink]="['/profile']" style="margin-top: 40px;"
+        >Volver</a>
+    </form>
+  </div>
+</section>

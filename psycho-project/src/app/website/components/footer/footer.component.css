@@ -1,12 +1,23 @@
+
 #footer{
     width: 100%;
 }
 
 #footer footer{
-    max-width: 1200px;
     margin: 0 auto;
 }
 
 .footerIcons a{
     padding: 10px;
+}
+
+
+.footerIcons a{
+    padding: 10px;
+    font-family: "Font Awesome 6 Brands" !important;
+    font-weight: 400;
+}
+
+.posfooter{
+    width: 100%;
 }

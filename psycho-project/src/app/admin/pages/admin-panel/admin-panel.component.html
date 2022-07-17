@@ -1,4 +1,5 @@
 <section id="admin_panel">
+  <h2 class="title">Crear psicólogo</h2>
   <div id="mensaje" *ngIf="mostrarNotificacion">
     <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
   </div>
@@ -129,23 +130,19 @@
       </div> -->
 
     <!-- rating_average  input -->
-   
-      <div class="form-outline mb-4 col-6">
-        <div class="input-group-prepend"></div>
-        <label class="form-label" for="registerEmail">Puntuación</label>
-        <select
-          class="form-control"
-          name="rating_average"
-          formControlName="rating_average"
-        >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <span class="invalid-feedback"> Campo requerido</span>
-      </div>
+   <!-- appointments_number  input -->
+   <div class="form-outline mb-4 col-6">
+    <label class="form-label" for="registerOffice">Oficina</label>
+    <input
+      autocomplete="off"
+      type="text"
+      class="form-control"
+      name="office"
+      formControlName="office"
+    />
+    <span class="invalid-feedback"> Campo requerido</span>
+  </div>
+      
     </div>
 
     <div class="row">
@@ -183,21 +180,6 @@
       </div>
     </div>
 
-    <div class="row">
-      <!-- appointments_number  input -->
-      <div class="form-outline mb-4 col-6">
-        <label class="form-label" for="registerEmail">Citas activas</label>
-        <input
-          autocomplete="off"
-          type="number"
-          class="form-control"
-          name="appointments_number"
-          formControlName="appointments_number"
-        />
-        <span class="invalid-feedback"> Campo requerido</span>
-      </div>
-    </div>
-
     <!-- 2 column grid layout for inline styling -->
     <div class="row mb-4">
       <div class="col d-flex justify-content-center">
@@ -223,18 +205,20 @@
     </div>
 
     <!-- Submit button -->
-    <button
-      type="submit"
-      class="btn btn-primary btn-block mb-3"
-      id="btn_registrar"
-      disabled
-    >
-      Registrarme
-    </button>
+    <div style="width: 100%; display: flex;">
+      <button
+        type="submit"
+        class="crear-psycho"
+        id="btn_registrar"
+        disabled
+      >
+        Crear psicólogo
+      </button>
+    </div>
 
     <!-- Volver a iniciar sesión -->
-    <a class="d-flex justify-content-center py-3" [routerLink]="['/login']"
-      >Iniciar sesión</a
+    <a class="d-flex justify-content-center py-3" (click)="cerrarSesionAdmin()"
+      >Cerrar sesión</a
     >
   </form>
 </section>

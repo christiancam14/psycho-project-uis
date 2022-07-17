@@ -1,0 +1,49 @@
+#pre_header_section{
+    width: 100%;
+}
+
+#pre_header_section .content{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 40px;
+}
+
+#pre_header_section .content .tabla-psicologos{
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 8px -2px rgb(0 0 0 / 50%);
+}
+
+#pre_header_section .content .tabla-psicologos thead{
+    height: 50px;
+    background-color: #3b82F6;
+    color: white;
+    font-size: 18px;
+}
+
+#pre_header_section .content .tabla-psicologos thead:first-child{
+    margin-left: 20px;
+}
+
+#pre_header_section .content .tabla-psicologos tbody{
+    font-size: 16px;
+}
+
+#pre_header_section .content th{
+    padding: 20px;
+}
+
+#pre_header_section .content td{
+    padding: 20px;
+}
+
+#pre_header_section .content .tabla-psicologos tbody tr{
+    height: 35px;
+}
+
+#pre_header_section .content .tabla-psicologos tbody tr:nth-child(even){
+    background-color: #f1f6ff;
+}

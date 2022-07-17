@@ -10,6 +10,10 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 
 import { UserGuardGuard } from '../guards/user-guard.guard';
+import { VigilanteGuard } from '../vigilante.guard';
+import { StudentLogGuard } from '../student-log.guard';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { PreHeaderPageComponent } from './pages/pre-header-page/pre-header-page.component';
 
 const routes: Routes = [
   {
@@ -18,7 +22,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/psy-psychology/home',
+        redirectTo: '/home',
         pathMatch: 'full'
       },
       {
@@ -27,7 +31,8 @@ const routes: Routes = [
       },
       {
         path: 'servicios',
-        component: ServicesComponent
+        component: ServicesComponent,
+        canActivate: [VigilanteGuard]
       },
       {
         path: 'preguntas',
@@ -35,12 +40,13 @@ const routes: Routes = [
       },
       {
         path: 'blog',
-        canActivate: [ UserGuardGuard ],
-        component: BlogComponent
+        component: BlogComponent,
+        canActivate: [VigilanteGuard]
       },
       {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [StudentLogGuard]
       },
       {
         path: 'singup',
@@ -48,8 +54,18 @@ const routes: Routes = [
       },
       {
         path: 'profile',
-        component: ProfileComponent
+        component: ProfileComponent,
+        canActivate: [VigilanteGuard]
       },
+      {
+        path: 'edit-profile',
+        component: EditProfileComponent,
+        canActivate: [VigilanteGuard]
+      },
+      {
+        path: 'pre-header-section',
+        component: PreHeaderPageComponent
+      }
     ]
   }
 ];

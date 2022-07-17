@@ -60,7 +60,7 @@
             <li>
               <a [routerLink]="['/home']" routerLinkActive="active">Inicio</a>
             </li>
-            <li>
+            <li *ngIf="cookie">
               <a [routerLink]="['/servicios']" routerLinkActive="active"
                 >Servicios</a
               >
@@ -70,18 +70,19 @@
                 >Preguntas Frecuentes</a
               >
             </li>
-            <li *ngIf="userLogin">
-              <a [routerLink]="['/blog']" routerLinkActive="active">Blog</a>
+            <li *ngIf="cookie">
+              <a [routerLink]="['/blog']" routerLinkActive="active">Mis citas</a>
             </li>
-            <li *ngIf="!sesionIniciada">
+
+            <li *ngIf="!cookie">
               <button [routerLink]="['/login']" class="btn btn-primary me-3">
                 Iniciar sesión
               </button>
             </li>
-            <li *ngIf="sesionIniciada">
+            <li *ngIf="cookie">
               <div>
-                <a [routerLink]="['/profile']">
-                  <i class="fa-solid fa-user"></i>
+                <a [routerLink]="['/profile']" routerLinkActive="active">
+                  <i class="fa-solid fa-user icono-persona"></i>
                 </a>
               </div>
             </li>

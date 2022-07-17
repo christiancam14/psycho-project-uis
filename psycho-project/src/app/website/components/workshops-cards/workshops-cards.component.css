@@ -1,3 +1,7 @@
+*{
+  font-family: 'Gilroy' !important;
+}
+
 #workshop-cards{
   padding: 30px 30px;
   text-align: center;
@@ -35,9 +39,63 @@
 
 #workshop-cards .content .title{
   color: #3789B6;
-  font-family: Amsi;
   font-size: 30px;
   text-align: center;
-  font-weight: bold;
+  font-weight: 900;
   margin-bottom: 60px;
 }
+
+/* Tarjetas */
+
+#workshop{
+  width: 100%;
+  height: 100%;
+}
+
+#workshop-cards .content{
+    width: 100%;
+    height: 100%;
+}
+
+#workshop-cards .imagen-port{
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+  }
+  
+  #workshop-cards  .imagen-port > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  #workshop-cards  .hover-galeria{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: hsla(186, 100%, 40%, 0.5);
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  #workshop-cards  .hover-galeria img{
+    width: 50px;
+  }
+  
+  #workshop-cards  .hover-galeria h2{
+    color: white;
+  }
+  
+  #workshop-cards  .imagen-port:hover .hover-galeria{
+    transform: scale(1.2);
+  }

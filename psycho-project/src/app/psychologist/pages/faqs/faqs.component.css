@@ -25,8 +25,51 @@
     text-align: start;   
 }
 
-#accordion-questions .content .sin-responder{
-    background-color: red;
+#accordion-questions .caja-respuesta{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#accordion-questions .content p-accordion .boton-eliminar-pregunta{
+    background: linear-gradient(to right, #0362fa 50%, #3b82F6 50%) no-repeat right / 200%;
+    width: 200px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all .25s;
+}
+
+#accordion-questions .content p-accordion .boton-eliminar-pregunta:hover{
+    transform: scale(1.1);
+    transition: all .25s ease-in-out;
+    font-weight: bold;
+    background-position: left;
+}
+
+#accordion-questions .content .boton-enviar-respuesta{
+    background: linear-gradient(to right, #0362fa 50%, #3b82F6 50%) no-repeat right / 200%;
+    width: 200px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: all .25s;
+}
+
+#accordion-questions .content .boton-enviar-respuesta:hover{
+    transform: scale(1.1);
+    background-position: left;
+}
+
+
+#accordion-questions .content .boton-enviar-respuesta:disabled{
+    background:  #c6dcff;
 }
 
 #accordion-questions .content .answer-date{

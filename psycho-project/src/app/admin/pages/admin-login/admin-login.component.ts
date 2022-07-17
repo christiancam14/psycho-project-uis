@@ -65,6 +65,7 @@ export class AdminLoginComponent implements OnInit {
           this.mostrarNotificacion = true;
         }else if(response["access_token"] ){
           this.router.navigate(['/psy-admin/psy-panel']);
+          setTimeout(() =>window.location.reload() , 100);
         }
       });
     }

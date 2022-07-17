@@ -1,0 +1,107 @@
+#misCitas{
+    width: 100%;
+}
+
+#misCitas .content{
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+#misCitas .content .tablas{
+    display: flex;
+    justify-content: center;
+}
+
+#misCitas .content .citasPsycho_cancelar{
+    width: 10%;
+}
+
+#misCitas .content table{
+    width: 80%;
+    margin: 20px 0;
+}
+
+#misCitas .content table thead{
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #c2c2c2;
+    border-top-left-radius: 12px;
+    height: 20px;
+    width: 100%;
+}
+
+#misCitas .content table thead tr{
+    height: 40px; 
+}
+
+#misCitas .content table tbody tr:nth-child(even){
+    background-color: #f1f6ff;
+}
+
+#misCitas .content table thead tr th{
+    padding-left: 20px;
+}
+
+#misCitas .content table tbody tr td{
+    padding: 10px 0 10px 20px;
+    border-bottom: 1px solid #c2c2c2;
+}
+
+#misCitas .content table tbody tr td .activo{
+    background: linear-gradient(to right, #0362fa 50%, #3b82F6 50%) no-repeat right / 200%;
+    width: 42px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: all .25s;
+    font-size: 18px;
+}
+
+#misCitas .content table tbody tr td .activo:hover{
+    transform: scale(1.1);
+    background-position: left;
+}
+
+#misCitas .content table tbody tr td .inactivo{
+    width: 42px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    color: #0362fa;
+    cursor: default;
+    font-weight: 600;
+    transition: all .25s;
+    font-size: 18px;
+}
+
+
+#misCitas .content .title{
+    color: #3789B6;
+    font-family: Amsi;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 60px;
+  }
+
+#misCitas .content .boton-descargar{
+    background: linear-gradient(to right, #0362fa 50%, #3b82F6 50%) no-repeat right / 200%;
+    width: 200px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: all .25s;
+}
+
+#misCitas .content .boton-descargar:hover{
+    transform: scale(1.1);
+    transition: all .25s ease-in-out;
+    font-weight: bold;
+    background-position: left;
+}

@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from 'src/app/models/course';
 import { CoursesService } from 'src/app/services/courses.service';
 import {NgbCalendar, NgbDate, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
-import {Message, SelectItemGroup} from 'primeng/api';
+import {Message, PrimeNGConfig, SelectItemGroup} from 'primeng/api';
 import { UserService } from 'src/app/services/user.service';
 import { psychoDropDown } from 'src/app/models/psychoDropDown';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-services',
@@ -29,14 +31,21 @@ export class ServicesComponent implements OnInit {
   psychologist_id: number;
   psychologyList;
   psychoDropDown: Array<psychoDropDown>;
+  listaNombres = [] ;
+  listaID = [] ;
+  listaPsicologos;
   es: any;
   invalidDates: Array<Date>
   hourAppointment: SelectItemGroup[];
   selectedCity3: string;
+  private storage = window.localStorage;
 
   constructor(
     private _coursesService: CoursesService,
-    private _userService: UserService
+    private _userService: UserService,
+    private primengConfig: PrimeNGConfig,
+    private router: Router,
+    private cookieService: CookieService
     ) {
       this.completo = true;
       this.psychoList();
@@ -65,7 +74,13 @@ export class ServicesComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
+    this.msgs1 = [
+      {severity:'success', summary:'Success', detail:'Message Content'},
+      {severity:'info', summary:'Info', detail:'Message Content'},
+      {severity:'warn', summary:'Warning', detail:'Message Content'},
+      {severity:'error', summary:'Error', detail:'Message Content'}
+  ];
+    this.primengConfig.ripple = true;
     this.es = {
       firstDayOfWeek: 1,
       dayNames: [ "domingo","lunes","martes","miércoles","jueves","viernes","sábado" ],
@@ -98,22 +113,54 @@ export class ServicesComponent implements OnInit {
   
   psychoList(){
     this._userService.getPsychologist().subscribe(listado => {
-      console.log(listado);
       this.psychologyList = listado; 
+      let psychoActive = [];
+      for(let i = 0; i < this.psychologyList.length; i++) {
+        console.log(this.psychologyList[i]);
+        if(this.psychologyList[i].active){
+          psychoActive.push(this.psychologyList[i]);
+        }
+      }
+      
+      this.psychologyList = psychoActive;
+      
+      for (const psycho in listado) {        
+        this.listaNombres.push(listado[psycho].name);
+        this.listaID.push(listado[psycho].id);
+      }
+
+
+      if(listado["message"] == "Appointment created"){
+        // Ya existe el usuario
+        this.msgs1 = [{severity:'success', summary:'Felicitaciones:', detail:'Tu cita fue asignada. A tu correo llegará la información de la cita'}];
+        this.mostrarNotificacion = true;
+        window.location.reload();
+       }else if(listado["message"] == "This hour is not available for create an appointment"){
+        this.msgs1 = [{severity:'success', summary:'Lo sentimos.', detail:'Esa hora no es válida para citas 😔'}];
+        this.mostrarNotificacion = true;
+       }else if(listado["message"] == "Failed UnauthorizedException: Unauthorized"){
+        this.msgs1 = [{severity:'info', summary:'Por favor:', detail:'Inicia sesión.'}];
+        this.mostrarNotificacion = true;
+        // this.cerrarSesion();
+        // window.location.reload();
+       }else if(listado["message"] == "Psychologist not found"){
+        this.msgs1 = [{severity:'info', summary:'Qué raro.', detail:'Al parecer, ese psicólogo no está en nuestra lista. Intenta con otro a ver'}];
+        this.mostrarNotificacion = true;
+       }
+      
+
+
     });
   }
 
   cambioPsycho(evento){
-    this.psychologist_id = evento.value.id;
-    let year = String(this.fecha.getFullYear());
+    this.psychologist_id = evento.value?.id;
+    let year = String(this.fecha?.getFullYear());
     let month =  String("0"+(this.fecha.getMonth()+1));
     let day =  String(this.fecha.getUTCDate());
     let date = year + "-" + month + "-" + day;
-    console.log(date);
-    console.log(this.hour);
     let fullDate = date + " " +this.hour;
     this.date_appointment = fullDate;
-    console.log(fullDate);
     if(this.date_appointment && this.psychologist_id){
       this.completo = false;
     }else{
@@ -123,13 +170,11 @@ export class ServicesComponent implements OnInit {
 
   solicitarCita(){
     if(this.date_appointment && this.psychologist_id){
-      console.log("Sí está bien");
       let form = {
         psychologist_id : this.psychologist_id,
         date_appointment: this.date_appointment,
       }
       this._userService.setAppointment(form).subscribe(response => {
-        
         if(response["message"] == "Appointment created"){
           // Ya existe el usuario
           this.msgs1 = [{severity:'success', summary:'Felicitaciones:', detail:'Tu cita fue asignada. A tu correo llegará la información de la cita'}];
@@ -140,13 +185,24 @@ export class ServicesComponent implements OnInit {
          }else if(response["message"] == "Failed UnauthorizedException: Unauthorized"){
           this.msgs1 = [{severity:'info', summary:'Por favor:', detail:'Inicia sesión.'}];
           this.mostrarNotificacion = true;
+          // this.cerrarSesion();
+          // window.location.reload();
          }else if(response["message"] == "Psychologist not found"){
           this.msgs1 = [{severity:'info', summary:'Qué raro.', detail:'Al parecer, ese psicólogo no está en nuestra lista. Intenta con otro a ver'}];
           this.mostrarNotificacion = true;
+         }else if(response["message"] == "Psychologist not active"){
+          this.msgs1 = [{severity:'error', summary:'Psicólogo incativo.', detail:'Al parecer, ese psicólogo no está activo. Intenta con otro a ver'}];
+          this.mostrarNotificacion = true;
          }
       })
-    }else{
-      console.log("no está bien");
     }
+  }
+
+  cerrarSesion(){
+    this.cookieService.delete('token');
+    this.storage.clear();
+    this.router.navigate(['/login']);
+    window.location.reload();
+    
   }
 }

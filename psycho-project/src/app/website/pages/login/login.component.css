@@ -1,4 +1,9 @@
+*{
+  font-family: 'Gilroy' !important;
+}
+
 #login_estudiante{
+  padding: 40px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -12,9 +17,4 @@
   margin: 0 auto;
   width: 80%;
   max-width: 500px;
-}
-
-#login_estudiante .contenido button[type="submit"]{
-  /* background-color: #C2c2c2;
-  cursor: default; */
 }

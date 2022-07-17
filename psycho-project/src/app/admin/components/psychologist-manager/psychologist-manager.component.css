@@ -1,0 +1,92 @@
+:root{
+    --color-azul: #3b82F6;
+    --color-azul-hover: #0362fa;
+    --color-azul-claro: #e3ebf8; 
+}
+
+#psycho_manager{
+    width: 100%;
+}
+
+#psycho_manager .content{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 40px;
+}
+
+#psycho_manager .content .title{
+    color: #3789B6;
+    font-family: Amsi;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 60px;
+  }
+
+#psycho_manager .content .tabla-psicologos{
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 8px -2px rgb(0 0 0 / 50%);
+}
+
+#psycho_manager .content .tabla-psicologos thead{
+    height: 50px;
+    background-color: #3b82F6;
+    color: white;
+    font-size: 18px;
+}
+
+#psycho_manager .content .tabla-psicologos thead:first-child{
+    margin-left: 20px;
+}
+
+#psycho_manager .content .tabla-psicologos tbody{
+    font-size: 16px;
+}
+
+#psycho_manager .content th{
+    padding: 20px;
+}
+
+#psycho_manager .content td{
+    padding: 20px;
+}
+
+#psycho_manager .content .tabla-psicologos tbody tr{
+    height: 35px;
+}
+
+#psycho_manager .content .tabla-psicologos tbody tr:nth-child(even){
+    background-color: #f2f6fc;
+}
+
+#psycho_manager .content .tabla-psicologos tbody tr td:last-child .activo{
+    background: linear-gradient(to right, #0362fa 50%, #3b82F6 50%) no-repeat right / 200%;
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: all .25s;
+}
+
+#psycho_manager .content .tabla-psicologos tbody tr td:last-child .activo:hover{
+    transform: scale(1.1);
+    background-position: left;
+}
+
+#psycho_manager .content .tabla-psicologos tbody tr td:last-child .inactivo{
+    /* background: linear-gradient(to right, #0362fa 50%, #3b82F6 50%) no-repeat right / 200%; */
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    color: #0362fa;
+    cursor: auto;
+    font-weight: 600;
+    transition: all .25s;
+}

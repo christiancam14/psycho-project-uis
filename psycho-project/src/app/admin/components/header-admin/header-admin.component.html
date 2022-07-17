@@ -42,12 +42,29 @@
                 />
               </a>
             </li>
-            <li>
+            <li *ngIf="!sesionActive">
               <a
-                [routerLink]="['/psy-admin']"
+                class="title"
+                style="font-weight: 600;"
+                
+                >Panel de administración</a
+              >
+            </li>
+            <li *ngIf="sesionActive">
+              <a
+                [routerLink]="['/psy-admin/psy-panel']"
                 routerLinkActive="active"
                 class="title"
                 >Panel de administración</a
+              >
+            </li>
+
+            <li *ngIf="sesionActive">
+              <a
+                [routerLink]="['/psy-admin/edit-panel']"
+                routerLinkActive="active"
+                class="title"
+                >Panel de psicólogos</a
               >
             </li>
 

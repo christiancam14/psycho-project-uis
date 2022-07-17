@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
   
   ngOnInit(): void {
     this.setForm();
+    this.recargarPagina();
   }
 
   setForm(){
@@ -39,6 +40,13 @@ export class LoginComponent implements OnInit {
       user: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
+  }
+
+  recargarPagina(){
+    if (location.search.indexOf("reload=true") != -1) {
+      // refresh the page, but no "reload" this time
+      location.href = "www.example.com/incidents";
+    }
   }
 
   get f(){
@@ -58,6 +66,8 @@ export class LoginComponent implements OnInit {
           this.msgs1 = [{severity:'success', summary:'Información correcta:', detail:'Sesión iniciada'}];
           this.mostrarNotificacion = true;
           this.router.navigate(['/profile']);
+          window.location.reload();
+          
         }else{
           this.msgs1 = [{severity:'error', summary:'Lo sentimos hubo un error:', detail:'Vuelve a intentarlo'}];
           this.mostrarNotificacion = true;

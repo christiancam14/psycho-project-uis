@@ -18,7 +18,33 @@
     text-align: center;
     font-weight: bold;
     margin-bottom: 60px;
+    margin-top: 40px;
   }
+  
+  #card .tablas{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #card .content .tablas .eliminar-curso{
+    background: linear-gradient(to right, #0362fa 50%, #3b82F6 50%) no-repeat right / 200%;
+    width: 42px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: all .25s;
+}
+
+#card .content .tablas .eliminar-curso:hover{
+    transform: scale(1.1);
+    transition: all .25s ease-in-out;
+    font-weight: bold;
+    background-position: left;
+}
   
   #card .product-item{
     background-color: #ffffff;
@@ -39,6 +65,26 @@
     transform: scale(1.05);
   }
   
+  #card .content .tabla-psicologos{
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 8px -2px rgb(0 0 0 / 50%);
+}
+
+#card .content .tabla-psicologos thead{
+  height: 50px;
+  background-color: #3b82F6;
+  color: white;
+  font-size: 18px;
+}
+
+#card .content .tabla-psicologos tbody tr:nth-child(even){
+  background-color: white;
+}
+
+
   #card .product-item-content{
     padding: 15px;
   }

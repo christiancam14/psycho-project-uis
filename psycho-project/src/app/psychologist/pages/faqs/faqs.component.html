@@ -15,7 +15,6 @@
             formControlName="answer"
           />
           <label class="form-label" for="password"></label>
-          <span>Estamos agradecidos de contar con un profesional como tú 💙</span>
         </div>
 
         <div style="
@@ -39,7 +38,7 @@
         <button
           id="btn_iniciar_sesion"
           type="submit"
-          class="btn btn-primary btn-block"
+          class="boton-enviar-respuesta"
           [disabled]="newAnswer.invalid"
         >
           Enviar respuesta
@@ -55,12 +54,22 @@
             }}?  "
             [selected]="false"
           >
-            <p class="answer">
-              {{ question.answered_by }}: {{ question.answer }}
-            </p>
-            <p class="answer-date">
-              {{ question.updated_at | date }}
-            </p>
+          <div class="caja-respuesta">
+            <div class="informacion">
+
+              <p class="answer">
+                {{ question.answered_by }}: {{ question.answer }}
+              </p>
+              <p class="answer-date">
+                {{ question.updated_at | date }}
+              </p>
+            </div>
+            <div class="opciones">
+              <button (click)="confirm($event, question.id)" class="boton-eliminar-pregunta" value="{{question.id}}" label="Confirm">Eliminar pregunta</button>
+            <p-confirmPopup></p-confirmPopup>
+            <p-toast></p-toast>
+            </div>
+          </div>
           </p-accordionTab>
         </div>
       </p-accordion>
@@ -75,16 +84,26 @@
             }}?  "
             [selected]="false"
           >
+          <div class="caja-respuesta">
+            <div class="informacion">
             <p class="answer">
               {{ question.answered_by }}: {{ question.answer }}
             </p>
             <p class="answer-date">
               {{ question.updated_at | date }}
             </p>
+          </div>
+          <div class="opciones">
+            <button (click)="confirm($event, question.id)" class="boton-eliminar-pregunta" value="{{question.id}}" label="Confirm">Eliminar pregunta</button>
+            <p-confirmPopup></p-confirmPopup>
+            <p-toast></p-toast>
+          </div>
+        </div>
           </p-accordionTab>
         </div>
       </p-accordion>
-      
+      <!-- <p-confirmPopup></p-confirmPopup>
+<button (click)="confirm($event)" pButton icon="pi pi-check" label="Confirm"></button>       -->
     </article>
   </section>
   

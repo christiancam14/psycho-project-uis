@@ -11,6 +11,10 @@ import { FooterAdminComponent } from './components/footer-admin/footer-admin.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MessagesModule} from 'primeng/messages';
 import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import { ConfirmationService, MessageService } from "primeng/api";
+import { ToastModule } from "primeng/toast";
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
 
 
 @NgModule({
@@ -28,7 +32,11 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     MessagesModule,
-    HttpClientModule
-  ]
+    HttpClientModule,
+    ToastModule,
+    ConfirmPopupModule,
+    
+  ],
+  providers: [CookieService, ConfirmationService, MessageService ],
 })
 export class AdminModule { }

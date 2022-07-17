@@ -5,6 +5,7 @@ import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-admin-panel',
@@ -22,12 +23,12 @@ export class AdminPanelComponent implements OnInit {
     _http: HttpClient,
     private _userService: UserService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private cookieService: CookieService
   ) { }
 
   ngOnInit(): void {
     this.passwordInvalid = false;
-    /* this.onTest(); */
 
     this.registroEstudiante = this.fb.group({
       nickname: ['', [Validators.required]],
@@ -35,10 +36,10 @@ export class AdminPanelComponent implements OnInit {
       email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       phone: ['', [Validators.required]],
       city: ['', [Validators.required]],
+      office: ['', [Validators.required]],
       code_psychology: ['', [Validators.required]],
-      appointments_number:  ['', [Validators.required]],
+      appointments_number:  ['', ],
       active: ['', [Validators.required]],
-      rating_average: ['', [Validators.required]],
       password: ['', [Validators.required]],
       passwordConfirm: ['', [Validators.required]],
       terminos: ['', [Validators.required]]
@@ -69,20 +70,20 @@ export class AdminPanelComponent implements OnInit {
         if(input == "passwordConfirm"){
           if(this.registroEstudiante.controls[input].touched && !this.registroEstudiante.controls[input].valid && this.registroEstudiante.value.password != this.registroEstudiante.value.passwordConfirm){
             let valInput = document.getElementsByName(input);
-            valInput[0].classList.add("is-invalid");
+            valInput[0]?.classList.add("is-invalid");
           }else if(this.registroEstudiante.controls[input].valid && this.registroEstudiante.value.password == this.registroEstudiante.value.passwordConfirm){
             let valInput = document.getElementsByName(input);
-            valInput[0].classList.remove("is-invalid");
-            valInput[0].classList.add("is-valid");
+            valInput[0]?.classList.remove("is-invalid");
+            valInput[0]?.classList.add("is-valid");
           }
         }else{
           if(this.registroEstudiante.controls[input].touched && !this.registroEstudiante.controls[input].valid){
             let valInput = document.getElementsByName(input);
-            valInput[0].classList.add("is-invalid");
+            valInput[0]?.classList.add("is-invalid");
           }else if(this.registroEstudiante.controls[input].valid){
             let valInput = document.getElementsByName(input);
-            valInput[0].classList.remove("is-invalid");
-            valInput[0].classList.add("is-valid");
+            valInput[0]?.classList.remove("is-invalid");
+            valInput[0]?.classList.add("is-valid");
           }
         }
       }
@@ -90,29 +91,7 @@ export class AdminPanelComponent implements OnInit {
 
   }
 
-  onTest(){
-
-    this.userRegister = {
-      nickname: '',
-      name: '',
-      password:'',
-      email: '',
-      phone: '',
-      city: '',
-      rating_average: 0,
-      appointments_number: 0,
-      code_psychology: ''
-    };
-
-    this._userService.savePsychologist(this.userRegister).subscribe(response => {
-      console.log(response["message"]);
-      if(response["message"] == "Failed UnauthorizedException: Unauthorized"){
-        this.router.navigate(['/psy-admin/']);
-      }
-    });
-
-} 
-
+  
   onSubmit(form: any){
 
     this.userRegister = {
@@ -122,7 +101,8 @@ export class AdminPanelComponent implements OnInit {
       email: form.value.email,
       phone: String(form.value.phone),
       city: form.value.city,
-      rating_average: parseInt(form.value.rating_average),
+      office: form.value.office,
+      rating_average: 5,
       appointments_number: parseInt(form.value.appointments_number),
       code_psychology: String(form.value.code_psychology)
     };
@@ -149,7 +129,7 @@ export class AdminPanelComponent implements OnInit {
        this.mostrarNotificacion = true;
        console.log('Codigo de psicologo ya registrado');
       }else if(response["message"] == "Failed UnauthorizedException: Unauthorized"){
-        this.router.navigate(['/psy-admin/']);
+        // this.router.navigate(['/psy-admin/']);
       }
     });
 
@@ -159,9 +139,15 @@ reiniciarFormulario(){
   this.registroEstudiante.reset();
   for (const input in this.registroEstudiante.controls) {
     let valInput = document.getElementsByName(input);
-    valInput[0].classList.remove("is-valid");
+    valInput[0]?.classList.remove("is-valid");
     
   }
+}
+
+cerrarSesionAdmin(){
+  this.cookieService.delete('token-admin');
+  this.router.navigate(['/psy-admin/']);
+  setTimeout(() => window.location.reload(), 1500);
 }
 
 }

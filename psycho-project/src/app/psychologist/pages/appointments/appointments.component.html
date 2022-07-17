@@ -1,1 +1,64 @@
-<p>appointments works!</p>
+<section id="misCitas">
+    <article class="content">
+      <h2 class="title">Tus citas</h2>
+      <div *ngIf="mostrarNotificacion">
+        <p-messages  [(value)]="msgs1" [enableService]="false"></p-messages>
+      </div>
+      <h2 class="subtitle" *ngIf="sinCitas">No tienes citas disponibles por ahora</h2>
+      <div class="tablas" >
+        <table id="citasPsycho" class="" #tablas style="width: 80%;">
+          <thead style="font-size: 16px;
+          font-weight: bold;
+          background-color: #3b82F6;
+          border-top-left-radius: 12px;
+          height: 20px;">
+            <tr style="height: 60px; ">
+              <th style="padding-left: 20px;  color: white;">Id</th>
+              <th style="padding-left: 20px;  color: white;">Psicólogo / (a)</th>
+              <th style="padding-left: 20px;  color: white;">Fecha creación</th>
+              <th style="padding-left: 20px;  color: white;">Fecha cita</th>
+              <th style="padding-left: 20px;  color: white;">Hora</th>
+              <th style="padding-left: 20px;  color: white; padding-right: 40px;">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cita of citasPsycho">
+              <td style="padding: 10px 0 10px 20px;
+              border-bottom: 1px solid #c2c2c2;">{{ cita.id  }}</td>
+              <td style="padding: 10px 0 10px 20px;
+              border-bottom: 1px solid #c2c2c2;">{{ cita.student?.name }}</td>
+              <td style="padding: 10px 0 10px 20px;
+              border-bottom: 1px solid #c2c2c2;">{{ cita.date_request | date }}</td>
+              <td style="padding: 10px 0 10px 20px;
+              border-bottom: 1px solid #c2c2c2;">{{ cita.date_appointment | date }}</td>
+              <td style="padding: 10px 0 10px 20px;
+              border-bottom: 1px solid #c2c2c2;">{{ cita.date_appointment | date: "h:mm a" }}</td>
+              <td style="padding: 10px 0 10px 20px;
+              border-bottom: 1px solid #c2c2c2;">{{ cita.status_appointment }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="citasPsycho_cancelar">
+          <thead>
+            <tr>
+              <th style=" color: white; background-color: #3b82F6; height: 60px;">Cancelar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cita of citasPsycho">
+              <td>
+                <button *ngIf="cita.status_appointment == 'active'" class="activo" (click)="validarCancelacion( $event , cita.id)">X</button>
+                <button *ngIf="cita.status_appointment == 'canceled'" class="inactivo">X</button>
+                <p-confirmPopup></p-confirmPopup>
+                <p-toast></p-toast>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="boton-descargar" (click)="descargarTabla()">Descargar tabla</button>
+    </article>
+  </section>
+
+  
+

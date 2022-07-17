@@ -4,7 +4,7 @@ import { UserService } from 'src/app/services/user.service';
 import { TokenService } from 'src/app/services/token.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Message } from 'primeng/api';
+import { Message, PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-psycho-login',
@@ -24,9 +24,11 @@ export class PsychoLoginComponent implements OnInit {
     private tokenService: TokenService,
     private router: Router,
     http: HttpClient,
+    private primengConfig: PrimeNGConfig
   ) { }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
     this.setForm();
   }
 
@@ -60,7 +62,10 @@ export class PsychoLoginComponent implements OnInit {
           this.msgs1 = [{severity:'error', summary:'Contraseña incorrecta', detail:'Por favor, verifica tu contraseña'}];
           this.mostrarNotificacion = true;
         }else if(response["access_token"] ){
-          this.router.navigate(['/psy-psychology/profile']);
+          this.router.navigate(['/psy-psychology/appointments']);
+          setTimeout(() =>window.location.reload() , 100);
+          // window.location.reload();
+          // alert();
         }
       });
     }

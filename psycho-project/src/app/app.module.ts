@@ -35,12 +35,20 @@ import { TooltipModule } from 'primeng/tooltip';
 import { TabViewModule } from 'primeng/tabview';
 
 import { JwtInterceptorInterceptor } from './interceptors/jwt-interceptor.interceptor'
+import { CookieService } from 'ngx-cookie-service';
+import { ConvertirStringPipe } from './convertir-string.pipe';
+import { SafePipe } from './safe.pipe';
 
+import { VgCoreModule } from '@videogular/ngx-videogular/core';
+import { VgControlsModule } from '@videogular/ngx-videogular/controls';
+import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
+import { VgBufferingModule  }from '@videogular/ngx-videogular/buffering';
 
 @NgModule({
   declarations: [
     AppComponent,
     ErrorComponent,
+    ConvertirStringPipe,
   ],
   imports: [
     BrowserModule,
@@ -73,14 +81,19 @@ import { JwtInterceptorInterceptor } from './interceptors/jwt-interceptor.interc
     RadioButtonModule,
     ReactiveFormsModule,
     RippleModule,
-    TooltipModule
+    TooltipModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
 
   ],
   schemas: [
     NO_ERRORS_SCHEMA
   ],
   providers: [
-    {provide : HTTP_INTERCEPTORS, useClass : JwtInterceptorInterceptor, multi : true}
+    {provide : HTTP_INTERCEPTORS, useClass : JwtInterceptorInterceptor, multi : true},
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Gilroy' !important;
 }
 
 .content{
@@ -24,6 +25,18 @@
   /* left: 50%; */
   max-width: 90%;
 
+}
+
+.reveal{
+  position: relative;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .text-box h2{

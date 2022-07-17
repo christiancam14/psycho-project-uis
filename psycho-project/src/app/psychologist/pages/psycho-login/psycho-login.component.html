@@ -1,4 +1,7 @@
 <section id="psycho-login">
+  <div id="mensaje" *ngIf="mostrarNotificacion">
+    <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+  </div>
     <article class="content">
       <form (submit)="onSubmit(loginForm)" [formGroup]="loginForm">
         <!-- Email input -->

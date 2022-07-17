@@ -1,6 +1,103 @@
 <section id="card">
     <article class="content">
-      <h2 class="title">Nuestros talleres</h2>
+
+      <h2 class="title">Crear nuevo curso</h2>
+      <!-- Formulario -->
+      <div id="mensaje" *ngIf="mostrarNotificacion">
+        <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+      </div>
+      <!-- Title input -->
+      <form (submit)="crearCurso(nuevoCurso)" [formGroup]="nuevoCurso">
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="formWorkshopTitle"
+            class="form-control"
+            formControlName="title"
+          />
+          <label class="form-label" for="form1Example1">Título</label>
+        </div>
+
+        <!-- Image input URL -->
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="formWorkshopImage"
+            class="form-control"
+            formControlName="image"
+          />
+          <label class="form-label" for="form1Example1">Imagen</label>
+        </div>
+
+        <!-- Body input -->
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="formWorkshopBody"
+            class="form-control"
+            formControlName="body"
+          />
+          <label class="form-label" for="form1Example1">Descripción</label>
+        </div>
+
+        <!-- Submit button -->
+        <button
+          [disabled]="nuevoCurso.invalid"
+          type="submit"
+          class="btn btn-primary btn-block"
+        >
+          Crear curso
+        </button>
+      </form>
+
+
+      <div class="tablas">
+        <div id="mensaje" *ngIf="mostrarNotificacion2">
+          <p-messages [(value)]="msgs2" [enableService]="false"></p-messages>
+        </div>
+        <table id="citasPsycho" class="tabla-psicologos">
+          <thead style="font-size: 16px;
+          font-weight: bold;
+          background-color: #3b82F6;
+          border-top-left-radius: 12px;
+          height: 70px;">
+            <tr style="height: 50px; ">
+              <th style="padding-left: 20px;">Id</th>
+              <th style="padding-left: 20px;">Taller</th>
+              <th style="padding-left: 20px;">Imagen</th>
+              <th style="padding-left: 20px;">Descripción</th>
+              <!-- <th style="padding-left: 20px;">Hora</th> -->
+              <th style="padding-left: 20px; padding-right: 40px;">Creado</th>
+              <th style="padding-right: 20px;">Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let curso of cursosActivos">
+              <td style="padding: 10px 0 10px 20px;
+              border-bottom: 1px solid #c2c2c2; min-height: 500px;">{{ curso.id  }}</td>
+              <td style="padding: 10px 0 10px 20px;
+              border-bottom: 1px solid #c2c2c2;">{{ curso.title }}</td>
+              <td style="padding: 10px 0 10px 20px;
+              border-bottom: 1px solid #c2c2c2;">
+                <img width="80" [src]="curso.image" alt="">  
+            </td>
+              <td style="padding: 10px 0 10px 20px;
+              border-bottom: 1px solid #c2c2c2;     width: 200px;">{{ curso.body }}</td>
+              <!-- <td style="padding: 10px 0 10px 20px;
+              border-bottom: 1px solid #c2c2c2;">{{ curso.date_appointment | date: "h:mm a" }}</td> -->
+              <td style="padding: 10px 0 10px 20px;
+              border-bottom: 1px solid #c2c2c2;">{{ curso.updated_at | date: "d/m/y" }}</td>
+              <td style="padding: 10px 0 10px 20px;
+              border-bottom: 1px solid #c2c2c2;"><button class="eliminar-curso" (click)="eliminarCurso(curso.id)" >X</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+
+
+      <h2 class="title">Talleres activos</h2>
       <p-carousel [value]="coursesList" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="10000" [responsiveOptions]="responsiveOptions">
       <ng-template let-coursesList pTemplate="item">
         <div class="product-item" onClick="window.open('/blog')" >

@@ -38,11 +38,14 @@
               "./node_modules/primeicons/primeicons.css",
               "./node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "./node_modules/primeng/resources/primeng.min.css",
+              "./node_modules/@videogular/ngx-videogular/fonts/videogular.css",
               "src/styles.css"
             ],
             "scripts": [
               "./node_modules/chart.js/dist/Chart.js",
-              "./node_modules/hammerjs/hammer.min.js"
+              "./node_modules/hammerjs/hammer.min.js",
+              "./node_modules/jspdf/dist/jspdf.es.js",
+              "./node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.js"
             ]
           },
           "configurations": {

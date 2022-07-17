@@ -1,4 +1,8 @@
 <section id="servicios">
+  <div id="mensaje" *ngIf="mostrarNotificacion">
+    <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+  </div>
+  
   <section>
     <article class="contenido">
       <h1 class="title">Programa tu cita</h1>

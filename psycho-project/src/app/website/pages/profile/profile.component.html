@@ -23,9 +23,11 @@
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                   alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
                     <h2>Nombre:</h2>
-                  <h5>{{ perfil.name }}</h5>
+                  <h5>{{ perfil?.name }}</h5>
                 <p>Ingeniería en Sistemas</p>
-                <i class="far fa-edit mb-5"></i>
+                <a class="editar-perfil" [routerLink]="['/edit-profile']">
+                  <i class="far fa-edit mb-5 icono-editar"></i>
+                </a>
               </div>
               <div class="col-md-8">
                 <div class="card-body p-4">
@@ -34,11 +36,11 @@
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
                       <h2>Correo:</h2>
-                      <p class="text-muted">{{ perfil.email }}</p>
+                      <p class="text-muted">{{ perfil?.email }}</p>
                     </div>
                     <div class="col-6 mb-3">
                       <h2>Celular:</h2>
-                      <p class="text-muted">{{ perfil.code_student }}</p>
+                      <p class="text-muted">{{ perfil?.phone }}</p>
                     </div>
                   </div>
                   <!-- <h6>Projects</h6> -->
@@ -46,22 +48,27 @@
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
                       <h2>Código:</h2>
-                      <p class="text-muted">{{ perfil.code_student }}</p>
+                      <p class="text-muted">{{ perfil?.code_student }}</p>
                     </div>
                     <div class="col-6 mb-3">
                       <h2>Ciudad</h2>
-                      <p class="text-muted">{{ perfil.city}}</p>
+                      <p class="text-muted">{{ perfil?.city}}</p>
                     </div>
                   </div>
                   <div class="d-flex justify-content-start">
-                    <a href="#!"><i class="fab fa-facebook-f fa-lg me-3 mx-3"></i></a>
-                    <a href="#!"><i class="fab fa-twitter fa-lg me-3 mx-3"></i></a>
-                    <a href="#!"><i class="fab fa-instagram fa-lg mx-3"></i></a>
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f fa-lg me-3 mx-3"></i></a>
+                    <a href="https://twitter.com/"><i class="fab fa-twitter fa-lg me-3 mx-3"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg mx-3"></i></a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          
+          <button (click)="cerrarSesion()" class="btn btn-primary me-3">
+            Cerrar sesión 
+          </button>
+          
         </div>
       </div>
     </div>
