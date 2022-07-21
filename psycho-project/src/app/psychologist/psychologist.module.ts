@@ -20,6 +20,10 @@ import { CookieService } from 'ngx-cookie-service';
 import {ConfirmPopupModule} from 'primeng/confirmpopup';
 import { ConfirmationService, MessageService } from "primeng/api";
 import { ToastModule } from "primeng/toast";
+import { VideosComponent } from './pages/videos/videos.component';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ButtonModule } from 'primeng/button';
+import { CardModule, } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -31,18 +35,22 @@ import { ToastModule } from "primeng/toast";
     AppointmentsComponent,
     WorkshopsComponent,
     FaqsComponent,
-    ProfileComponent
+    ProfileComponent,
+    VideosComponent
   ],
   imports: [
     CommonModule,
     ConfirmPopupModule,
+    CardModule,
+    ButtonModule,
     PsychologistRoutingModule,
     CarouselModule,
     MessagesModule,
     AccordionModule,
     FormsModule,
     ReactiveFormsModule,
-    ToastModule
+    ToastModule,
+    
     
   ],
   providers: [CookieService, ConfirmationService, MessageService ],

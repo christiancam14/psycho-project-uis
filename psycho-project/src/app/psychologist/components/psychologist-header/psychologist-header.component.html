@@ -4,7 +4,7 @@
     <a (click)="toggleMenu()">
       <i class="fa-solid fa-bars"></i>
     </a>
-    <a [routerLink]="['/psy-psychology/home']" id="logoUis">
+    <a id="logoUis">
       <img
         src="../../../../assets/img/logoUis.png"
         height="30"
@@ -13,7 +13,7 @@
       />
     </a>
     <div>
-      <a [routerLink]="['/psy-psychology/login']">
+      <a *ngIf="!cookie" [routerLink]="['/psy-psychology/login']">
         <i class="fa-solid fa-user"></i>
       </a>
     </div>
@@ -23,13 +23,16 @@
       <i class="fa-solid fa-xmark"></i>
     </a>
     <ul>
-      <li>
+      <li *ngIf="cookie">
         <a [routerLink]="['/psy-psychology/appointments']" routerLinkActive="active">Citas</a>
       </li>
-      <li>
+      <li *ngIf="cookie">
         <a [routerLink]="['/psy-psychology/faqs']" routerLinkActive="active">Preguntas</a>
       </li>
-      <li>
+      <li *ngIf="cookie">
+        <a [routerLink]="['/psy-psychology/faqs']" routerLinkActive="active">Vídeos</a>
+      </li>
+      <li *ngIf="cookie">
         <a [routerLink]="['/psy-psychology/workshops']" routerLinkActive="active">Talleres</a>
       </li>
     </ul>
@@ -62,6 +65,11 @@
             <li *ngIf="cookie">
               <a [routerLink]="['/psy-psychology/faqs']" routerLinkActive="active"
                 >Preguntas</a
+              >
+            </li>
+            <li *ngIf="cookie">
+              <a [routerLink]="['/psy-psychology/videos']" routerLinkActive="active"
+                >Vídeos</a
               >
             </li>
             <li *ngIf="cookie">

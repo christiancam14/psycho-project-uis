@@ -38,7 +38,9 @@ export class HeaderComponent implements OnInit{
 
   }
 
-  
+  cambiaPagina(){
+    
+  }
 
   toggleMenu(){
     this.activeMenu = !this.activeMenu;

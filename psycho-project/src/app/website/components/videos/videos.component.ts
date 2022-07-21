@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SafePipe } from 'src/app/safe.pipe';
 import {CommonModule } from '@angular/common';
+import { CoursesService } from 'src/app/services/courses.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-videos',
@@ -14,8 +16,13 @@ export class VideosComponent implements OnInit {
   data;
   activeIndex = 0;
   currentVideo;
+  videos;
 
-  constructor() { 
+  constructor(
+    private _coursesService: CoursesService,
+    private _sanitizer: DomSanitizer
+
+  ) { 
     this.responsiveOptions = [
       {
           breakpoint: '1024px',
@@ -36,33 +43,25 @@ export class VideosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._coursesService.getVideos().subscribe(response =>{
+      this.videos = response;
+      console.log(response);
+    });
 
-    this.videosList = [
-      {
-        "id": 2,
-        "description": "aaaaaaaaa",
-        "url": "aaaaaaaaaaa",
-        "created_at": "2022-07-14T23:26:03.000Z",
-        "updated_at": "2022-07-14T23:26:03.000Z"
-      },
-      {
-        "id": 3,
-        "description": "bbbbbbbbb",
-        "url": "bbbbbbbbbbbb",
-        "created_at": "2022-07-14T23:26:09.000Z",
-        "updated_at": "2022-07-14T23:26:09.000Z"
-      },
-      {
-        "id": 6,
-        "description": "Vídeo UIS",
-        "url": "https://www.youtube.com/watch?v=yXtqQU_m6GU",
-        "created_at": "2022-07-16T00:30:31.000Z",
-        "updated_at": "2022-07-16T00:30:31.000Z"
-      }
-    ]
-
-    this.currentVideo = this.videosList[this.activeIndex];
   }
+
+  getVideoIframe(url) {
+    var video, results;
+ 
+    if (url === null) {
+        return '';
+    }
+    results = url.match('[\\?&]v=([^&#]*)');
+    video   = (results === null) ? url : results[1];
+ 
+    return this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video);   
+  }
+
 
   videoPlayerInit(data){
     this.data = data;
@@ -96,6 +95,7 @@ export class VideosComponent implements OnInit {
     this.activeIndex = index;
     this.currentVideo = item;
   } 
+
 
   
 

@@ -1,0 +1,78 @@
+<section id="videos">
+  <article class="content">
+    <h2 class="title">Crear nuevo curso</h2>
+    <!-- Formulario -->
+    <div id="mensaje" *ngIf="mostrarNotificacion">
+      <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+    </div>
+    <!-- Title input -->
+    <form (ngSubmit)="crearVideo(nuevoVideo)" [formGroup]="nuevoVideo">
+      <div class="form-outline mb-4">
+        <input
+          type="text"
+          id="videoUrl"
+          class="form-control"
+          formControlName="url"
+        />
+        <label class="form-label" for="form1Example1">Url</label>
+      </div>
+
+      <!-- Image input URL -->
+      <div class="form-outline mb-4">
+        <input
+          type="text"
+          id="videoDescription"
+          class="form-control"
+          formControlName="description"
+        />
+        <label class="form-label" for="form1Example1">Descripción</label>
+      </div>
+
+      <!-- Submit button -->
+      <button
+        [disabled]="nuevoVideo.invalid"
+        type="submit"
+        class="btn btn-primary btn-block"
+      >
+        Crear Video
+      </button>
+    </form>
+
+    <h2 class="title" style="margin-top: 40px;">Videos consejería estudiantil</h2>
+
+    <div class="videos-cargados">
+      <p-card
+        *ngFor="let video of videos"
+        header="Vídeo subido el:"
+        [subheader]="video.created_at | date"
+        [style]="{ width: '360px' }"
+        styleClass="p-card-shadow"
+      >
+        <ng-template pTemplate="header">
+          <iframe
+            width="560"
+            height="315"
+            [src]="getVideoIframe(video.url)"
+            title="YouTube video player"
+            class="videoIframe"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </ng-template>
+        <p>{{ video.description }}</p>
+        <ng-template pTemplate="footer">
+          <p-button
+            label="Eliminar"
+            icon="pi pi-times"
+            (click)="confirm($event, video.id)"
+            styleClass="p-button-danger"
+            [style]="{ 'margin-left': '.5em' }"
+          ></p-button>
+          <p-confirmPopup></p-confirmPopup>
+          <p-toast></p-toast>
+        </ng-template>
+      </p-card>
+    </div>
+  </article>
+</section>

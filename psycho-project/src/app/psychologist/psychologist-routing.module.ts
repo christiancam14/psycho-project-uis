@@ -8,6 +8,7 @@ import { FaqsComponent } from './pages/faqs/faqs.component';
 import { AppointmentsComponent } from './pages/appointments/appointments.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PsychoGuardGuard } from '../psycho-guard.guard';
+import { VideosComponent } from './pages/videos/videos.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'videos',
+        component: VideosComponent
       }
     ]
   }

@@ -2,6 +2,27 @@
     font-family: 'Gilroy' !important;
   }
 
+  @keyframes pulso{
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(0, 76, 135, .7);
+    }
+  
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+  
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+  }
+
+  .boton-social{
+    animation: pulso 2s infinite ease-out;
+  }
+
 #social-icons{
     width: 100%;
     max-width: 1400px;
@@ -12,8 +33,13 @@
     z-index: 100;
     top: 570px;
     right: 200px;    
+    
 }
 
 #social-icons .card{
     position: relative;
+}
+
+.speeddial-delay-demo{
+    animation: pulso 2s infinite ease-out; 
 }

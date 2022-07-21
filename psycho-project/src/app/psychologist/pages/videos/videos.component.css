@@ -1,0 +1,27 @@
+*{
+    font-family: 'Gilroy' !important;
+  }
+
+#videos .product-item{
+    margin: 20px;
+}
+
+#videos .title{
+    color: #3789B6;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 60px;
+  }
+
+  #videos .videos-cargados{
+    display: flex;
+  }
+
+  #videos .videoIframe{
+    width: 100%;
+  }
+
+  #videos .videos-cargados p-card{
+    margin: 10px;
+  }
